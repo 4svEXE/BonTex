@@ -10,8 +10,10 @@ export class LoginComponent {
   constructor(private authService: AuthenticationService) {}
 
   login() {
-    this.authService.login('login@s', 'pass345').subscribe(data => {
-      console.log('nice boobs');
+    console.log('Try login');
+
+    this.authService.login('login123s', 'aboba@mail', 'pass345').subscribe(data => {
+      console.log('Logined!');
     });
   }
 }

@@ -7,13 +7,19 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth/auth.module';
 
 @Module({
-  imports: [UserModule, ConfigModule.forRoot(), TypeOrmModule.forRoot({
-    type:'mongodb',
-    url: process.env.DB_URL,
-    ssl: true,
-    autoLoadEntities: true,
-    synchronize: true
-  }), AuthModule],
+  imports: [
+    UserModule,
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type: 'mongodb',
+      url: process.env.DB_URL,
+      // For online db
+      //ssl: true,
+      autoLoadEntities: true,
+      synchronize: true,
+    }),
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
