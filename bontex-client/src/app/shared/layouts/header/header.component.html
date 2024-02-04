@@ -65,6 +65,7 @@
 
         <div class="flex ml-5 xl:ml-3 relative">
           <img
+            (click)="ngxSmartModalService.getModal('mainModal').open()"
             class="button-header"
             routerLink="/login"
             src="{{ imgPath + 'profile.svg' }}"
@@ -83,7 +84,7 @@
         <span> Каталог товарів </span>
       </div>
 
-      <div class="search-form flex px-4 py-3">
+      <div class="form-field search-form flex px-4 py-3">
         <input type="text" name="search" id="" placeholder="Я шукаю" />
         <img src="{{ imgPath + 'search.svg' }}" alt="products" />
       </div>

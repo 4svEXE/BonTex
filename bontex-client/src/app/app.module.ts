@@ -5,16 +5,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/layouts/header/header.component';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { ModalComponent } from './shared/layouts/modal/modal.component';
+
+import { LoginComponent } from './admin/components/login/login.component';
+import { RegisterComponent } from './admin/components/register/register.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModalComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSmartModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
