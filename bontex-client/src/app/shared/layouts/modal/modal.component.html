@@ -8,9 +8,13 @@
         alt="close modal"
       />
 
-      <h2 class="modal-title">Реєстрація</h2>
+      <div *ngIf="modalState === 'register'">
+        <app-register></app-register>
+      </div>
 
-      <app-register></app-register>
+      <div *ngIf="modalState === 'login'">
+        <app-login></app-login>
+      </div>
     </div>
   </div>
 </ngx-smart-modal>
