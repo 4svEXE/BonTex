@@ -18,13 +18,16 @@ export class UserEntity {
   @Column()
   roles: Roles[]
 
-  @Column({default: Date.now()})
+  @Column({default: new Date()})
   createdAt: Date;
 
   @Column()
   updatedAt: Date;
 
-  @BeforeUpdate()
+  @Column({ type: 'timestamp', default: () => Date.now(), transformer: {
+    from: value => value,
+    to: value => value,
+  }})
   updateTimestamps() {
     this.updatedAt = new Date();
   }

@@ -14,7 +14,18 @@ export class UserService {
   ) {}
 
   create(createUserDto: CreateUserDto) {
-    return this.userRepository.save(createUserDto);
+
+    const user = this.userRepository.create({
+      username: createUserDto.username,
+      email: createUserDto.email,
+      password: createUserDto.password,
+      roles: createUserDto.roles, 
+      createdAt: new Date(), 
+      updatedAt: new Date(), 
+    });
+
+
+    return this.userRepository.save(user);
   }
 
   findAll() {
@@ -34,7 +45,6 @@ export class UserService {
     } catch (error) {
       throw new NotFoundException(`User with id ${id} not found`);
     }
-    
   }
 
   findByUsername(username: string) {
@@ -47,8 +57,18 @@ export class UserService {
     return user;
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
-    return this.userRepository.update(id, updateUserDto);
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    const user = await this.findById(id);
+
+    if (!user) {
+      throw new NotFoundException(`User with id ${id} not found`);
+    }
+
+    Object.assign(user, updateUserDto);
+
+    user.updateTimestamps();
+
+    return this.userRepository.save(user);
   }
 
   remove(id: string) {
