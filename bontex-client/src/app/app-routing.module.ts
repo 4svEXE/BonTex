@@ -11,11 +11,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    redirectTo: ''
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
 ];
 

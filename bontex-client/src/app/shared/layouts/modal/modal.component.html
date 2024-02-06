@@ -1,0 +1,20 @@
+<ngx-smart-modal #mainModal identifier="mainModal">
+  <div class="modal-container">
+    <div class="modal flex flex-col">
+      <img
+        class="close-modal"
+        src="{{ imgPath + 'close.svg' }}"
+        (click)="mainModal.close()"
+        alt="close modal"
+      />
+
+      <div *ngIf="modalState === 'register'">
+        <app-register></app-register>
+      </div>
+
+      <div *ngIf="modalState === 'login'">
+        <app-login></app-login>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>

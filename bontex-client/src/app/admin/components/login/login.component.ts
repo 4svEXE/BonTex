@@ -1,19 +1,55 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ModalService } from 'src/app/shared/services/modal.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { map } from 'rxjs';
+
+ModalService;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private authService: AuthenticationService) {}
+  loginForm!: FormGroup;
+  imgPath: string = 'assets/img/admin/register/';
+  imgIconsPath: string = 'assets/img/admin/';
 
-  login() {
-    console.log('Try login');
+  constructor(
+    private authService: AuthenticationService,
+    private modalService: ModalService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
-    this.authService.login('login123s', 'aboba@mail', 'pass345').subscribe(data => {
-      console.log('Logined!');
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
+  }
+
+  get formControls() {
+    return this.loginForm.controls;
+  }
+
+  onSubmit() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.authService
+      .login(this.loginForm.value)
+      .pipe(map((token) => this.router.navigate(['admin'])))
+      .subscribe((data) => {
+        console.log('Logined!');
+      });
+  }
+
+  updateModalState(state: string) {
+    console.log(state);
+    this.modalService.updateState(state);
   }
 }

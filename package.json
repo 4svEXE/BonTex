@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "@angular/cli": "^17.1.1"
+  },
+  "scripts": {
+    "client": "cd ./bontex-client && npm run start",
+    "api": "cd ./bontex-api && npm run start"
   }
 }
