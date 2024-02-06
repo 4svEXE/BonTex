@@ -11,6 +11,7 @@ import { ModalComponent } from './shared/layouts/modal/modal.component';
 
 import { LoginComponent } from './admin/components/login/login.component';
 import { RegisterComponent } from './admin/components/register/register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -20,7 +21,8 @@ import { RegisterComponent } from './admin/components/register/register.componen
     HeaderComponent,
     ModalComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
