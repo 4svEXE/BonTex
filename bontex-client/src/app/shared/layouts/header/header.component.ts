@@ -11,8 +11,6 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 export class HeaderComponent {
   imgPath: string = 'assets/img/shared/layout/';
 
-  // isActivePopup: boolean = false;
-  // currentPopup: string = "login";
   isActiveHeader: boolean = false;
 
   links: ILink[] = [
@@ -24,28 +22,6 @@ export class HeaderComponent {
 
   constructor(public ngxSmartModalService: NgxSmartModalService) {
   }
-
-  // constructor(
-  //   private headerService: HeaderService,
-  //   private popupService: PopupService,
-  //   private router: Router
-  // ) {
-  //   this.popupService.data$.subscribe((data: any) => {
-  //     this.isActivePopup = data.isActivePopup;
-  //     this.currentPopup = data.currentPopup;
-  //   });
-
-  //   this.headerService.isActiveHeader$.subscribe((state: any) => {
-  //     this.isActiveHeader = state;
-  //   });
-  // }
-
-  // togglePopup() {
-  //   this.popupService.sendData({
-  //     isActivePopup: !this.isActivePopup,
-  //     currentPopup: this.currentPopup,
-  //   });
-  // }
 
   ngOnInit() {
     // Skroll to top the page when navigation

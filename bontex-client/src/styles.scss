@@ -6,6 +6,10 @@
   font-family: Roboto Flex;
 }
 
+.error-message{
+  color: red;
+}
+
 .form-field {
   width: auto;
   height: 51px;
@@ -63,6 +67,12 @@
 
   &:hover {
     background: #5c8c7c;
+  }
+
+  &:disabled{
+    opacity: .7;
+    pointer-events: none;
+    background: #d1cece;
   }
 }
 

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
@@ -8,23 +11,41 @@ import { ModalService } from 'src/app/shared/services/modal.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  registrationForm!: FormGroup;
   imgPath: string = 'assets/img/admin/register/';
   imgIconsPath: string = 'assets/img/admin/';
 
   constructor(
     private authService: AuthenticationService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private fb: FormBuilder,
+    private router: Router
   ) {}
 
   updateModalState(state: string) {
     this.modalService.updateState(state);
   }
 
-  register() {
-    console.log('Try login');
+  ngOnInit(): void {
+    this.registrationForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+    });
+  }
+
+  get formControls() {
+    return this.registrationForm.controls;
+  }
+
+  onSubmit() {
+    if (this.registrationForm.invalid) {
+      return;
+    }
 
     this.authService
-      .login('login123s', 'aboba@mail', 'pass345')
+      .login(this.registrationForm.value)
+      .pipe(map((user) => this.router.navigate(['login'])))
       .subscribe((data) => {
         console.log('Logined!');
       });
