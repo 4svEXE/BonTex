@@ -18,6 +18,7 @@ export class HeaderComponent {
     { title: 'Доставка та оплата', path: '/prices' },
     { title: 'Обмін та повернення', path: '/help' },
     { title: 'Про нас', path: '/help' },
+    { title: 'Update profile', path: '/update-profile' },
   ];
 
   constructor(public ngxSmartModalService: NgxSmartModalService) {

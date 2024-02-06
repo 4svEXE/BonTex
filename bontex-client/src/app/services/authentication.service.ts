@@ -8,7 +8,8 @@ export interface LoginForm {
   password: string;
 }
 export interface User {
-  user: string;
+  id: string;
+  username: string;
   email: string;
   password: string;
 }
@@ -22,7 +23,7 @@ export interface Token {
 export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
-  apiUrl: string = 'api/user/';
+  apiUrl: string = 'api/auth/';
 
   login(loginForm: LoginForm): Observable<Token> {
     return this.http
@@ -33,6 +34,7 @@ export class AuthenticationService {
       .pipe(
         map((token) => {
           console.log('token', token);
+          localStorage.setItem('user-token', token.access_token);
           return token;
         }),
         catchError((error) => {
@@ -43,7 +45,11 @@ export class AuthenticationService {
   }
 
   register(user: User) {
+    console.log('user', user);
     return this.http.post<any>(this.apiUrl, user);
   }
-}
 
+  isAuthenticated() {
+    const token = localStorage.getItem('user-token');
+  }
+}

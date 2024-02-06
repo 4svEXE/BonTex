@@ -12,6 +12,8 @@ import { ModalComponent } from './shared/layouts/modal/modal.component';
 import { LoginComponent } from './admin/components/login/login.component';
 import { RegisterComponent } from './admin/components/register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UsersComponent } from './components/users/users.component';
+import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 
 
 
@@ -22,7 +24,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ModalComponent,
     LoginComponent,
     RegisterComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UsersComponent,
+    UpdateUserProfileComponent
   ],
   imports: [
     BrowserModule,

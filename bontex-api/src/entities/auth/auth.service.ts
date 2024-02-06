@@ -13,6 +13,8 @@ export class AuthService {
     username: string,
     pass: string,
   ): Promise<{ access_token: string }> {
+    console.log(username, pass);
+    
     const user = await this.usersService.findByUsername(username);
     if (user?.password !== pass) {
       throw new UnauthorizedException();
