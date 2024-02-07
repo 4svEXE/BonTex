@@ -1,4 +1,10 @@
-<ngx-smart-modal #mainModal identifier="mainModal">
+<ngx-smart-modal
+  #mainModal
+  identifier="mainModal"
+  [hideDelay]="0"
+  [autostart]="true"
+  [closable]="false"
+>
   <div class="modal-container">
     <div class="modal flex flex-col">
       <img

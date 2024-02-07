@@ -44,10 +44,10 @@ export class RegisterComponent {
     }
 
     this.authService
-      .login(this.registrationForm.value)
+      .register(this.registrationForm.value)
       .pipe(map((user) => this.router.navigate(['login'])))
       .subscribe((data) => {
-        console.log('Logined!');
+        console.log('register!');
       });
   }
 }
