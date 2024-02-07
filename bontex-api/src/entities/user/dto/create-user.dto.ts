@@ -1,5 +1,5 @@
 import { IsArray, IsEmail, IsNotEmpty } from "class-validator";
-import { Roles } from "src/enums/roles.enum";
+import { Role } from "src/enums/roles.enum";
 
 export class CreateUserDto {
     
@@ -12,6 +12,6 @@ export class CreateUserDto {
     readonly password: string;
 
     @IsArray()
-    readonly roles: Roles[];
+    readonly roles: Role[];
 
 }
