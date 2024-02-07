@@ -1,4 +1,4 @@
-import { Roles } from 'src/enums/roles.enum';
+import { Role } from 'src/enums/roles.enum';
 import { BeforeUpdate, Column, Entity, ObjectId, ObjectIdColumn } from 'typeorm';
 
 @Entity({ name: 'User' })
@@ -16,7 +16,7 @@ export class UserEntity {
   password: string;
 
   @Column()
-  roles: Roles[]
+  roles: Role[]
 
   @Column({default: new Date()})
   createdAt: Date;
