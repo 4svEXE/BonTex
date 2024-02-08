@@ -1,6 +1,7 @@
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from './../services/authentication.service';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, map } from 'rxjs';
 import { UserService } from '../shared/services/user.service';
 
@@ -17,7 +18,10 @@ export class UserProfileComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
+    private authService: AuthenticationService
+
   ) {}
 
   ngOnInit() {
@@ -27,6 +31,11 @@ export class UserProfileComponent {
         map((user: User) => this.user = user)
       ).subscribe()
     });
+  }
+
+  logOut(){
+    this.authService.logOut()
+    this.router.navigate(['']);
   }
 
   ngOnDestroy(){

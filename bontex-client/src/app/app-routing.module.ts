@@ -23,7 +23,8 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'users',
+    path: 'user',
+    canActivate: [AuthGuard], // Use the AuthGuard class and provide it as an array
     children: [
       {
         path: '',

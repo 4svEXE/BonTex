@@ -16,6 +16,8 @@ import { UsersComponent } from './components/users/users.component';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { ThanksComponent } from './admin/components/register/thanks/thanks.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     UserProfileComponent,
     UsersComponent,
     UpdateUserProfileComponent,
+    ThanksComponent
   ],
   imports: [
     BrowserModule,

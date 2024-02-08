@@ -18,6 +18,10 @@
         <app-register></app-register>
       </div>
 
+      <div *ngIf="modalState === 'thanks'">
+        <app-thanks></app-thanks>
+      </div>
+
       <div *ngIf="modalState === 'login'">
         <app-login></app-login>
       </div>
