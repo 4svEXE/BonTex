@@ -1,28 +1,19 @@
-
-
 <!-- <button (click)="logOut()">logout</button> -->
 
 <div class="container pt-10 flex">
   <div class="nav-bar flex flex-col mr-14">
-    <a [ngClass]="{ active: checkIsActive('private-dates') }">
-      Особисті дані
-    </a>
-    <a [ngClass]="{ active: checkIsActive('profile-password') }">Пароль</a>
-    <a [ngClass]="{ active: checkIsActive('profile-dates') }">Мої замовлення</a>
-    <a
-      [ngClass]="{ active: checkIsActive('profile-selected') }"
-      class="flex items-center"
-      >Обрані товари
-      <div class="notifications-counter">2</div></a
-    >
-    <a
-      [ngClass]="{ active: checkIsActive('profile-myReviews') }"
-      class="flex items-center"
-      >Мої відгуки
-      <div class="notifications-counter">2</div></a
-    >
-    <a [ngClass]="{ active: checkIsActive('profile-logOut') }">Вихід</a>
+    <ng-container *ngFor="let item of navigationItems">
+      <a
+        (click)="setCurrentView(item.view)"
+        [ngClass]="{ active: checkIsActive(item.view) }"
+        [class.flex]="item.view === 'profile-selected' || item.view === 'profile-myReviews'"
+        [class.items-center]="item.view === 'profile-selected' || item.view === 'profile-myReviews'"
+      >
+        {{ item.label }}
+        <div class="notifications-counter" *ngIf="item.showCounter">{{ item.counter }}</div>
+      </a>
+    </ng-container>
   </div>
 
-  <app-private-dates></app-private-dates>
+  <app-private-dates *ngIf="checkIsActive('private-dates')"></app-private-dates>
 </div>

@@ -1,6 +1,7 @@
 .nav-bar {
   max-width: 250px;
   a {
+    user-select: none;
     font-family: Roboto Flex;
     font-size: 20px;
     font-weight: 400;
