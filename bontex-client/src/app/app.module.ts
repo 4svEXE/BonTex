@@ -17,6 +17,7 @@ import { UpdateUserProfileComponent } from './components/update-user-profile/upd
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ThanksComponent } from './admin/components/register/thanks/thanks.component';
+import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ThanksComponent } from './admin/components/register/thanks/thanks.compo
     UserProfileComponent,
     UsersComponent,
     UpdateUserProfileComponent,
-    ThanksComponent
+    ThanksComponent,
+    PrivateDatesComponent
   ],
   imports: [
     BrowserModule,

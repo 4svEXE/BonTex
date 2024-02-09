@@ -1,9 +1,28 @@
-<p>user-profile works!</p>
 
-<div class="c" *ngIf="user">
-  {{user.email}}
-  {{user.password}}
-  {{user.username}}
+
+<!-- <button (click)="logOut()">logout</button> -->
+
+<div class="container pt-10 flex">
+  <div class="nav-bar flex flex-col mr-14">
+    <a [ngClass]="{ active: checkIsActive('private-dates') }">
+      Особисті дані
+    </a>
+    <a [ngClass]="{ active: checkIsActive('profile-password') }">Пароль</a>
+    <a [ngClass]="{ active: checkIsActive('profile-dates') }">Мої замовлення</a>
+    <a
+      [ngClass]="{ active: checkIsActive('profile-selected') }"
+      class="flex items-center"
+      >Обрані товари
+      <div class="notifications-counter">2</div></a
+    >
+    <a
+      [ngClass]="{ active: checkIsActive('profile-myReviews') }"
+      class="flex items-center"
+      >Мої відгуки
+      <div class="notifications-counter">2</div></a
+    >
+    <a [ngClass]="{ active: checkIsActive('profile-logOut') }">Вихід</a>
+  </div>
+
+  <app-private-dates></app-private-dates>
 </div>
-
-<button (click)="logOut()">logout</button>

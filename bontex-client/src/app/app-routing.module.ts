@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    canActivate: [AuthGuard], // Use the AuthGuard class and provide it as an array
+    //canActivate: [AuthGuard], // Use the AuthGuard class and provide it as an array
     children: [
       {
         path: '',
