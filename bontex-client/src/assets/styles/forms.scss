@@ -1,0 +1,79 @@
+.content-box {
+  h2 {
+    //styleName: Desktop/HEADING/H2;
+    font-family: Roboto Flex;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1e1e1e;
+    margin-right: 15px;
+  }
+  .subtitle {
+    font-family: Roboto Flex;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #b4b4b4;
+    min-width: 200px;
+  }
+  span {
+    font-family: Roboto Flex;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1e1e1e;
+  }
+}
+
+label {
+  font-family: Roboto Flex;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1e1e1e;
+}
+
+.form-field {
+  width: auto;
+  height: 51px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+
+  input {
+    width: 100%;
+    border: 0;
+    padding: 10px 0;
+    outline: none;
+
+    &:focus {
+      border: 0;
+    }
+  }
+  img {
+    cursor: pointer;
+  }
+  h4 {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    font-family: Roboto Flex;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1e1e1e;
+    margin-bottom: 4px;
+  }
+}

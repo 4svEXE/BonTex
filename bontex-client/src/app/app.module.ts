@@ -18,6 +18,7 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ThanksComponent } from './admin/components/register/thanks/thanks.component';
 import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
+import { PrivateDatesEditorComponent } from './user-profile/private-dates-editor/private-dates-editor.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PrivateDatesComponent } from './user-profile/private-dates/private-date
     UsersComponent,
     UpdateUserProfileComponent,
     ThanksComponent,
-    PrivateDatesComponent
+    PrivateDatesComponent,
+    PrivateDatesEditorComponent
   ],
   imports: [
     BrowserModule,

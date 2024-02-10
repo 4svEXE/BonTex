@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { UserService } from '../../shared/services/user.service';
 import { User } from './../../services/authentication.service';
+import { UserProfileService } from 'src/app/shared/services/user-profile.service';
 
 @Component({
   selector: 'app-private-dates',
@@ -18,7 +19,8 @@ export class PrivateDatesComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private userProfile: UserProfileService
   ) {}
 
   ngOnInit() {
@@ -33,5 +35,9 @@ export class PrivateDatesComponent {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  setEditorView(){
+    this.userProfile.updateView('private-dates-editor');
   }
 }

@@ -1,0 +1,40 @@
+.button {
+  height: 47px;
+  padding: 10px 24px;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  font-family: Roboto Flex;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fafafa;
+
+  min-width: 223px;
+
+  &:hover {
+    background: #5c8c7c;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    background: #d1cece;
+  }
+}
+
+.primary-button {
+  background: #d1cece ;
+}
+
+.secondary-button {
+  border: 1px solid #84b4a4;
+  color: #84b4a4;
+  background: none;
+
+  &:hover {
+    color: #fafafa;
+  }
+}

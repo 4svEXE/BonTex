@@ -6,14 +6,24 @@
       <a
         (click)="setCurrentView(item.view)"
         [ngClass]="{ active: checkIsActive(item.view) }"
-        [class.flex]="item.view === 'profile-selected' || item.view === 'profile-myReviews'"
-        [class.items-center]="item.view === 'profile-selected' || item.view === 'profile-myReviews'"
+        [class.flex]="
+          item.view === 'profile-selected' || item.view === 'profile-myReviews'
+        "
+        [class.items-center]="
+          item.view === 'profile-selected' || item.view === 'profile-myReviews'
+        "
       >
         {{ item.label }}
-        <div class="notifications-counter" *ngIf="item.showCounter">{{ item.counter }}</div>
+        <div class="notifications-counter" *ngIf="item.showCounter">
+          {{ item.counter }}
+        </div>
       </a>
     </ng-container>
   </div>
 
   <app-private-dates *ngIf="checkIsActive('private-dates')"></app-private-dates>
+
+  <app-private-dates-editor
+    *ngIf="checkIsActive('private-dates-editor')"
+  ></app-private-dates-editor>
 </div>
