@@ -10,8 +10,17 @@
     <div class="flex flex-col mb-3">
       <h4>Емайл</h4>
       <div class="form-field flex px-4 py-3">
-        <input type="email" formControlName="email" placeholder="Введіть ваше ім'я" />
-        <div *ngIf="formControls['email'].invalid && (formControls['email'].dirty || formControls['email'].touched)">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Введіть ваше ім'я"
+        />
+        <div
+          *ngIf="
+            formControls['email'].invalid &&
+            (formControls['email'].dirty || formControls['email'].touched)
+          "
+        >
           <p class="error-message">Введіть коректний email</p>
         </div>
       </div>
@@ -26,15 +35,27 @@
           placeholder="Введіть надійний пароль"
         />
         <img src="{{ imgPath + 'visibleOn.svg' }}" alt="password visible on" />
-        <div *ngIf="formControls['password'].invalid && (formControls['password'].dirty || formControls['password'].touched)">
+        <div
+          *ngIf="
+            formControls['password'].invalid &&
+            (formControls['password'].dirty || formControls['password'].touched)
+          "
+        >
           <p class="error-message">Пароль повинен бути не менше 8 символів</p>
         </div>
       </div>
     </div>
   </div>
-  <button class="primary-button my-4" type="submit" [disabled]="loginForm.invalid">Увійти</button>
+  <a type="submit" (click)="onSubmit()">
+    <app-button
+      [label]="'Увійти'"
+      [additionalClasses]="'primary my-4'"
+      [routerLink]="'/'"
+      [buttonType]="'submit'"
+      [isDisabled]="loginForm.invalid"
+    ></app-button>
+  </a>
 </form>
-
 
 <div class="line-container mb-4">
   <hr />
