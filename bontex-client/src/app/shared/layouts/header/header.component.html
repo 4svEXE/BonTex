@@ -1,14 +1,3 @@
-<button
-  class="green-button nav-container toggle-header block"
-  (click)="isActiveHeader = !isActiveHeader"
->
-  <div class="hamburger-lines" [class.active]="isActiveHeader">
-    <span class="line line1"></span>
-    <span class="line line2"></span>
-    <span class="line line3"></span>
-  </div>
-</button>
-
 <div class="container m-auto hidden lg:block">
   <header
     class="w-full flex items-center flex-col justify-between"
@@ -17,11 +6,7 @@
     <div
       class="top-section w-full flex items-center flex-col justify-between lg:flex-row"
     >
-      <div
-        routerLink="/"
-        class="logo mr-4"
-        (click)="isActiveHeader = !isActiveHeader"
-      >
+      <div routerLink="/" class="logo mr-4">
         <img src="{{ imgPath + 'logo.svg' }}" alt="logo" />
       </div>
 
@@ -31,7 +16,6 @@
           href="#"
           routerLink="{{ link.path }}"
           [routerLinkActive]="['active']"
-          (click)="isActiveHeader = !isActiveHeader"
           class="xl:mx-4 mx-3"
         >
           {{ link.title }}
@@ -39,10 +23,6 @@
       </nav>
 
       <div class="controls flex">
-        <!-- <a routerLink="/login" class="px-10 bg-slate-500">login</a>
-        <a routerLink="/admin">admin</a>
-        <a routerLink="/register">register</a> -->
-
         <div class="flex ml-5 xl:ml-3 relative">
           <img
             class="button-header"
@@ -79,10 +59,12 @@
     <div
       class="bottom-section py-4 xl:py-10 w-full flex items-center flex-col justify-between lg:flex-row"
     >
-      <div class="button flex px-4 py-3" routerLink="/">
-        <img src="{{ imgPath + 'catalog.svg' }}" alt="products" />
-        <span> Каталог товарів </span>
-      </div>
+      <app-button
+        [imageUrl]="imgPath + 'catalog.svg'"
+        [label]="'Каталог товарів'"
+        [additionalClasses]="'primary px-4 py-3'"
+        [routerLink]="'/'"
+      ></app-button>
 
       <div class="form-field search-form flex px-4 py-3">
         <input type="text" name="search" id="" placeholder="Я шукаю" />

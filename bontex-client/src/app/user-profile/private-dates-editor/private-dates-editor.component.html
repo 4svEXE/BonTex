@@ -38,16 +38,20 @@
     </div>
 
     <div class="flex">
-      <button
-        class="button secondary-button my-4 mr-4"
-        type="submit"
-        [disabled]=""
-      >
-        Скасувати
-      </button>
-      <button class="button primary-button my-4" type="submit" [disabled]="">
-        Відправити
-      </button>
+      <app-button
+        [label]="'Скасувати'"
+        [additionalClasses]="'secondary my-4 mr-4'"
+        [routerLink]="'/'"
+      ></app-button>
+
+      <a type="submit" (click)="onSubmit()">
+        <app-button
+          [label]="'Відправити'"
+          [additionalClasses]="'primary my-4'"
+          [routerLink]="'/'"
+          [isDisabled]="userForm.invalid"
+        ></app-button>
+      </a>
     </div>
   </form>
 </div>

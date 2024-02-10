@@ -19,6 +19,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ThanksComponent } from './admin/components/register/thanks/thanks.component';
 import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
 import { PrivateDatesEditorComponent } from './user-profile/private-dates-editor/private-dates-editor.component';
+import { ButtonComponent } from './shared/components/button/button.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { PrivateDatesEditorComponent } from './user-profile/private-dates-editor
     UpdateUserProfileComponent,
     ThanksComponent,
     PrivateDatesComponent,
-    PrivateDatesEditorComponent
+    PrivateDatesEditorComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

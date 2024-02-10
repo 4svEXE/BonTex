@@ -66,7 +66,15 @@
     </div>
   </div>
 
-  <button type="submit" class="primary-button my-4" [disabled]="registrationForm.invalid">Зареєструватися</button>
+  <a type="submit" (click)="onSubmit()">
+    <app-button
+      [label]="'Зареєструватися'"
+      [additionalClasses]="'primary my-4'"
+      [routerLink]="'/'"
+      [buttonType]="'submit'"
+      [isDisabled]="registrationForm.invalid"
+    ></app-button>
+  </a>
 </form>
 
 <div class="line-container mb-4">

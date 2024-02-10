@@ -52,4 +52,5 @@ export class LoginComponent {
   updateModalState(state: string) {
     this.modalService.updateState(state);
   }
+
 }
