@@ -5,5 +5,11 @@
   "scripts": {
     "client": "cd ./bontex-client && npm run start",
     "api": "cd ./bontex-api && npm run start"
+  },
+  "devDependencies": {
+    "postcss-import": "^16.0.0",
+    "postcss-nesting": "^12.0.2",
+    "postcss-preset-env": "^9.3.0",
+    "tailwindcss": "^3.4.1"
   }
 }

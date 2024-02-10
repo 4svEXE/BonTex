@@ -18,15 +18,16 @@ export class JwtInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem(JWT_NAME);
 
+    // If a token exists, add it to the Authorization header
     if (token) {
+      // Clone the request and add the Authorization header with the token
       const clonedReq = request.clone({
-        headers: request.headers.set('Authorisation', 'bearer' + token),
+        headers: request.headers.set('Authorization', 'Bearer ' + token),
       });
-
-      console.log('cloned')
 
       return next.handle(clonedReq);
     }
+
     return next.handle(request);
   }
 }

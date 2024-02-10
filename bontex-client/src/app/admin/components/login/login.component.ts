@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { map } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 
 ModalService;
 @Component({
@@ -41,15 +41,16 @@ export class LoginComponent {
     }
 
     this.authService
-      .login(this.loginForm.value)
-      .pipe(map((token) => this.router.navigate(['admin'])))
-      .subscribe((data) => {
-        console.log('Logined!');
-      });
+    .login(this.loginForm.value)
+    .pipe(switchMap(() => this.authService.getUserId()))
+    .subscribe((userId) => {
+      console.log('userId', userId);
+      this.router.navigate(['user/' + userId]);
+    });
   }
 
   updateModalState(state: string) {
-    console.log(state);
     this.modalService.updateState(state);
   }
+
 }

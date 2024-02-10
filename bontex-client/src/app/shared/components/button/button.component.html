@@ -1,0 +1,15 @@
+<button
+  *ngIf="!routerLink"
+  [ngClass]="buttonClasses"
+  [type]="buttonType"
+  (click)="onClick()"
+  [attr.disabled]="isDisabled ? true : null"
+>
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Icon" class="button-icon" />
+  <p [innerHTML]="label"></p>
+</button>
+
+<a *ngIf="routerLink" [ngClass]="buttonClasses" [routerLink]="routerLink">
+  <img *ngIf="imageUrl" [src]="imageUrl" alt="Icon" class="button-icon" />
+  <p [innerHTML]="label"></p>
+</a>
