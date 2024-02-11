@@ -36,7 +36,7 @@
         <div class="flex ml-3 xl:ml-5 relative">
           <img
             class="button-header"
-            routerLink="/login"
+            (click)="ngxSmartModalService.getModal('mainModal').open()"
             src="{{ imgPath + 'like.svg' }}"
             alt="cart"
           />
@@ -48,7 +48,6 @@
           <img
             (click)="ngxSmartModalService.getModal('mainModal').open()"
             class="button-header"
-            routerLink="/login"
             src="{{ imgPath + 'profile.svg' }}"
             alt="cart"
           />
@@ -89,7 +88,14 @@
         <a href="">Замовити дзвінок</a>
       </div>
     </div>
+
+
+    <!-- phones size -->
+
+
   </header>
+
+
 </div>
 
 
