@@ -66,10 +66,10 @@
     </div>
   </div>
 
-  <a type="submit" (click)="onSubmit()">
+  <a type="submit" (click)="onSubmit()" class="w-full">
     <app-button
       [label]="'Зареєструватися'"
-      [additionalClasses]="'primary my-4'"
+      [additionalClasses]="'primary my-4 w-full'"
       [routerLink]="'/'"
       [buttonType]="'submit'"
       [isDisabled]="registrationForm.invalid"
