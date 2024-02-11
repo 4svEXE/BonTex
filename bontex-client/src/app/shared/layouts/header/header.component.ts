@@ -13,6 +13,8 @@ export class HeaderComponent {
 
   isActiveHeader: boolean = false;
 
+  username = null
+
   links: ILink[] = [
     { title: 'Акції', path: '/sales' },
     { title: 'Доставка та оплата', path: '/prices' },

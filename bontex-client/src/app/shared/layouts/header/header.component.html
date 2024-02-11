@@ -23,7 +23,7 @@
       </nav>
 
       <div class="controls flex">
-        <div class="flex ml-5 xl:ml-3 relative">
+        <div class="flex ml-3 xl:ml-5 relative">
           <img
             class="button-header"
             routerLink="/login"
@@ -33,7 +33,7 @@
           <div class="info flex items-center justify-center">2</div>
         </div>
 
-        <div class="flex ml-5 xl:ml-3 relative">
+        <div class="flex ml-3 xl:ml-5 relative">
           <img
             class="button-header"
             routerLink="/login"
@@ -43,7 +43,8 @@
           <div class="info flex items-center justify-center">99</div>
         </div>
 
-        <div class="flex ml-5 xl:ml-3 relative">
+        <!-- if unautorised -->
+        <div *ngIf="!username" class="flex ml-3 xl:ml-5 relative">
           <img
             (click)="ngxSmartModalService.getModal('mainModal').open()"
             class="button-header"
@@ -51,7 +52,16 @@
             src="{{ imgPath + 'profile.svg' }}"
             alt="cart"
           />
-          <div class="info flex items-center justify-center">21</div>
+        </div>
+
+        <!-- if autorised user -->
+        <div *ngIf="username" class="flex ml-3 xl:ml-5 relative">
+          <a
+            class="profile-icon"
+            routerLink="/login"
+            alt="cart"
+          >{{username}}</a>
+          <!-- <div class="info flex items-center justify-center">21</div> -->
         </div>
       </div>
     </div>
