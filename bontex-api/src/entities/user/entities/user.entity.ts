@@ -5,10 +5,6 @@ import { BeforeUpdate, Column, Entity, ObjectId, ObjectIdColumn } from 'typeorm'
 @Entity({ name: 'User' })
 export class UserEntity {
 
-  // constructor(user: Partial<UserEntity>){
-  //   Object.assign(this, user);
-  // }
-
   @ObjectIdColumn()
   id: ObjectId;
 
@@ -21,21 +17,19 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column()
-  @IsOptional()
+  @Column({ default: '' })
   phone: string;
 
-  @Column()
-  @IsOptional()
+  @Column({ default: '' })
   shippingAddress: string;
 
-  @Column()
+  @Column({ default: [Role.User] })
   roles: Role[]
 
-  @Column({default: new Date()})
+  @Column({ default: () => new Date() })
   createdAt: Date;
 
-  @Column()
+  @Column({ default: () => new Date() })
   updatedAt: Date;
 
   @Column({ type: 'timestamp', default: () => Date.now(), transformer: {
@@ -44,5 +38,14 @@ export class UserEntity {
   }})
   updateTimestamps() {
     this.updatedAt = new Date();
+  }
+
+  constructor(user: Partial<UserEntity>){
+    Object.assign(this, user);
+    this.createdAt = this.createdAt || new Date();
+    this.updatedAt = this.updatedAt || new Date();
+    this.roles = this.roles || [Role.User];
+    this.phone = this.phone || '';
+    this.shippingAddress = this.shippingAddress || '';
   }
 }
