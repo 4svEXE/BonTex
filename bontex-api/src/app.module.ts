@@ -8,7 +8,7 @@ import { AuthModule } from './entities/auth/auth.module';
   imports: [UserModule, ConfigModule.forRoot(), TypeOrmModule.forRoot({
       type: 'mongodb',
       url: process.env.DB_URL,
-      ssl: false,
+      ssl: true,
       autoLoadEntities: true,
       synchronize: true,
     }),
