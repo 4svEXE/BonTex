@@ -20,6 +20,8 @@ export class UserService {
       email: createUserDto.email,
       password: createUserDto.password,
       roles: createUserDto.roles, 
+      phone: '',
+      shippingAddress:'',
       createdAt: new Date(), 
       updatedAt: new Date(), 
     });
