@@ -1,0 +1,64 @@
+header {
+  background-color: #84B4A4;
+
+  .logo-container {
+    padding: 20px;
+
+    .logo {
+      width: 220px;
+      height: 40px;
+    }
+  }
+
+  .bottom-container {
+    .bordered-button {
+      border: 1px solid #fafafa;
+      background-color: #84B4A4;
+      border-radius: 4px;
+      padding: 12px 24px;
+      color: #fafafa;
+      width: 100%;
+      height: 47px;
+
+      font-family: 'Roboto Flex', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+
+    .search {
+      position: relative;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+
+      input {
+
+      }
+
+      input:active,
+      input:focus {
+        border: 1px solid #fff;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: #fafafa;
+      }
+
+      .search-button {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .contacts {
+
+    }
+  }
+}

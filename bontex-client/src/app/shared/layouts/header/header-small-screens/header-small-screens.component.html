@@ -1,0 +1,30 @@
+<header class="flex flex-col px-10">
+  <div class="logo-container flex items-center m-auto" routerLink="/">
+    <img src="{{ imgPath + 'logo_white.svg' }}" alt="BonTex" class="logo" />
+  </div>
+
+  <div class="bottom-container grid grid-cols-6 gap-4 pb-5">
+    <div class="search col-span-4">
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="Я шукаю"
+        class="bordered-button"
+      />
+      <img
+        src="{{ imgPath + 'search_white.svg' }}"
+        alt="search"
+        class="search-button"
+      />
+    </div>
+
+    <div class="contacts bordered-button flex col-span-2">
+      <div class="flex items-center justify-center w-full">
+        <img src="{{ imgPath + 'forum.svg' }}" alt="icon" class="mr-2" />
+        <span>Графік та зв’язок</span>
+      </div>
+
+    </div>
+  </div>
+</header>

@@ -1,12 +1,7 @@
 <div class="container m-auto hidden lg:block">
-  <header
-    class="w-full flex items-center flex-col justify-between"
-    [class.active]="isActiveHeader"
-  >
-    <div
-      class="top-section w-full"
-    >
-      <div class="container m-auto flex items-center justify-between ">
+  <header class="w-full flex items-center flex-col justify-between">
+    <div class="top-section w-full">
+      <div class="container m-auto flex items-center justify-between">
         <div routerLink="/" class="logo mr-4">
           <img src="{{ imgPath + 'logo.svg' }}" alt="logo" />
         </div>
@@ -88,9 +83,12 @@
         <a href="">Замовити дзвінок</a>
       </div>
     </div>
-
-    <!-- phones size -->
   </header>
+</div>
+
+<!-- small screens -->
+<div class="w-full m-auto block lg:hidden">
+  <app-header-small-screens></app-header-small-screens>
 </div>
 
 <div class="test">a</div>
