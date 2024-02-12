@@ -9,11 +9,16 @@ import { ILink } from './../../../../core/interfaces/index';
   styleUrls: ['./header-small-screens.component.scss'],
 })
 export class HeaderSmallScreensComponent {
+  isActiveContacts: boolean = true;
   isFixed: boolean = false;
   imgPath: string = 'assets/img/shared/layout/';
   links: ILink[] = HeaderLinks;
 
   ngOnInit() {}
+
+  isActiveContactsToggle() {
+    this.isActiveContacts = !this.isActiveContacts;
+  }
 
   // For sticky scrolling in the header
   // Listen for the window scroll event
