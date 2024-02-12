@@ -1,3 +1,4 @@
+import { HeaderLinks } from './../../../core/variables/index';
 import { Component } from '@angular/core';
 import { ILink } from '../../../../app/core/interfaces';
 import { Router, NavigationEnd } from '@angular/router';
@@ -10,19 +11,12 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 })
 export class HeaderComponent {
   imgPath: string = 'assets/img/shared/layout/';
+  links: ILink[] = HeaderLinks;
 
-  isActiveHeader: boolean = false;
+  username = null;
 
-  links: ILink[] = [
-    { title: 'Акції', path: '/sales' },
-    { title: 'Доставка та оплата', path: '/prices' },
-    { title: 'Обмін та повернення', path: '/help' },
-    { title: 'Про нас', path: '/help' },
-    { title: 'Update profile', path: '/update-profile' },
-  ];
 
-  constructor(public ngxSmartModalService: NgxSmartModalService) {
-  }
+  constructor(public ngxSmartModalService: NgxSmartModalService) {}
 
   ngOnInit() {
     // Skroll to top the page when navigation

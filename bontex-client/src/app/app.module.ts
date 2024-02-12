@@ -20,7 +20,7 @@ import { ThanksComponent } from './admin/components/register/thanks/thanks.compo
 import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
 import { PrivateDatesEditorComponent } from './user-profile/private-dates-editor/private-dates-editor.component';
 import { ButtonComponent } from './shared/components/button/button.component';
-
+import { HeaderSmallScreensComponent } from './shared/layouts/header/header-small-screens/header-small-screens.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,8 @@ import { ButtonComponent } from './shared/components/button/button.component';
     ThanksComponent,
     PrivateDatesComponent,
     PrivateDatesEditorComponent,
-    ButtonComponent
+    ButtonComponent,
+    HeaderSmallScreensComponent,
   ],
   imports: [
     BrowserModule,

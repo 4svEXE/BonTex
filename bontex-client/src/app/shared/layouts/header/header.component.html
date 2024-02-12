@@ -1,57 +1,61 @@
 <div class="container m-auto hidden lg:block">
-  <header
-    class="w-full flex items-center flex-col justify-between"
-    [class.active]="isActiveHeader"
-  >
-    <div
-      class="top-section w-full flex items-center flex-col justify-between lg:flex-row"
-    >
-      <div routerLink="/" class="logo mr-4">
-        <img src="{{ imgPath + 'logo.svg' }}" alt="logo" />
-      </div>
-
-      <nav>
-        <a
-          *ngFor="let link of links"
-          href="#"
-          routerLink="{{ link.path }}"
-          [routerLinkActive]="['active']"
-          class="xl:mx-4 mx-3"
-        >
-          {{ link.title }}
-        </a>
-      </nav>
-
-      <div class="controls flex">
-        <div class="flex ml-5 xl:ml-3 relative">
-          <img
-            class="button-header"
-            routerLink="/login"
-            src="{{ imgPath + 'cart.svg' }}"
-            alt="cart"
-          />
-          <div class="info flex items-center justify-center">2</div>
+  <header class="w-full flex items-center flex-col justify-between">
+    <div class="top-section w-full">
+      <div class="container m-auto flex items-center justify-between">
+        <div routerLink="/" class="logo mr-4">
+          <img src="{{ imgPath + 'logo.svg' }}" alt="logo" />
         </div>
 
-        <div class="flex ml-5 xl:ml-3 relative">
-          <img
-            class="button-header"
-            routerLink="/login"
-            src="{{ imgPath + 'like.svg' }}"
-            alt="cart"
-          />
-          <div class="info flex items-center justify-center">99</div>
-        </div>
+        <nav>
+          <a
+            *ngFor="let link of links"
+            href="#"
+            routerLink="{{ link.path }}"
+            [routerLinkActive]="['active']"
+            class="xl:mx-4 mx-3"
+          >
+            {{ link.title }}
+          </a>
+        </nav>
 
-        <div class="flex ml-5 xl:ml-3 relative">
-          <img
-            (click)="ngxSmartModalService.getModal('mainModal').open()"
-            class="button-header"
-            routerLink="/login"
-            src="{{ imgPath + 'profile.svg' }}"
-            alt="cart"
-          />
-          <div class="info flex items-center justify-center">21</div>
+        <div class="controls flex">
+          <div class="flex ml-3 xl:ml-5 relative">
+            <img
+              class="button-header"
+              routerLink="/login"
+              src="{{ imgPath + 'cart.svg' }}"
+              alt="cart"
+            />
+            <div class="info flex items-center justify-center">2</div>
+          </div>
+
+          <div class="flex ml-3 xl:ml-5 relative">
+            <img
+              class="button-header"
+              (click)="ngxSmartModalService.getModal('mainModal').open()"
+              src="{{ imgPath + 'like.svg' }}"
+              alt="cart"
+            />
+            <div class="info flex items-center justify-center">99</div>
+          </div>
+
+          <!-- if unautorised -->
+          <div *ngIf="!username" class="flex ml-3 xl:ml-5 relative">
+            <img
+              (click)="ngxSmartModalService.getModal('mainModal').open()"
+              class="button-header"
+              src="{{ imgPath + 'profile.svg' }}"
+              alt="cart"
+            />
+          </div>
+
+          <!-- if autorised user -->
+          <div *ngIf="username" class="flex ml-3 xl:ml-5 relative">
+            <a class="profile-icon" routerLink="/login" alt="cart">{{
+              username
+            }}</a>
+            <!-- <div class="info flex items-center justify-center">21</div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -81,3 +85,10 @@
     </div>
   </header>
 </div>
+
+<!-- small screens -->
+<div class="w-full m-auto block lg:hidden">
+  <app-header-small-screens></app-header-small-screens>
+</div>
+
+<div class="test">a</div>
