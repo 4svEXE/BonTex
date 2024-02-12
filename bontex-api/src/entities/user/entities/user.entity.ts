@@ -1,8 +1,14 @@
+import { IsOptional } from 'class-validator';
 import { Role } from 'src/enums/roles.enum';
 import { BeforeUpdate, Column, Entity, ObjectId, ObjectIdColumn } from 'typeorm';
 
 @Entity({ name: 'User' })
 export class UserEntity {
+
+  // constructor(user: Partial<UserEntity>){
+  //   Object.assign(this, user);
+  // }
+
   @ObjectIdColumn()
   id: ObjectId;
 
@@ -14,6 +20,14 @@ export class UserEntity {
   
   @Column()
   password: string;
+
+  @Column()
+  @IsOptional()
+  phone: string;
+
+  @Column()
+  @IsOptional()
+  shippingAddress: string;
 
   @Column()
   roles: Role[]
