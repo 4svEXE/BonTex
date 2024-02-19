@@ -5,5 +5,5 @@ export const HeaderLinks: ILink[] = [
   { title: 'Доставка та оплата', path: '/prices' },
   { title: 'Обмін та повернення', path: '/help' },
   { title: 'Про нас', path: '/help' },
-  { title: 'Update profile', path: '/update-profile' },
+  // { title: 'Update profile', path: '/update-profile' },
 ];

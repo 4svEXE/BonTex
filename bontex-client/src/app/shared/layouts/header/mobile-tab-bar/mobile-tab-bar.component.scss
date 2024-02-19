@@ -1,0 +1,36 @@
+.tab-bar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #84B4A4;
+
+  .tab-bar-button {
+    color: white;
+    fill: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .tab-bar-icon {
+      transition: .3s;
+
+      svg {
+        fill: white;
+      }
+    }
+
+    .active {
+      svg {
+        fill: #5C8C7C;
+      }
+    }
+  }
+}

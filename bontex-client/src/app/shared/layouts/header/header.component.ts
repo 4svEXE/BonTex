@@ -1,8 +1,8 @@
-import { HeaderLinks } from './../../../core/variables/index';
 import { Component } from '@angular/core';
-import { ILink } from '../../../../app/core/interfaces';
 import { Router, NavigationEnd } from '@angular/router';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { HeaderLinks } from './../../../core/variables/index';
+import { ILink } from '../../../../app/core/interfaces';
 
 @Component({
   selector: 'app-header',
