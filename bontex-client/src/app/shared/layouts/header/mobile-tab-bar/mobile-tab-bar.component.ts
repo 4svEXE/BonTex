@@ -3,7 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HeaderLinks } from './../../../../core/variables/index';
 import { ILink } from './../../../../core/interfaces/index';
 import { svgImages } from 'src/app/shared/svg';
-
+import { SvgService } from 'src/app/shared/services/svg.service';
 
 @Component({
   selector: 'app-mobile-tab-bar',
@@ -11,14 +11,12 @@ import { svgImages } from 'src/app/shared/svg';
   styleUrls: ['./mobile-tab-bar.component.scss'],
 })
 export class MobileTabBarComponent {
-  svg = svgImages.tabBar;
   links: ILink[] = HeaderLinks;
-  safeSvgCode!: SafeHtml;
+  safeSvgCodes: { [key: string]: SafeHtml } = {};
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer, private svgService: SvgService) {}
 
-
-  ngOnInit() {
-    this.safeSvgCode = this.sanitizer.bypassSecurityTrustHtml(this.svg.home);
+  ngOnInit(): void {
+    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
   }
 }
