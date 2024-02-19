@@ -1,9 +1,12 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, map } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
+import { User, UserService } from './../shared/services/user.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserProfileService } from '../shared/services/user-profile.service';
+
 
 @Component({
   selector: 'app-user-profile',
@@ -13,6 +16,10 @@ import { UserProfileService } from '../shared/services/user-profile.service';
 export class UserProfileComponent {
   currentView: string = '';
   private viewSubscription!: Subscription;
+  user!: User;
+  userId!: string;
+
+  private sub!: Subscription;
 
   navigationItems = [
     { label: 'Особисті дані', view: 'private-dates' },
@@ -25,8 +32,10 @@ export class UserProfileComponent {
 
   constructor(
     private authService: AuthenticationService,
+    private activatedRoute: ActivatedRoute,
     private router: Router,
-    private userProfile: UserProfileService
+    private userProfile: UserProfileService,
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +44,14 @@ export class UserProfileComponent {
         this.currentView = newView;
       }
     );
+
+    this.sub = this.activatedRoute.params.subscribe((params) => {
+      this.userId = params['id'];
+      this.userService
+        .findOne(this.userId)
+        .pipe(map((user: User) => (this.user = user)))
+        .subscribe();
+    });
   }
 
   ngOnDestroy(): void {

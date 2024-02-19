@@ -5,6 +5,8 @@ import { RegisterComponent } from './admin/components/register/register.componen
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 import { AuthGuard } from './guards/auth.guard'; // Correct import
+import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
+
 
 const routes: Routes = [
   {
@@ -33,7 +35,11 @@ const routes: Routes = [
       {
         path: ':id',
         component: UserProfileComponent,
-      }
+      },
+      {
+        path: ':id/private-dates',
+        component: PrivateDatesComponent,
+      },
     ],
   },
   {

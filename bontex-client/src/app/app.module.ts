@@ -22,6 +22,7 @@ import { PrivateDatesEditorComponent } from './user-profile/private-dates-editor
 import { ButtonComponent } from './shared/components/button/button.component';
 import { HeaderSmallScreensComponent } from './shared/layouts/header/header-small-screens/header-small-screens.component';
 import { MobileTabBarComponent } from './shared/layouts/header/mobile-tab-bar/mobile-tab-bar.component';
+import { PasswordComponent } from './user-profile/password/password.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MobileTabBarComponent } from './shared/layouts/header/mobile-tab-bar/mo
     ButtonComponent,
     HeaderSmallScreensComponent,
     MobileTabBarComponent,
+    PasswordComponent,
   ],
   imports: [
     BrowserModule,

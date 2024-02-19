@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
-import { Subscription, map } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+// private-dates-editor.component.ts
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { User } from './../../services/authentication.service';
-import { UserService } from '../../shared/services/user.service';
 import { UserProfileService } from 'src/app/shared/services/user-profile.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-private-dates-editor',
@@ -13,23 +11,34 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./private-dates-editor.component.scss'],
 })
 export class PrivateDatesEditorComponent {
+  @Input() user: User | undefined;
   userForm!: FormGroup;
-  private sub!: Subscription;
-  user!: User;
-  userId!: string;
 
   constructor(
     private fb: FormBuilder,
-    private activatedRoute: ActivatedRoute,
-    private userService: UserService
+    private userProfile: UserProfileService
   ) {
     this.userForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5)]],
-      phone: ['', [Validators.required, Validators.minLength(10)]],
       email: [
         '',
         [Validators.required, Validators.email, Validators.minLength(8)],
       ],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      phone: ['', [Validators.required, Validators.minLength(10)]],
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if ('user' in changes && changes['user'].currentValue) {
+      this.updateFormValues();
+    }
+  }
+
+  private updateFormValues() {
+    this.userForm.setValue({
+      email: this.user?.email,
+      name: this.user?.username || '',
+      phone: this.user?.phone || '',
     });
   }
 
@@ -41,17 +50,7 @@ export class PrivateDatesEditorComponent {
     }
   }
 
-  ngOnInit() {
-    this.sub = this.activatedRoute.params.subscribe((params) => {
-      this.userId = params['id'];
-      this.userService
-        .findOne(this.userId)
-        .pipe(map((user: User) => (this.user = user)))
-        .subscribe();
-    });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+  setEditorView(view: string) {
+    this.userProfile.updateView(view);
   }
 }

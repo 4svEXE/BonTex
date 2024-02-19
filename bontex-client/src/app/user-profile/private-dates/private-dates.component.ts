@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { Subscription, map } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 
-import { UserService } from '../../shared/services/user.service';
 import { User } from './../../services/authentication.service';
 import { UserProfileService } from 'src/app/shared/services/user-profile.service';
+import { SafeHtml } from '@angular/platform-browser';
+import { SvgService } from 'src/app/shared/services/svg.service';
 
 @Component({
   selector: 'app-private-dates',
@@ -12,32 +11,21 @@ import { UserProfileService } from 'src/app/shared/services/user-profile.service
   styleUrls: ['./private-dates.component.scss'],
 })
 export class PrivateDatesComponent {
+  @Input() user: User | undefined;
+  safeSvgCodes: { [key: string]: SafeHtml } = {};
+
   imgPath = 'assets/img/user-profile/';
-  private sub!: Subscription;
-  user!: User;
-  userId!: string;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private userService: UserService,
-    private userProfile: UserProfileService
+    private userProfile: UserProfileService,
+    private svgService: SvgService
   ) {}
 
-  ngOnInit() {
-    this.sub = this.activatedRoute.params.subscribe((params) => {
-      this.userId = params['id'];
-      this.userService
-        .findOne(this.userId)
-        .pipe(map((user: User) => (this.user = user)))
-        .subscribe();
-    });
+  ngOnInit(): void {
+    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  setEditorView(){
+  setEditorView() {
     this.userProfile.updateView('private-dates-editor');
   }
 }
