@@ -21,6 +21,7 @@ import { PrivateDatesComponent } from './user-profile/private-dates/private-date
 import { PrivateDatesEditorComponent } from './user-profile/private-dates-editor/private-dates-editor.component';
 import { ButtonComponent } from './shared/components/button/button.component';
 import { HeaderSmallScreensComponent } from './shared/layouts/header/header-small-screens/header-small-screens.component';
+import { MobileTabBarComponent } from './shared/layouts/header/mobile-tab-bar/mobile-tab-bar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { HeaderSmallScreensComponent } from './shared/layouts/header/header-smal
     PrivateDatesEditorComponent,
     ButtonComponent,
     HeaderSmallScreensComponent,
+    MobileTabBarComponent,
   ],
   imports: [
     BrowserModule,
