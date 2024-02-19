@@ -29,7 +29,7 @@
 }
 
 .primary {
-  background: #d1cece;
+  background: #84B4A4;
 }
 
 .secondary {
@@ -38,6 +38,16 @@
   background: none;
 
   &:hover {
+    color: #fafafa;
+  }
+}
+
+.inverted{
+  color: #1e1e1e;
+  background: none;
+
+  &:hover {
+    background: #5c8c7c;
     color: #fafafa;
   }
 }
