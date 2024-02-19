@@ -12,10 +12,18 @@ import { SvgService } from 'src/app/shared/services/svg.service';
 export class MobileTabBarComponent {
   links: ILink[] = HeaderLinks;
   safeSvgCodes: { [key: string]: SafeHtml } = {};
+  isClosedSubBar: boolean = true;
 
-  constructor(private sanitizer: DomSanitizer, private svgService: SvgService) {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    private svgService: SvgService
+  ) {}
 
   ngOnInit(): void {
     this.safeSvgCodes = this.svgService.getSafeSvgCodes();
+  }
+
+  toggleSubBar(){
+    this.isClosedSubBar = !this.isClosedSubBar;
   }
 }
