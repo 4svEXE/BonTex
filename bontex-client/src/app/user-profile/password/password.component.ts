@@ -9,19 +9,11 @@ import { UserProfileService } from 'src/app/shared/services/user-profile.service
 export class PasswordComponent {
 
   constructor(
-    // private activatedRoute: ActivatedRoute,
-    // private userService: UserService,
     private userProfile: UserProfileService
   ) {}
 
   ngOnInit() {
-    this.sub = this.activatedRoute.params.subscribe((params) => {
-      this.userId = params['id'];
-      this.userService
-        .findOne(this.userId)
-        .pipe(map((user: User) => (this.user = user)))
-        .subscribe();
-    });
+
   }
 
   setEditorView(){
