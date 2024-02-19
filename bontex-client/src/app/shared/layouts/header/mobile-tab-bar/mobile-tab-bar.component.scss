@@ -7,7 +7,6 @@
   left: 0;
   align-items: center;
   justify-content: space-around;
-
   background-color: #84B4A4;
 
   .tab-bar-button {
@@ -16,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 
     .tab-bar-icon {
       transition: .3s;
@@ -24,11 +24,14 @@
         fill: white;
       }
     }
+  }
 
-    .active {
-      svg {
-        fill: #5C8C7C;
-      }
+  .active {
+    .tab-bar-icon {
+      fill: #5C8C7C;
+    }
+    span {
+      color: #5C8C7C;
     }
   }
 }

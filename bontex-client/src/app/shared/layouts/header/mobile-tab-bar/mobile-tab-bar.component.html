@@ -1,21 +1,26 @@
 <div class="tab-bar">
-  <a class="tab-bar-button">
+  <a class="tab-bar-button active" routerLink="/">
     <div [innerHTML]="safeSvgCodes['home']" class="tab-bar-icon"></div>
     <span>Головна</span>
   </a>
 
   <a class="tab-bar-button">
     <div [innerHTML]="safeSvgCodes['catalog']" class="tab-bar-icon"></div>
-    <span>Головна</span>
+    <span>Каталог</span>
   </a>
 
   <a class="tab-bar-button">
-    <div [innerHTML]="" class="tab-bar-icon"></div>
-    <span>Головна</span>
+    <div [innerHTML]="safeSvgCodes['basket']" class="tab-bar-icon"></div>
+    <span>Кошик</span>
   </a>
 
   <a class="tab-bar-button">
-    <div [innerHTML]="" class="tab-bar-icon"></div>
-    <span>Головна</span>
+    <div [innerHTML]="safeSvgCodes['heart']" class="tab-bar-icon"></div>
+    <span>Обране</span>
+  </a>
+
+  <a class="tab-bar-button">
+    <div [innerHTML]="safeSvgCodes['more']" class="tab-bar-icon"></div>
+    <span>Більше</span>
   </a>
 </div>

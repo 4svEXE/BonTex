@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { HeaderLinks } from './../../../../core/variables/index';
 import { ILink } from './../../../../core/interfaces/index';
-import { svgImages } from 'src/app/shared/svg';
 import { SvgService } from 'src/app/shared/services/svg.service';
 
 @Component({
