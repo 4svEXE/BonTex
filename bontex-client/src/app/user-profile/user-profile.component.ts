@@ -23,11 +23,11 @@ export class UserProfileComponent {
 
   navigationItems = [
     { label: 'Особисті дані', view: 'private-dates' },
-    { label: 'Пароль', view: 'profile-password' },
-    { label: 'Мої замовлення', view: 'profile-orders' },
-    { label: 'Обрані товари', view: 'profile-selected', showCounter: true, counter: 2 },
-    { label: 'Мої відгуки', view: 'profile-myReviews', showCounter: true, counter: 2 },
-    { label: 'Вихід', view: 'profile-logOut' }
+    { label: 'Пароль', view: 'password' },
+    { label: 'Мої замовлення', view: 'orders' },
+    { label: 'Обрані товари', view: 'selected', showCounter: true, counter: 2 },
+    { label: 'Мої відгуки', view: 'myReviews', showCounter: true, counter: 2 },
+    { label: 'Вихід', view: 'logOut' }
   ];
 
   constructor(

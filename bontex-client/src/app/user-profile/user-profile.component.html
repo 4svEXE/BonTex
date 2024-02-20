@@ -20,5 +20,7 @@
 
   <app-private-dates-editor *ngIf="checkIsActive('private-dates-editor')" [user]="user"/>
 
-  <app-password *ngIf="checkIsActive('profile-password')"></app-password>
+  <app-password *ngIf="checkIsActive('password')" [user]="user"></app-password>
+
+  <app-password-editor *ngIf="checkIsActive('password-editor')" [user]="user"></app-password-editor>
 </div>

@@ -23,6 +23,7 @@ import { ButtonComponent } from './shared/components/button/button.component';
 import { HeaderSmallScreensComponent } from './shared/layouts/header/header-small-screens/header-small-screens.component';
 import { MobileTabBarComponent } from './shared/layouts/header/mobile-tab-bar/mobile-tab-bar.component';
 import { PasswordComponent } from './user-profile/password/password.component';
+import { PasswordEditorComponent } from './user-profile/password-editor/password-editor.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PasswordComponent } from './user-profile/password/password.component';
     HeaderSmallScreensComponent,
     MobileTabBarComponent,
     PasswordComponent,
+    PasswordEditorComponent,
   ],
   imports: [
     BrowserModule,

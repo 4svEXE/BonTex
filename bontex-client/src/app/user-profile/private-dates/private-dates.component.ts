@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-
 import { User } from './../../services/authentication.service';
 import { UserProfileService } from 'src/app/shared/services/user-profile.service';
 import { SafeHtml } from '@angular/platform-browser';
@@ -13,8 +12,6 @@ import { SvgService } from 'src/app/shared/services/svg.service';
 export class PrivateDatesComponent {
   @Input() user: User | undefined;
   safeSvgCodes: { [key: string]: SafeHtml } = {};
-
-  imgPath = 'assets/img/user-profile/';
 
   constructor(
     private userProfile: UserProfileService,
