@@ -1,10 +1,8 @@
-import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Subscription, map } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 import { User, UserService } from './../shared/services/user.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserProfileService } from '../shared/services/user-profile.service';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -26,14 +24,12 @@ export class UserProfileComponent {
     { label: 'Пароль', view: 'password' },
     { label: 'Мої замовлення', view: 'orders' },
     { label: 'Обрані товари', view: 'selected', showCounter: true, counter: 2 },
-    { label: 'Мої відгуки', view: 'myReviews', showCounter: true, counter: 2 },
-    { label: 'Вихід', view: 'logOut' }
+    { label: 'Мої відгуки', view: 'reviews', showCounter: true, counter: 2 },
+    { label: 'Вихід', view: 'logout' },
   ];
 
   constructor(
-    private authService: AuthenticationService,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
     private userProfile: UserProfileService,
     private userService: UserService,
     private cdr: ChangeDetectorRef
@@ -57,11 +53,6 @@ export class UserProfileComponent {
 
   ngOnDestroy(): void {
     this.viewSubscription.unsubscribe();
-  }
-
-  logOut() {
-    this.authService.logOut();
-    this.router.navigate(['']);
   }
 
   checkIsActive(view: string): boolean {

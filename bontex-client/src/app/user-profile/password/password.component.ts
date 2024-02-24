@@ -4,8 +4,6 @@ import { User } from './../../services/authentication.service';
 import { SafeHtml } from '@angular/platform-browser';
 import { SvgService } from 'src/app/shared/services/svg.service';
 
-
-
 @Component({
   selector: 'app-password',
   templateUrl: './password.component.html',

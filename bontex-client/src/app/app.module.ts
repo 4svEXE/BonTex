@@ -24,6 +24,10 @@ import { HeaderSmallScreensComponent } from './shared/layouts/header/header-smal
 import { MobileTabBarComponent } from './shared/layouts/header/mobile-tab-bar/mobile-tab-bar.component';
 import { PasswordComponent } from './user-profile/password/password.component';
 import { PasswordEditorComponent } from './user-profile/password-editor/password-editor.component';
+import { OrdersComponent } from './user-profile/orders/orders.component';
+import { SelectedGoodsComponent } from './user-profile/selected-goods/selected-goods.component';
+import { ReviewsComponent } from './user-profile/reviews/reviews.component';
+import { LogoutComponent } from './user-profile/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +47,10 @@ import { PasswordEditorComponent } from './user-profile/password-editor/password
     MobileTabBarComponent,
     PasswordComponent,
     PasswordEditorComponent,
+    OrdersComponent,
+    SelectedGoodsComponent,
+    ReviewsComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

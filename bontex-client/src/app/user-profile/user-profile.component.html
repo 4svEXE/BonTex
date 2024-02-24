@@ -1,5 +1,3 @@
-<!-- <button (click)="logOut()">logout</button> -->
-
 <div class="container pt-10 flex">
   <div class="nav-bar flex flex-col mr-14">
     <ng-container *ngFor="let item of navigationItems">
@@ -23,4 +21,13 @@
   <app-password *ngIf="checkIsActive('password')" [user]="user"></app-password>
 
   <app-password-editor *ngIf="checkIsActive('password-editor')" [user]="user"></app-password-editor>
+
+  <app-orders *ngIf="checkIsActive('orders')"></app-orders>
+
+  <app-selected-goods *ngIf="checkIsActive('selected')"></app-selected-goods>
+
+  <app-reviews *ngIf="checkIsActive('reviews')"></app-reviews>
+
+  <app-logout *ngIf="checkIsActive('logout')"></app-logout>
+
 </div>
