@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User, UserService } from './../shared/services/user.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserProfileService } from '../shared/services/user-profile.service';
-
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-user-profile',
@@ -36,6 +36,7 @@ export class UserProfileComponent {
     private router: Router,
     private userProfile: UserProfileService,
     private userService: UserService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -69,5 +70,6 @@ export class UserProfileComponent {
 
   setCurrentView(view: string) {
     this.userProfile.updateView(view);
+    this.cdr.detectChanges();
   }
 }
