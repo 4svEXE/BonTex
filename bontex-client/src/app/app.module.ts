@@ -28,6 +28,7 @@ import { OrdersComponent } from './user-profile/orders/orders.component';
 import { SelectedGoodsComponent } from './user-profile/selected-goods/selected-goods.component';
 import { ReviewsComponent } from './user-profile/reviews/reviews.component';
 import { LogoutComponent } from './user-profile/logout/logout.component';
+import { FooterComponent } from './shared/layouts/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { LogoutComponent } from './user-profile/logout/logout.component';
     SelectedGoodsComponent,
     ReviewsComponent,
     LogoutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
