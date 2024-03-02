@@ -5,6 +5,8 @@ import { RegisterComponent } from './admin/components/register/register.componen
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 import { AuthGuard } from './guards/auth.guard'; // Correct import
+import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
+
 
 const routes: Routes = [
   {
@@ -24,7 +26,6 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    //canActivate: [AuthGuard], // Use the AuthGuard class and provide it as an array
     children: [
       {
         path: '',
@@ -33,7 +34,8 @@ const routes: Routes = [
       {
         path: ':id',
         component: UserProfileComponent,
-      }
+        canActivate: [AuthGuard]
+      },
     ],
   },
   {

@@ -102,11 +102,21 @@ export class AuthenticationService {
     return !this.jwtHelperService.isTokenExpired(token);
   }
 
+  isCorrectId(urlId: string): boolean {
+    this.getUserId().subscribe((jwtId) => {
+      console.log('jwtId == urlId', jwtId, urlId);
+      return jwtId == urlId;
+    });
+
+    return false;
+  }
+
   /**
    * Gets the user ID from the decoded JWT token.
    * @returns An Observable of the user ID or null if not available.
    */
   getUserId(): Observable<string> {
+    console.log('getUserId');
     return of(localStorage.getItem(JWT_NAME)).pipe(
       switchMap((jwt: string | null) => {
         if (jwt) {
@@ -116,6 +126,7 @@ export class AuthenticationService {
           return of(decodedToken ? decodedToken.user.id : null);
         } else {
           // If jwt is null, return null
+          console.log('token is null');
           return of(null);
         }
       })

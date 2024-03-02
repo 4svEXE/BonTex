@@ -1,9 +1,10 @@
-import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, map } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { User, UserService } from './../shared/services/user.service';
 import { UserProfileService } from '../shared/services/user-profile.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,20 +14,25 @@ import { UserProfileService } from '../shared/services/user-profile.service';
 export class UserProfileComponent {
   currentView: string = '';
   private viewSubscription!: Subscription;
+  user!: User;
+  userId!: string;
+
+  private sub!: Subscription;
 
   navigationItems = [
     { label: 'Особисті дані', view: 'private-dates' },
-    { label: 'Пароль', view: 'profile-password' },
-    { label: 'Мої замовлення', view: 'profile-orders' },
-    { label: 'Обрані товари', view: 'profile-selected', showCounter: true, counter: 2 },
-    { label: 'Мої відгуки', view: 'profile-myReviews', showCounter: true, counter: 2 },
-    { label: 'Вихід', view: 'profile-logOut' }
+    { label: 'Пароль', view: 'password' },
+    { label: 'Мої замовлення', view: 'orders' },
+    { label: 'Обрані товари', view: 'selected', showCounter: true, counter: 2 },
+    { label: 'Мої відгуки', view: 'reviews', showCounter: true, counter: 2 },
+    { label: 'Вихід', view: 'logout' },
   ];
 
   constructor(
-    private authService: AuthenticationService,
-    private router: Router,
-    private userProfile: UserProfileService
+    private activatedRoute: ActivatedRoute,
+    private userProfile: UserProfileService,
+    private userService: UserService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -35,15 +41,18 @@ export class UserProfileComponent {
         this.currentView = newView;
       }
     );
+
+    this.sub = this.activatedRoute.params.subscribe((params) => {
+      this.userId = params['id'];
+      this.userService
+        .findOne(this.userId)
+        .pipe(map((user: User) => (this.user = user)))
+        .subscribe();
+    });
   }
 
   ngOnDestroy(): void {
     this.viewSubscription.unsubscribe();
-  }
-
-  logOut() {
-    this.authService.logOut();
-    this.router.navigate(['']);
   }
 
   checkIsActive(view: string): boolean {
@@ -52,5 +61,6 @@ export class UserProfileComponent {
 
   setCurrentView(view: string) {
     this.userProfile.updateView(view);
+    this.cdr.detectChanges();
   }
 }

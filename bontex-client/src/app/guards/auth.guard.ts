@@ -14,8 +14,10 @@ export const AuthGuard: CanActivateFn = (
   const router: Router = inject(Router);
   const auth: AuthenticationService = inject(AuthenticationService);
 
-  console.log('!auth.isAuthenticated(): ', !auth.isAuthenticated())
-  if (!auth.isAuthenticated()) {
+  const userIdFromUrl = route.params['id'] || '';
+
+  console.log('!auth.isAuthenticated() userIdFromUrl: ', !auth.isAuthenticated(), auth.isCorrectId(userIdFromUrl))
+  if (!auth.isAuthenticated() || auth.isCorrectId(userIdFromUrl)) {
     router.navigate(['']);
     return false;
   }

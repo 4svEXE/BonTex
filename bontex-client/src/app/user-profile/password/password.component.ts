@@ -1,17 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { User } from './../../services/authentication.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserProfileService } from 'src/app/shared/services/user-profile.service';
+import { User } from './../../services/authentication.service';
 import { SafeHtml } from '@angular/platform-browser';
 import { SvgService } from 'src/app/shared/services/svg.service';
 
 @Component({
-  selector: 'app-private-dates',
-  templateUrl: './private-dates.component.html',
-  styleUrls: ['./private-dates.component.scss'],
+  selector: 'app-password',
+  templateUrl: './password.component.html',
+  styleUrls: ['./password.component.scss'],
 })
-export class PrivateDatesComponent {
+export class PasswordComponent implements OnInit {
   @Input() user: User | undefined;
   safeSvgCodes: { [key: string]: SafeHtml } = {};
+  hidePassword = true;
 
   constructor(
     private userProfile: UserProfileService,
@@ -22,7 +23,11 @@ export class PrivateDatesComponent {
     this.safeSvgCodes = this.svgService.getSafeSvgCodes();
   }
 
-  setEditorView() {
-    this.userProfile.updateView('private-dates-editor');
+  setEditorView(): void {
+    this.userProfile.updateView('password-editor');
+  }
+
+  togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
   }
 }

@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+// variables.scss
+// Кольори
+$primary-color: #5C8C7C;
+
+$secondary-color: #2ecc71;
+$background-color: #f0f0f0;
+
+$text-color: #1e1e1e;
+
+// Розміри
+$base-font-size: 16px;
+$heading-font-size: 24px;
+$button-padding: 10px 20px;
+
+.a-primary-link {
+  color: $primary-color;
+}
+
 .content-box {
   h2 {
     //styleName: Desktop/HEADING/H2;
