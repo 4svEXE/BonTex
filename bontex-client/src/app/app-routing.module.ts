@@ -26,7 +26,6 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    //canActivate: [AuthGuard], // Use the AuthGuard class and provide it as an array
     children: [
       {
         path: '',
@@ -35,10 +34,7 @@ const routes: Routes = [
       {
         path: ':id',
         component: UserProfileComponent,
-      },
-      {
-        path: ':id/private-dates',
-        component: PrivateDatesComponent,
+        canActivate: [AuthGuard]
       },
     ],
   },
