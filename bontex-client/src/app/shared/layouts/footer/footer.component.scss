@@ -23,4 +23,13 @@ footer {
       color: #FAFAFA;
     }
   }
+
+  .nav-box {
+    overflow: hidden;
+    border: 0px solid #FAFAFA;
+  }
+
+  .nav-box.active {
+    height: auto;
+  }
 }
