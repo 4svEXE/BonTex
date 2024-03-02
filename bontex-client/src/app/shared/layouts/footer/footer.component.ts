@@ -18,4 +18,11 @@ export class FooterComponent {
   ngOnInit(): void {
     this.safeSvgCodes = this.svgService.getSafeSvgCodes();
   }
+
+  navBars = [{active: false},{active: false},{active: false},]
+  toggleActiveNavBox(id:number){
+    this.navBars[id].active = !this.navBars[id].active
+
+    console.log(this.navBars[id].active, id)
+  }
 }

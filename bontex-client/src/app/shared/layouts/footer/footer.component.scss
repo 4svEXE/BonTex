@@ -27,9 +27,18 @@ footer {
   .nav-box {
     overflow: hidden;
     border: 0px solid #FAFAFA;
+    transition: .3s;
   }
 
   .nav-box.active {
-    height: auto;
+    height: 100%;
+  }
+
+  .arrow-icon {
+    transition: .3s;
+  }
+
+  .arrow-icon.active {
+    transform: rotate(180deg);
   }
 }

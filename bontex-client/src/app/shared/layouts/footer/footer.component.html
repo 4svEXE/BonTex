@@ -7,11 +7,26 @@
     </div>
 
     <div class="flex lg:col-span-3 col-span-1 flex-col md:flex-row">
-      <ng-container *ngFor="let section of sections">
+      <ng-container *ngFor="let section of sections; let i = index">
         <div class="flex flex-col md:w-full w-auto">
-          <h5 class="title mb-4 border-b-2 md:border-b-0">{{ section.title }}</h5>
+          <div
+            class="flex w-full justify-between mb-4 border-b-2 md:border-b-0"
+            (click)="toggleActiveNavBox(i)"
+          >
+            <h5 class="title">
+              {{ section.title }}
+            </h5>
+            <div
+              [innerHTML]="safeSvgCodes['phone']"
+              class="mr-2 arrow-icon"
+              [class.active]="navBars[i].active"
+            ></div>
+          </div>
 
-          <div class="nav-box flex flex-col h-0 md:h-auto">
+          <div
+            class="nav-box flex flex-col h-0 md:h-full"
+            [class.active]="navBars[i].active"
+          >
             <ng-container *ngFor="let item of section.items">
               <a
                 *ngIf="item.label"
