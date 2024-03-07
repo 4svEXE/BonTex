@@ -34,6 +34,7 @@ import { LogoutComponent } from './user-profile/logout/logout.component';
 import { FooterComponent } from './shared/layouts/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FirstBannerComponent } from './pages/home/components/first-banner/first-banner.component';
+import { RecomendetComponent } from './pages/home/components/recomendet/recomendet.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { FirstBannerComponent } from './pages/home/components/first-banner/first
     FooterComponent,
     HomeComponent,
     FirstBannerComponent,
+    RecomendetComponent,
   ],
   imports: [
     BrowserModule,
