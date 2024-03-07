@@ -1,19 +1,22 @@
-<div class="flex flex-col">
-  <div class="nav flex">
-    <a href="" class="a-secondary-link mr-5 active">
-      Хіти продажу
-    </a>
+<div class="flex flex-col mt-[120px]">
+  <div class="nav flex mb-10">
+    <a href="" class="a-secondary-link mr-5 active"> Хіти продажу </a>
 
-    <a href="" class="a-secondary-link mr-5">
-      Новинки
-    </a>
+    <a href="" class="a-secondary-link mr-5"> Новинки </a>
 
-    <a href="" class="a-secondary-link mr-5">
-      Топ акції
-    </a>
+    <a href="" class="a-secondary-link mr-5"> Топ акції </a>
 
-    <a href="" class="a-secondary-link mr-5">
-      Ми рекомендуємо
-    </a>
+    <a href="" class="a-secondary-link mr-5"> Ми рекомендуємо </a>
   </div>
+
+  <owl-carousel-o [options]="customOptions" class="customCar">
+    <ng-template carouselSlide
+      ><div class="h-52 bg-slate-400">fddssd</div></ng-template
+    >
+    <ng-template carouselSlide>Slide 2</ng-template>
+    <ng-template carouselSlide>Slide 3</ng-template>
+    <ng-template carouselSlide>Slide 1</ng-template>
+    <ng-template carouselSlide>Slide 2</ng-template>
+    <ng-template carouselSlide>Slide 3</ng-template>
+  </owl-carousel-o>
 </div>

@@ -37,7 +37,7 @@ $button-padding: 10px 20px;
 
   font-family: Roboto Flex;
   font-size: 20px;
-  font-weight: 550;
+  font-weight: 600;
   line-height: 34px;
   letter-spacing: 0em;
   text-align: left;
@@ -51,6 +51,38 @@ $button-padding: 10px 20px;
   }
 }
 
+.customCar{
+  background-color: #ff0;
+  position: relative;
+
+  .owl-nav{
+    position: absolute;
+    right: 0;
+    top: -87px;
+
+    & [class*=owl-] {
+      color: $text-color;
+      font-size: 14px;
+      margin: 5px;
+      padding: 4px 7px;
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 3px;
+      background-color: inherit;
+      transition: .3s;
+      opacity: .6;
+
+      &:hover{
+        background-color: inherit;
+        opacity: 1;
+      }
+
+      .arrow-left{
+        transform: rotate(180deg);
+      }
+  }
+  }
+}
 .content-box {
   h2 {
     //styleName: Desktop/HEADING/H2;
