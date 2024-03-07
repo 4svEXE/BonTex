@@ -7,29 +7,22 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./first-banner.component.scss'],
 })
 export class FirstBannerComponent {
+  imgPath: string = 'assets/img/pages/home/';
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
     dots: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
     navSpeed: 700,
-    // navText: [ '<i class="fa-chevron-left"></i>', '<i class="fa-chevron-right></i>'],
     responsive: {
       0: {
         items: 1,
       },
-      400: {
-        items: 2,
-      },
-      740: {
-        items: 3,
-      },
-      940: {
-        items: 4,
-      },
     },
-    // nav: true,
-
+    nav: false,
   };
 }

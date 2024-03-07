@@ -4,6 +4,7 @@
 
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
 // variables.scss
 // Кольори
 $primary-color: #5C8C7C;
@@ -17,6 +18,13 @@ $text-color: #1e1e1e;
 $base-font-size: 16px;
 $heading-font-size: 24px;
 $button-padding: 10px 20px;
+
+// Carousel
+.owl-dot.active{
+  span{
+    background-color: $primary-color !important;
+  }
+}
 
 .a-primary-link {
   color: $primary-color;
