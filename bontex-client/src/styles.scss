@@ -20,14 +20,35 @@ $heading-font-size: 24px;
 $button-padding: 10px 20px;
 
 // Carousel
-.owl-dot.active{
-  span{
+.owl-dot.active {
+  span {
     background-color: $primary-color !important;
   }
 }
 
 .a-primary-link {
   color: $primary-color;
+}
+
+.a-secondary-link {
+  color: $text-color;
+  transition: .3s;
+  cursor: pointer;
+
+  font-family: Roboto Flex;
+  font-size: 20px;
+  font-weight: 550;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &.active {
+    color: $primary-color;
+  }
 }
 
 .content-box {
