@@ -30,6 +30,7 @@ import { ReviewsComponent } from './user-profile/reviews/reviews.component';
 import { LogoutComponent } from './user-profile/logout/logout.component';
 import { FooterComponent } from './shared/layouts/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FirstBannerComponent } from './pages/home/components/first-banner/first-banner.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { HomeComponent } from './pages/home/home.component';
     LogoutComponent,
     FooterComponent,
     HomeComponent,
+    FirstBannerComponent,
   ],
   imports: [
     BrowserModule,
