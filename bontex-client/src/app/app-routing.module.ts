@@ -6,14 +6,15 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 import { AuthGuard } from './guards/auth.guard'; // Correct import
 import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
-
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   {
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
-      canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -34,7 +35,7 @@ const routes: Routes = [
       {
         path: ':id',
         component: UserProfileComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
     ],
   },

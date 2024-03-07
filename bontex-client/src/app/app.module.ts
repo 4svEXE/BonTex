@@ -29,6 +29,7 @@ import { SelectedGoodsComponent } from './user-profile/selected-goods/selected-g
 import { ReviewsComponent } from './user-profile/reviews/reviews.component';
 import { LogoutComponent } from './user-profile/logout/logout.component';
 import { FooterComponent } from './shared/layouts/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
     ReviewsComponent,
     LogoutComponent,
     FooterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
