@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./second-banner.component.scss']
 })
 export class SecondBannerComponent {
-
+  imgPath: string = 'assets/img/pages/home/';
 }
