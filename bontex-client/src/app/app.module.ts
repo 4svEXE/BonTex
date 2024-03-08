@@ -36,6 +36,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FirstBannerComponent } from './pages/home/components/first-banner/first-banner.component';
 import { RecomendetComponent } from './pages/home/components/recomendet/recomendet.component';
 import { SecondBannerComponent } from './pages/home/components/second-banner/second-banner.component';
+import { ReviewsHomePageComponent } from './pages/home/components/reviews-home-page/reviews-home-page.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { SecondBannerComponent } from './pages/home/components/second-banner/sec
     FirstBannerComponent,
     RecomendetComponent,
     SecondBannerComponent,
+    ReviewsHomePageComponent,
   ],
   imports: [
     BrowserModule,
