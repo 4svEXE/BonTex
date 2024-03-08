@@ -35,6 +35,7 @@ import { FooterComponent } from './shared/layouts/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FirstBannerComponent } from './pages/home/components/first-banner/first-banner.component';
 import { RecomendetComponent } from './pages/home/components/recomendet/recomendet.component';
+import { SecondBannerComponent } from './pages/home/components/second-banner/second-banner.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { RecomendetComponent } from './pages/home/components/recomendet/recomend
     HomeComponent,
     FirstBannerComponent,
     RecomendetComponent,
+    SecondBannerComponent,
   ],
   imports: [
     BrowserModule,
