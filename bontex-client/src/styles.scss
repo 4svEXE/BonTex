@@ -144,6 +144,15 @@ $button-padding: 10px 20px;
   }
 }
 
+h2.component-title {
+  font-family: Roboto Flex;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 43px;
+  letter-spacing: 0em;
+  color: $text-color;
+}
+
 .content-box {
   h2 {
     //styleName: Desktop/HEADING/H2;
