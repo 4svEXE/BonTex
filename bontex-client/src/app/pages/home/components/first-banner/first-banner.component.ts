@@ -15,7 +15,7 @@ export class FirstBannerComponent {
     touchDrag: true,
     pullDrag: false,
     dots: true,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 5000,
     navSpeed: 700,
     responsive: {
@@ -24,5 +24,6 @@ export class FirstBannerComponent {
       },
     },
     nav: false,
+    autoHeight: true
   };
 }

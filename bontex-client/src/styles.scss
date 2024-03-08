@@ -52,9 +52,23 @@ $button-padding: 10px 20px;
   }
 }
 
-.customCar {
+.custom-carousel-for-recomender {
   background-color: #ff0;
   position: relative;
+
+  .nav-box {
+    overflow: hidden;
+    overflow-x: auto;
+
+    .nav {
+      width: 100%;
+    }
+
+    &::-webkit-scrollbar-thumb,
+    &::-o-scrollbar-thumb {
+      display: none;
+    }
+  }
 
   .owl-nav {
     position: absolute;
@@ -87,22 +101,8 @@ $button-padding: 10px 20px;
 }
 
 @media (max-width: 768px) {
-  .customCar {
+  .custom-carousel-for-recomender {
     .owl-nav {
-      display: none;
-    }
-  }
-
-  .nav-box {
-    overflow: hidden;
-    overflow-x: scroll;
-
-    .nav {
-      width: max-content;
-    }
-
-    &::-webkit-scrollbar-thumb,
-    &::-o-scrollbar-thumb {
       display: none;
     }
   }
@@ -120,6 +120,27 @@ $button-padding: 10px 20px;
       background-color: $primary-color;
       color: #FAFAFA;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-box {
+    overflow: hidden;
+    overflow-x: scroll;
+
+    .nav {
+      width: max-content;
+    }
+
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+
+    scrollbar-color: transparent;
   }
 }
 

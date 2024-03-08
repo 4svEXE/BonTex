@@ -11,13 +11,15 @@ export class RecomendetComponent {
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
+    mouseDrag: true,
+    touchDrag: true,
     pullDrag: false,
     dots: false,
     navSpeed: 700,
     navText: [
-      `<img src="${this.imgPath + 'arrow_carousel.svg'}" alt="arrow-left" class="arrow-left"/>`,
+      `<img src="${
+        this.imgPath + 'arrow_carousel.svg'
+      }" alt="arrow-left" class="arrow-left"/>`,
       `<img src="${this.imgPath + 'arrow_carousel.svg'}" alt="arrow-right" />`,
     ],
     responsive: {

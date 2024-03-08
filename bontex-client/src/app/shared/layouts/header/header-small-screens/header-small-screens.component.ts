@@ -9,7 +9,7 @@ import { ILink } from './../../../../core/interfaces/index';
   styleUrls: ['./header-small-screens.component.scss'],
 })
 export class HeaderSmallScreensComponent {
-  isActiveContacts: boolean = true;
+  isActiveContacts: boolean = false;
   isFixed: boolean = false;
   imgPath: string = 'assets/img/shared/layout/';
   links: ILink[] = HeaderLinks;
