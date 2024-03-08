@@ -153,6 +153,28 @@ h2.component-title {
   color: $text-color;
 }
 
+.component-p {
+  font-family: Roboto Flex;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $text-color;
+}
+
+@media (max-width: 768px) {
+  .component-p {
+    font-family: Roboto Flex;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}
+
+
 .content-box {
   h2 {
     //styleName: Desktop/HEADING/H2;
