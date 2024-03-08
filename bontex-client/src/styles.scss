@@ -34,6 +34,7 @@ $button-padding: 10px 20px;
   color: $text-color;
   transition: .3s;
   cursor: pointer;
+  margin-right: 20px;
 
   font-family: Roboto Flex;
   font-size: 20px;
@@ -51,14 +52,15 @@ $button-padding: 10px 20px;
   }
 }
 
-.customCar{
+.customCar {
   background-color: #ff0;
   position: relative;
 
-  .owl-nav{
+  .owl-nav {
     position: absolute;
     right: 0;
     top: -87px;
+    display: block;
 
     & [class*=owl-] {
       color: $text-color;
@@ -72,17 +74,55 @@ $button-padding: 10px 20px;
       transition: .3s;
       opacity: .6;
 
-      &:hover{
+      &:hover {
         background-color: inherit;
         opacity: 1;
       }
 
-      .arrow-left{
+      .arrow-left {
         transform: rotate(180deg);
       }
-  }
+    }
   }
 }
+
+@media (max-width: 768px) {
+  .customCar {
+    .owl-nav {
+      display: none;
+    }
+  }
+
+  .nav-box {
+    overflow: hidden;
+    overflow-x: scroll;
+
+    .nav {
+      width: max-content;
+    }
+
+    &::-webkit-scrollbar-thumb,
+    &::-o-scrollbar-thumb {
+      display: none;
+    }
+  }
+
+  .a-secondary-link {
+    font-size: 16px;
+    font-weight: 560;
+    line-height: 34px;
+    padding: 8px 12px;
+    margin-right: 0;
+    border-radius: 4px;
+
+    &:hover,
+    &.active {
+      background-color: $primary-color;
+      color: #FAFAFA;
+    }
+  }
+}
+
 .content-box {
   h2 {
     //styleName: Desktop/HEADING/H2;
