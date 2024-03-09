@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SvgService } from 'src/app/shared/services/svg.service';
 
 @Component({
   selector: 'app-recomendet',
@@ -7,7 +9,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./recomendet.component.scss'],
 })
 export class RecomendetComponent {
-  imgPath: string = 'assets/img/pages/home/';
+  imgPath: string = 'assets/img/pages/home/products/';
+  safeSvgCodes: { [key: string]: SafeHtml } = {};
 
   customOptions: OwlOptions = {
     loop: true,
@@ -38,4 +41,16 @@ export class RecomendetComponent {
     },
     nav: true,
   };
+
+  constructor(private svgService: SvgService) {}
+
+  ngOnInit(): void {
+    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
+  }
+
+  isFav: boolean = false;
+
+  toggleFavorite() {
+    this.isFav = !this.isFav;
+  }
 }

@@ -1,4 +1,4 @@
-<div class="flex flex-col md:my-[120px] my-10 ">
+<div class="flex flex-col md:my-[120px] my-10">
   <div class="nav-box md:mb-10 mb-3 md:ml-0 ml-2">
     <div class="nav flex">
       <a href="" class="a-secondary-link active"> Хіти продажу </a>
@@ -11,14 +11,144 @@
     </div>
   </div>
 
-  <owl-carousel-o [options]="customOptions" class="custom-carousel-for-recomender">
-    <ng-template carouselSlide
-      ><div class="h-52 bg-slate-400">fddssd</div></ng-template
-    >
-    <ng-template carouselSlide>Slide 2</ng-template>
-    <ng-template carouselSlide>Slide 3</ng-template>
-    <ng-template carouselSlide>Slide 1</ng-template>
-    <ng-template carouselSlide>Slide 2</ng-template>
-    <ng-template carouselSlide>Slide 3</ng-template>
+  <owl-carousel-o
+    [options]="customOptions"
+    class="custom-carousel-for-recomendet"
+  >
+    <ng-template carouselSlide>
+      <div class="product-card flex flex-col">
+        <div class="card-top-box mb-2 flex justify-between">
+          <h4 class="produt-group-title">Хіт</h4>
+          <div class="discount"></div>
+        </div>
+
+        <div class="image-box mb-2">
+          <img src="{{ imgPath + '02.png' }}" alt="" />
+          <div
+            class="add-to-fav-box"
+            [innerHTML]="safeSvgCodes['heart']"
+            (click)="toggleFavorite()"
+            [class.active]="isFav"
+          ></div>
+        </div>
+
+        <h5 class="short-name">
+          Килим в дитячу «Класики»
+        </h5>
+
+        <div class="prices-box flex justify-end items-center mb-2">
+          <del class="crossed-out-price"></del>
+          <div class="current-price ml-2">9750 ₴</div>
+        </div>
+
+        <app-button
+          [label]="'Перейти до продукту'"
+          [additionalClasses]="'primary px-4 py-3'"
+          [routerLink]="'/'"
+        ></app-button>
+      </div>
+    </ng-template>
+
+    <ng-template carouselSlide>
+      <div class="product-card flex flex-col">
+        <div class="card-top-box mb-2 flex justify-between">
+          <h4 class="produt-group-title">Хіт</h4>
+          <div class="discount">-25%</div>
+        </div>
+
+        <div class="image-box mb-2">
+          <img src="{{ imgPath + '01.png' }}" alt="" />
+          <div
+            class="add-to-fav-box"
+            [innerHTML]="safeSvgCodes['heart']"
+            (click)="toggleFavorite()"
+            [class.active]="isFav"
+          ></div>
+        </div>
+
+        <h5 class="short-name">
+          Килим в дитячу «Класики з балериною та зайчиком»
+        </h5>
+
+        <div class="prices-box flex justify-end items-center mb-2">
+          <del class="crossed-out-price">13 000 ₴</del>
+          <div class="current-price ml-2">9750 ₴</div>
+        </div>
+
+        <app-button
+          [label]="'Перейти до продукту'"
+          [additionalClasses]="'primary px-4 py-3'"
+          [routerLink]="'/'"
+        ></app-button>
+      </div>
+    </ng-template>
+
+    <ng-template carouselSlide>
+      <div class="product-card flex flex-col">
+        <div class="card-top-box mb-2 flex justify-between">
+          <h4 class="produt-group-title">Хіт</h4>
+          <div class="discount">-25%</div>
+        </div>
+
+        <div class="image-box mb-2">
+          <img src="{{ imgPath + '01.png' }}" alt="" />
+          <div
+            class="add-to-fav-box"
+            [innerHTML]="safeSvgCodes['heart']"
+            (click)="toggleFavorite()"
+            [class.active]="isFav"
+          ></div>
+        </div>
+
+        <h5 class="short-name">
+          Килим в дитячу «Класики з балериною та зайчиком»
+        </h5>
+
+        <div class="prices-box flex justify-end items-center mb-2">
+          <del class="crossed-out-price">13 000 ₴</del>
+          <div class="current-price ml-2">9750 ₴</div>
+        </div>
+
+        <app-button
+          [label]="'Перейти до продукту'"
+          [additionalClasses]="'primary px-4 py-3'"
+          [routerLink]="'/'"
+        ></app-button>
+      </div>
+    </ng-template>
+
+    <ng-template carouselSlide>
+      <div class="product-card flex flex-col">
+        <div class="card-top-box mb-2 flex justify-between">
+          <h4 class="produt-group-title">Новинка</h4>
+          <div class="discount">-15%</div>
+        </div>
+
+        <div class="image-box mb-2">
+          <img src="{{ imgPath + '01.png' }}" alt="" />
+          <div
+            class="add-to-fav-box"
+            [innerHTML]="safeSvgCodes['heart']"
+            (click)="toggleFavorite()"
+            [class.active]="isFav"
+          ></div>
+        </div>
+
+        <h5 class="short-name">
+          Килим  «Класики»
+        </h5>
+
+        <div class="prices-box flex justify-end items-center mb-2">
+          <del class="crossed-out-price">10 000 ₴</del>
+          <div class="current-price ml-2">6750 ₴</div>
+        </div>
+
+        <app-button
+          [label]="'Перейти до продукту'"
+          [additionalClasses]="'primary px-4 py-3'"
+          [routerLink]="'/'"
+        ></app-button>
+      </div>
+    </ng-template>
   </owl-carousel-o>
 </div>

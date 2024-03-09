@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SvgService } from 'src/app/shared/services/svg.service';
 import { HeaderLinks } from './../../../../core/variables/index';
 import { ILink } from './../../../../core/interfaces/index';
-import { SvgService } from 'src/app/shared/services/svg.service';
 
 @Component({
   selector: 'app-mobile-tab-bar',
