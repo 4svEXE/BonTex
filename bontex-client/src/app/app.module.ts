@@ -38,6 +38,7 @@ import { RecomendetComponent } from './pages/home/components/recomendet/recomend
 import { SecondBannerComponent } from './pages/home/components/second-banner/second-banner.component';
 import { ReviewsHomePageComponent } from './pages/home/components/reviews-home-page/reviews-home-page.component';
 import { AboutHomePageComponent } from './pages/home/components/about-home-page/about-home-page.component';
+import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AboutHomePageComponent } from './pages/home/components/about-home-page/
     SecondBannerComponent,
     ReviewsHomePageComponent,
     AboutHomePageComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
