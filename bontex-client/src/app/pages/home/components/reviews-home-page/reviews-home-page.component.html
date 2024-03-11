@@ -1,19 +1,36 @@
 <div class="flex flex-col md:my-[120px] my-10">
-  <div class="flex md:mb-10 mb-3 md:ml-0 ">
+  <div class="flex md:mb-10 mb-3 md:ml-0">
     <h2 class="component-title w-full text-center md:text-left">Відгуки</h2>
   </div>
 
-  <owl-carousel-o
-    [options]="customOptions"
-    class="custom-carousel-for-recomendet"
-  >
-    <ng-template carouselSlide
-      ><div class="h-52 bg-slate-400">fddssd</div></ng-template
-    >
-    <ng-template carouselSlide>Slide 2</ng-template>
-    <ng-template carouselSlide>Slide 3</ng-template>
-    <ng-template carouselSlide>Slide 1</ng-template>
-    <ng-template carouselSlide>Slide 2</ng-template>
-    <ng-template carouselSlide>Slide 3</ng-template>
+  <owl-carousel-o [options]="customOptions" class="custom-carousel-for-recommendation">
+    <ng-container *ngFor="let review of reviews">
+      <ng-template carouselSlide>
+        <div class="review-box md:mr-4 mr-0">
+          <div class="flex justify-between">
+            <div class="flex flex-col">
+              <strong class="username">{{ review.username }}</strong>
+              <span class="publication-date">{{ review.publicationDate }}</span>
+            </div>
+
+            <div class="rating-box flex">
+              <div *ngFor="let _ of [1,2,3,4,5]" class="rating-rug" [innerHTML]="safeSvgCodes['rug']"></div>
+            </div>
+          </div>
+
+          <p class="review truncate-text" [class.active]="isOpenReview">
+            {{ review.content }}
+          </p>
+
+          <div class="flex justify-end mt-2" (click)="toggleIsOpenReview()">
+            <a class="a-primary-link flex">
+              {{ isOpenReview ? 'Приховати відгук' : 'Читати весь відгук'}}
+              <div class="arrow ml-2" [class.active]="isOpenReview" [innerHTML]="safeSvgCodes['arrow']"></div>
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>
   </owl-carousel-o>
+
 </div>
