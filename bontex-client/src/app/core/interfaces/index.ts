@@ -14,3 +14,10 @@ export interface FooterNavItem {
   icon?: string;
   value?: string;
 }
+
+export interface Review {
+  username: string;
+  publicationDate: string;
+  content: string;
+  rating: number;
+}

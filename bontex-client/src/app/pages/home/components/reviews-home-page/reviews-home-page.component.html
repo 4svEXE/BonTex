@@ -6,29 +6,7 @@
   <owl-carousel-o [options]="customOptions" class="custom-carousel-for-recommendation">
     <ng-container *ngFor="let review of reviews">
       <ng-template carouselSlide>
-        <div class="review-box md:mr-4 mr-0">
-          <div class="flex justify-between">
-            <div class="flex flex-col">
-              <strong class="username">{{ review.username }}</strong>
-              <span class="publication-date">{{ review.publicationDate }}</span>
-            </div>
-
-            <div class="rating-box flex">
-              <div *ngFor="let _ of [1,2,3,4,5]" class="rating-rug" [innerHTML]="safeSvgCodes['rug']"></div>
-            </div>
-          </div>
-
-          <p class="review truncate-text" [class.active]="isOpenReview">
-            {{ review.content }}
-          </p>
-
-          <div class="flex justify-end mt-2" (click)="toggleIsOpenReview()">
-            <a class="a-primary-link flex">
-              {{ isOpenReview ? 'Приховати відгук' : 'Читати весь відгук'}}
-              <div class="arrow ml-2" [class.active]="isOpenReview" [innerHTML]="safeSvgCodes['arrow']"></div>
-            </a>
-          </div>
-        </div>
+        <app-review-card [review]="review"></app-review-card>
       </ng-template>
     </ng-container>
   </owl-carousel-o>
