@@ -40,6 +40,7 @@ import { SecondBannerComponent } from './pages/home/components/second-banner/sec
 import { ReviewsHomePageComponent } from './pages/home/components/reviews-home-page/reviews-home-page.component';
 import { AboutHomePageComponent } from './pages/home/components/about-home-page/about-home-page.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
+import { ReviewCardComponent } from './shared/components/review-card/review-card.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
     ReviewsHomePageComponent,
     AboutHomePageComponent,
     ProductCardComponent,
+    ReviewCardComponent,
   ],
   imports: [
     BrowserModule,
