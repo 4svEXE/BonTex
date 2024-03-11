@@ -3,7 +3,7 @@
     <h2 class="component-title w-full text-center md:text-left">Відгуки</h2>
   </div>
 
-  <owl-carousel-o [options]="customOptions" class="custom-carousel-for-recommendation">
+  <owl-carousel-o [options]="customOptions" class="custom-carousel">
     <ng-container *ngFor="let review of reviews">
       <ng-template carouselSlide>
         <app-review-card [review]="review"></app-review-card>
