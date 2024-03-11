@@ -15,6 +15,7 @@ header {
       width: 212px;
       height: 36px;
     }
+
     nav {
       a {
         font-size: 18px;
@@ -24,10 +25,13 @@ header {
         text-align: left;
         color: #1e1e1e;
         transition: 0.3s;
+        cursor: pointer;
 
-        &:hover {
+        &.red {
           color: #f1655b;
         }
+
+
       }
     }
 
@@ -66,6 +70,7 @@ header {
       user-select: none;
     }
   }
+
   .bottom-section {
     border-top: 1px solid #5c8c7c;
     z-index: 5;
@@ -99,10 +104,12 @@ header {
     .contacts {
       .phone-number {
         width: 100%;
+
         img {
           width: 24px;
           height: 24px;
         }
+
         span {
           font-size: 18px;
           font-weight: 400;
@@ -111,6 +118,7 @@ header {
           text-align: left;
         }
       }
+
       a {
         font-size: 18px;
         font-weight: 400;
