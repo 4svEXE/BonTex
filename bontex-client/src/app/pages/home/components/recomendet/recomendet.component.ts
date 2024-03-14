@@ -7,7 +7,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./recomendet.component.scss'],
 })
 export class RecomendetComponent {
-  imgPath: string = 'assets/img/pages/home/';
+  arrowPath = 'assets/img/pages/home/arrow_carousel.svg';
 
   products: Product[] = [
     {
@@ -18,7 +18,7 @@ export class RecomendetComponent {
       oldPrice: '13 000 ₴',
       currentPrice: '9750 ₴',
       routerLink: '/',
-      id: '01'
+      id: '01',
     },
     {
       groupTitle: 'Хіт',
@@ -28,7 +28,7 @@ export class RecomendetComponent {
       oldPrice: '10 000 ₴',
       currentPrice: '8000 ₴',
       routerLink: '/',
-      id: '02'
+      id: '02',
     },
     {
       groupTitle: 'Новинка',
@@ -38,7 +38,7 @@ export class RecomendetComponent {
       oldPrice: '9000 ₴',
       currentPrice: '7650 ₴',
       routerLink: '/',
-      id: '03'
+      id: '03',
     },
     {
       groupTitle: 'Хіт',
@@ -48,7 +48,7 @@ export class RecomendetComponent {
       oldPrice: '15 000 ₴',
       currentPrice: '10 500 ₴',
       routerLink: '/',
-      id: '04'
+      id: '04',
     },
     {
       groupTitle: 'Новинка',
@@ -58,7 +58,7 @@ export class RecomendetComponent {
       oldPrice: '12 000 ₴',
       currentPrice: '10 800 ₴',
       routerLink: '/',
-      id: '05'
+      id: '05',
     },
   ];
 
@@ -70,10 +70,8 @@ export class RecomendetComponent {
     dots: false,
     navSpeed: 700,
     navText: [
-      `<img src="${
-        this.imgPath + 'arrow_carousel.svg'
-      }" alt="arrow-left" class="arrow-left"/>`,
-      `<img src="${this.imgPath + 'arrow_carousel.svg'}" alt="arrow-right" />`,
+      `<img src="${this.arrowPath}" alt="arrow-left" class="arrow-left"/>`,
+      `<img src="${this.arrowPath}" alt="arrow-right" />`,
     ],
     responsive: {
       0: {
