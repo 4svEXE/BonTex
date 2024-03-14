@@ -4,7 +4,7 @@ import { LoginComponent } from './admin/components/login/login.component';
 import { RegisterComponent } from './admin/components/register/register.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
-import { AuthGuard } from './guards/auth.guard'; // Correct import
+import { AuthGuard } from './guards/auth.guard';
 import { PrivateDatesComponent } from './user-profile/private-dates/private-dates.component';
 import { HomeComponent } from './pages/home/home.component';
 
@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    redirectTo: '', // You might want to remove this line if it's not intended
+    redirectTo: '',
   },
   {
     path: 'register',
@@ -42,7 +42,12 @@ const routes: Routes = [
   {
     path: 'update-profile',
     component: UpdateUserProfileComponent,
-    canActivate: [AuthGuard], // Use the AuthGuard class and provide it as an array
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'info',
+    loadChildren: () =>
+      import('./pages/info/info.module').then((m) => m.InfoModule)
   },
 ];
 

@@ -41,6 +41,7 @@ import { ReviewsHomePageComponent } from './pages/home/components/reviews-home-p
 import { AboutHomePageComponent } from './pages/home/components/about-home-page/about-home-page.component';
 import { ProductCardComponent } from './shared/components/product-card/product-card.component';
 import { ReviewCardComponent } from './shared/components/review-card/review-card.component';
+import { InfoRoutingModule } from './pages/info/info-routing.module';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { ReviewCardComponent } from './shared/components/review-card/review-card
     NgxSmartModalModule.forRoot(),
     CarouselModule,
     BrowserAnimationsModule,
+    InfoRoutingModule,
   ],
   providers: [
     JwtHelperService,
