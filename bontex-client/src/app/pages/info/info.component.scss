@@ -1,0 +1,39 @@
+.nav-bar {
+  max-width: 250px;
+  a {
+    user-select: none;
+    font-family: Roboto Flex;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+
+    &.active,
+    &:hover {
+      color: #5c8c7c;
+    }
+
+    .notifications-counter {
+      content: attr(notifications-count);
+      width: 20px;
+      height: 20px;
+      background: #84b4a4;
+      border-radius: 100%;
+      font-size: 10px;
+      font-weight: bold;
+      color: #fff;
+      margin-left: 12px;
+      line-height: normal;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+

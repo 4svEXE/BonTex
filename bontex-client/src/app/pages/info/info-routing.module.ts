@@ -6,7 +6,6 @@ import { DeliveryAndPaymentsComponent } from './components/delivery-and-payments
 const routes: Routes = [
   {
     path: '',
-
     component: InfoComponent,
     children: [
       {

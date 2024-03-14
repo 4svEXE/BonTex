@@ -2,4 +2,22 @@
 
 <a routerLink="delivery-and-payments">delivery-and-payments</a>
 
-<router-outlet></router-outlet>
+<div class="container pt-10 flex">
+  <div class="nav-bar flex flex-col mr-14">
+    <ng-container *ngFor="let item of navigationItems">
+      <a
+        [class.active]="isActive"
+        class="flex items-center"
+      >
+        {{ item.label }}
+        <div class="notifications-counter" *ngIf="item.showCounter">
+          {{ item.counter }}
+        </div>
+      </a>
+    </ng-container>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
+
