@@ -2,8 +2,8 @@
   <div class="nav-bar flex flex-col mr-14">
     <div>
       <a
-        [class.active]="true"
-        routerLink="delivery-and-payments"
+        routerLinkActive="active"
+        routerLink="catalog-info"
         class="flex items-center"
       >
         Каталог
@@ -12,7 +12,7 @@
 
     <div>
       <a
-        [class.active]="isActive"
+        routerLinkActive="active"
         routerLink="delivery-and-payments"
         class="flex items-center"
       >
@@ -22,8 +22,8 @@
 
     <div>
       <a
-        [class.active]="isActive"
-        routerLink="delivery-and-payments"
+        routerLinkActive="active"
+        routerLink="exchange-and-returns"
         class="flex items-center"
       >
         Обмін та повернення
@@ -31,8 +31,8 @@
     </div>
     <div>
       <a
-        [class.active]="isActive"
-        routerLink="delivery-and-payments"
+        routerLinkActive="active"
+        routerLink="about-us"
         class="flex items-center"
       >
         Про нас
@@ -40,8 +40,8 @@
     </div>
     <div>
       <a
-        [class.active]="isActive"
-        routerLink="delivery-and-payments"
+        routerLinkActive="active"
+        routerLink="contacts"
         class="flex items-center"
       >
         Контакти
@@ -49,26 +49,22 @@
     </div>
     <div>
       <a
-        [class.active]="isActive"
-        routerLink="delivery-and-payments"
+        routerLinkActive="active"
+        routerLink="user-agreement"
         class="flex items-center"
       >
         Угода користувача
       </a>
     </div>
     <div>
-      <a
-        [class.active]="isActive"
-        routerLink="delivery-and-payments"
-        class="flex items-center"
-      >
+      <a routerLinkActive="active" routerLink="faq" class="flex items-center">
         Питання та відповіді
       </a>
     </div>
     <div>
       <a
-        [class.active]="isActive"
-        routerLink="delivery-and-payments"
+        routerLinkActive="active"
+        routerLink="store-reviews"
         class="flex items-center"
       >
         Відгуки про магазин
