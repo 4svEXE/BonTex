@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbontex_client=self.webpackChunkbontex_client||[]).push([[403],{403:(_,o,t)=>{t.r(o),t.d(o,{InfoModule:()=>a});var l=t(6814),u=t(5812),s=t(4769);let a=(()=>{class n{static#t=this.\u0275fac=function(c){return new(c||n)};static#n=this.\u0275mod=s.oAB({type:n});static#o=this.\u0275inj=s.cJS({imports:[l.ez,u.N]})}return n})()}}]);
