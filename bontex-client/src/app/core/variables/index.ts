@@ -13,11 +13,11 @@ export const Sections: SectionItem[] = [
   {
     title: 'Клієнтам',
     items: [
-      { label: 'Про нас', link: '/' },
-      { label: 'Контакти', link: '/' },
-      { label: 'Угода користувача', link: '/' },
-      { label: 'Питання та відповіді', link: '/' },
-      { label: 'Відгуки про магазин', link: '/' },
+      { label: 'Про нас', link: '/info/about-us' },
+      { label: 'Контакти', link: '/info/contacts' },
+      { label: 'Угода користувача', link: '/info/user-agreement' },
+      { label: 'Питання та відповіді', link: '/info/faq' },
+      { label: 'Відгуки про магазин', link: '/info/store-reviews' },
     ],
   },
   {

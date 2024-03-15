@@ -15,7 +15,7 @@ export class MobileTabBarComponent {
   isClosedSubBar: boolean = true;
 
   constructor(
-    private sanitizer: DomSanitizer,
+    // private sanitizer: DomSanitizer,
     private svgService: SvgService
   ) {}
 
