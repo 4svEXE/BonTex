@@ -1,5 +1,6 @@
 .nav-bar {
   max-width: 250px;
+
   a {
     user-select: none;
     font-family: Roboto Flex;
@@ -14,9 +15,10 @@
     padding: 8px 12px;
     border-radius: 4px;
 
-    &.active,
-    &:hover {
-      color: #5c8c7c;
+    &.active {
+      font-weight: 600;
+      line-height: 24px;
+      color: #5C8C7C;
     }
 
     .notifications-counter {
@@ -36,4 +38,3 @@
     }
   }
 }
-

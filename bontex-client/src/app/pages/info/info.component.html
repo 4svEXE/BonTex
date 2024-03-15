@@ -1,23 +1,80 @@
-<p routerLink="info">info works!</p>
-
-<a routerLink="delivery-and-payments">delivery-and-payments</a>
-
 <div class="container pt-10 flex">
   <div class="nav-bar flex flex-col mr-14">
-    <ng-container *ngFor="let item of navigationItems">
+    <div>
       <a
-        [class.active]="isActive"
+        [class.active]="true"
+        routerLink="delivery-and-payments"
         class="flex items-center"
       >
-        {{ item.label }}
-        <div class="notifications-counter" *ngIf="item.showCounter">
-          {{ item.counter }}
-        </div>
+        Каталог
       </a>
-    </ng-container>
+    </div>
+
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Доставка та оплата
+      </a>
+    </div>
+
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Обмін та повернення
+      </a>
+    </div>
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Про нас
+      </a>
+    </div>
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Контакти
+      </a>
+    </div>
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Угода користувача
+      </a>
+    </div>
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Питання та відповіді
+      </a>
+    </div>
+    <div>
+      <a
+        [class.active]="isActive"
+        routerLink="delivery-and-payments"
+        class="flex items-center"
+      >
+        Відгуки про магазин
+      </a>
+    </div>
   </div>
 
   <router-outlet></router-outlet>
 </div>
-
-
