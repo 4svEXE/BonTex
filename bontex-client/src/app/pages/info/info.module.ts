@@ -12,7 +12,6 @@ import { FaqComponent } from './components/faq/faq.component';
 import { StoreReviewsComponent } from './components/store-reviews/store-reviews.component';
 import { CatalogInfoComponent } from './components/catalog-info/catalog-info.component';
 
-
 @NgModule({
   declarations: [
     DeliveryAndPaymentsComponent,
@@ -24,6 +23,9 @@ import { CatalogInfoComponent } from './components/catalog-info/catalog-info.com
     StoreReviewsComponent,
     CatalogInfoComponent,
   ],
-  imports: [ CommonModule, InfoRoutingModule],
+  imports: [
+    CommonModule,
+    InfoRoutingModule,
+  ],
 })
-export class InfoModule { }
+export class InfoModule {}
