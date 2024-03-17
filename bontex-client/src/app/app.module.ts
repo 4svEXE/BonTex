@@ -85,6 +85,9 @@ import { InfoRoutingModule } from './pages/info/info-routing.module';
     BrowserAnimationsModule,
     InfoRoutingModule,
   ],
+  exports: [
+    ReviewCardComponent
+  ],
   providers: [
     JwtHelperService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
