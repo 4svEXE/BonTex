@@ -56,6 +56,5 @@ const routes: Routes = [
   declarations: [InfoComponent, InfoNavBarComponent],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule, InfoNavBarComponent],
-
 })
 export class InfoRoutingModule {}

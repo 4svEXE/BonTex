@@ -2,7 +2,7 @@ import { IsOptional } from 'class-validator';
 import { Role } from 'src/enums/roles.enum';
 import { BeforeUpdate, Column, Entity, ObjectId, ObjectIdColumn } from 'typeorm';
 
-@Entity({ name: 'User' })
+@Entity({ name: 'Users' })
 export class UserEntity {
 
   @ObjectIdColumn()
