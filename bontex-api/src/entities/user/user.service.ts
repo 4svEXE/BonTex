@@ -61,7 +61,7 @@ export class UserService {
     const user = this.userRepository.findOne({ where: { email: email } });
 
     if (!user) {
-      throw new NotFoundException(`User with username ${email} not found`);
+      throw new NotFoundException(`User with email ${email} not found`);
     }
 
     return user;
