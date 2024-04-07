@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { SvgService } from 'src/app/shared/services/svg.service';
+import { SvgService } from 'src/app/core/services/svg.service';
+import { Product } from 'src/app/core/variables';
+
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -25,12 +27,12 @@ export class ProductCardComponent {
   }
 }
 
-export interface Product {
-  groupTitle: string;
-  discount?: string;
-  image: string;
-  shortName: string;
-  oldPrice?: string;
-  currentPrice: string;
-  routerLink: string;
-}
+// export interface Product {
+//   groupTitle: string;
+//   discount?: string;
+//   image: string;
+//   shortName: string;
+//   oldPrice?: string;
+//   currentPrice: string;
+//   routerLink: string;
+// }

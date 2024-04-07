@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LinkInterface } from 'src/app/core/variables/header';
 
 @Component({
   selector: 'app-info',
@@ -8,14 +9,20 @@ import { Component } from '@angular/core';
 export class InfoComponent {
   isActive = false;
 
-  // navigationItems = [
-  //   { label: 'Каталог', route: 'catalog-info' },
-  //   { label: 'Доставка та оплата', route: 'delivery-and-payments' },
-  //   { label: 'Обмін та повернення', route: 'exchange-and-returns' },
-  //   { label: 'Про нас', route: 'about-us' },
-  //   { label: 'Контакти', route: 'contacts' },
-  //   { label: 'Угода користувача', route: 'user-agreement' },
-  //   { label: 'Питання та відповіді', route: 'faq' },
-  //   { label: 'Відгуки про магазин', route: 'store-reviews' },
-  // ];
+  isClosedSubBar: boolean = true;
+
+  links: LinkInterface[] = [
+    { title: 'Каталог', path: '/info/catalog-info' },
+    { title: 'Доставка та оплата', path: '/info/delivery-and-payments' },
+    { title: 'Обмін та повернення', path: '/info/exchange-and-returns' },
+    { title: 'Про нас', path: '/info/about-us' },
+    { title: 'Контакти', path: '/info/contacts' },
+    { title: 'Угода користувача', path: '/info/user-agreement' },
+    { title: 'Питання та відповіді', path: '/info/faq' },
+    { title: 'Відгуки про магазин', path: '/info/store-reviews' }
+  ];
+
+  toggleSubBar() {
+    this.isClosedSubBar = !this.isClosedSubBar;
+  }
 }

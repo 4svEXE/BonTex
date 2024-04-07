@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { SvgService } from 'src/app/shared/services/svg.service';
-import { Review } from './../../../core/interfaces/index';
+
+import { Review } from 'src/app/core/interfaces';
+import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
   selector: 'app-review-card',
@@ -11,14 +12,10 @@ import { Review } from './../../../core/interfaces/index';
 export class ReviewCardComponent {
   @Input() review!: Review;
 
-  safeSvgCodes: { [key: string]: SafeHtml } = {};
+  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
   isOpenReview: boolean = false;
 
   constructor(private svgService: SvgService) {}
-
-  ngOnInit(): void {
-    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
-  }
 
   toggleIsOpenReview() {
     this.isOpenReview = !this.isOpenReview;

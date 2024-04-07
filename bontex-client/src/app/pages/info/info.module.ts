@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { InfoRoutingModule } from './info-routing.module';
 
 import { DeliveryAndPaymentsComponent } from './components/delivery-and-payments/delivery-and-payments.component';
@@ -11,21 +10,26 @@ import { UserAgreementComponent } from './components/user-agreement/user-agreeme
 import { FaqComponent } from './components/faq/faq.component';
 import { StoreReviewsComponent } from './components/store-reviews/store-reviews.component';
 import { CatalogInfoComponent } from './components/catalog-info/catalog-info.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { InfoComponent } from './info.component';
+
+const contenders = [
+  InfoComponent,
+  DeliveryAndPaymentsComponent,
+  ExchangeAndReturnsComponent,
+  AboutUsComponent,
+  ContactsComponent,
+  UserAgreementComponent,
+  FaqComponent,
+  StoreReviewsComponent,
+  CatalogInfoComponent,
+];
+
+const modules = [SharedModule, InfoRoutingModule, ];
 
 @NgModule({
-  declarations: [
-    DeliveryAndPaymentsComponent,
-    ExchangeAndReturnsComponent,
-    AboutUsComponent,
-    ContactsComponent,
-    UserAgreementComponent,
-    FaqComponent,
-    StoreReviewsComponent,
-    CatalogInfoComponent,
-  ],
-  imports: [
-    CommonModule,
-    InfoRoutingModule,
-  ],
+  declarations: [contenders],
+  imports: [modules],
+  exports: [modules, contenders],
 })
 export class InfoModule {}

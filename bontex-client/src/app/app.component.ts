@@ -1,5 +1,11 @@
-import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+
+import { AuthenticationService } from './core/services/authentication.service';
+
+import { Router } from '@angular/router';
+
+import { SafeHtml } from '@angular/platform-browser';
+import { SvgService } from './core/services/svg.service';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +13,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  // entries = {
-  //   name: 'Update profile',
-  //   link: 'update-profile',
-  // };
+  title = 'angular-skeleton';
+  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
 
-  title = 'BonTex';
+  constructor(
+    private authService: AuthenticationService,
+    private router: Router,
+    private svgService: SvgService
+  ) {}
 
-  constructor(private router: Router) {}
-
-  navigateTo(value: string) {
-    this.router.navigate(['../' + value]);
+  onLogout() {
+    this.authService.logOut();
+    this.router.navigate(['/']);
   }
 }
