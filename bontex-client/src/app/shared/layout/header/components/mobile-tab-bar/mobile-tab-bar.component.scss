@@ -1,0 +1,39 @@
+.tab-bar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #84b4a4;
+  z-index: 100;
+
+  .tab-bar-button {
+    color: white;
+    fill: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    .tab-bar-icon {
+      transition: 0.3s;
+
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  .active {
+    .tab-bar-icon {
+      fill: #5c8c7c;
+    }
+
+    span {
+      color: #5c8c7c;
+    }
+  }
+}

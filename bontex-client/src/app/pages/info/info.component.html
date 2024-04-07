@@ -1,0 +1,9 @@
+<div class="container pt-10 flex md:flex-row flex-col-reverse">
+  <app-nav-bar
+    [links]="links"
+    [isClosed]="isClosedSubBar"
+    toggleSubBarLabel="Меню Клієнтам"
+  ></app-nav-bar>
+
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,32 @@
+<div class="tab-bar">
+  <a class="tab-bar-button " routerLink="/home" routerLinkActive="active">
+    <div [innerHTML]="safeSvgCodes['home']" class="tab-bar-icon"></div>
+    <span>Головна</span>
+  </a>
+
+  <a class="tab-bar-button" routerLink="/catalog" routerLinkActive="active">
+    <div [innerHTML]="safeSvgCodes['catalog']" class="tab-bar-icon"></div>
+    <span>Каталог</span>
+  </a>
+
+  <a class="tab-bar-button">
+    <div [innerHTML]="safeSvgCodes['basket']" class="tab-bar-icon"></div>
+    <span>Кошик</span>
+  </a>
+
+  <a class="tab-bar-button">
+    <div [innerHTML]="safeSvgCodes['heart']" class="tab-bar-icon"></div>
+    <span>Обране</span>
+  </a>
+
+  <a class="tab-bar-button" (click)="toggleSubBar()">
+    <div [innerHTML]="safeSvgCodes['more']" class="tab-bar-icon"></div>
+    <span>Більше</span>
+  </a>
+</div>
+
+<app-nav-sub-menu
+  [links]="links"
+  [isClosed]="isClosedSubBar"
+  (click)="toggleSubBar()"
+></app-nav-sub-menu>

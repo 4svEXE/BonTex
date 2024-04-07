@@ -1,0 +1,78 @@
+<div class="wrapper md:mx-0 mx-2">
+  <h2 class="page-title">Дитячі килими Україна щільні</h2>
+
+  <div
+    class="filters flex justify-between items-center md:items-start flex-col md:flex-row-reverse"
+  >
+    <!-- Саотувати за -->
+    <form [formGroup]="formGroup">
+      <div class="flex flex-col h-full items-end">
+        <div class="flex justify-center mb-4">
+          <div class="flex">
+            <app-select
+              class="w-full"
+              selectId="filterSelect"
+              [options]="options"
+              formControlName="filterSelect"
+            />
+          </div>
+        </div>
+        <!--
+        <div class="flex justify-center m-4">
+          {{ formGroup.value | json }}
+        </div> -->
+      </div>
+    </form>
+
+    <!-- Вибрані фільтри -->
+    <div class="flex flex-col md:flex-row">
+      <span class="title flex mr-3 my-2">Обрано 10 товарів</span>
+
+      <app-filter-button
+        label="скасувати"
+        additionClasses="reset"
+      ></app-filter-button>
+
+      <div class="selected-filters flex flex-wrap">
+        <app-filter-button
+          *ngFor="let filter of selectedFilters"
+          [label]="filter.label"
+          [isClose]="true"
+        ></app-filter-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Вивід фільтрів і товарів -->
+  <div class="flex md:flex-row flex-col relative">
+    <!-- Фільтри -->
+    <div class="flex flex-col">
+      <div class="filters-nav-bar flex flex-col">
+        <app-filter-by-price class="mb-8"></app-filter-by-price>
+
+        <app-filter-options-box
+          label="Розміри, см"
+          [options]="sizesOptions"
+        ></app-filter-options-box>
+
+        <app-filter-options-box
+          label="Висота ворсу, мм"
+          [options]="sizesOptions"
+        ></app-filter-options-box>
+
+        <app-filter-options-box
+          label="Матеріали"
+          [options]="sizesOptions"
+        ></app-filter-options-box>
+
+        <app-filter-options-box
+          label="Бренд (країна)"
+          [options]="sizesOptions"
+        ></app-filter-options-box>
+      </div>
+    </div>
+
+    <!-- Товари -->
+    <app-products [products]="productsToDisplay"> </app-products>
+  </div>
+</div>
