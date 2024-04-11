@@ -11,7 +11,7 @@ import { ProductModule } from './entities/product/product.module';
       url: process.env.DB_URL,
       ssl: false,
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: true, 
     }),
     AuthModule,
   ],

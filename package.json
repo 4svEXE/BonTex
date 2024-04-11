@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "@angular/cli": "^17.1.1"
+    "@angular/cli": "^17.1.1",
+    "@nestjs/config": "^3.2.2"
   },
   "scripts": {
     "client": "cd ./bontex-client && npm run start",

@@ -39,27 +39,27 @@ export class ProductService {
     }
   }
 
-  async findByProductname(productname: string) {
-    const product = await this.productRepository.findOne({
-      where: { productname: productname },
-    });
+  // async findByProductname(productname: string) {
+  //   const product = await this.productRepository.findOne({
+  //     where: { productname: productname },
+  //   });
 
-    if (!product) {
-      throw new NotFoundException(`Product with productname ${productname} not found`);
-    }
+  //   if (!product) {
+  //     throw new NotFoundException(`Product with productname ${productname} not found`);
+  //   }
 
-    return product;
-  }
+  //   return product;
+  // }
 
-  async findByEmail(email: string) {
-    const product = await this.productRepository.findOne({ where: { email: email } });
+  // async findByEmail(email: string) {
+  //   const product = await this.productRepository.findOne({ where: { email: email } });
 
-    if (!product) {
-      throw new NotFoundException(`Product with productname ${email} not found`);
-    }
+  //   if (!product) {
+  //     throw new NotFoundException(`Product with productname ${email} not found`);
+  //   }
 
-    return product;
-  }
+  //   return product;
+  // }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
     const product = await this.findById(id);
