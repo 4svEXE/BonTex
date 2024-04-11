@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthenticationService } from './core/services/authentication.service';
-
-import { Router } from '@angular/router';
 
 import { SafeHtml } from '@angular/platform-browser';
 import { SvgService } from './core/services/svg.service';
@@ -13,7 +12,7 @@ import { SvgService } from './core/services/svg.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-skeleton';
+  title = '';
   safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
 
   constructor(

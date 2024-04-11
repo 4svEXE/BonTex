@@ -24,7 +24,7 @@ import { FilterOptionComponent } from './catalog/components/filter-option/filter
 import { FilterOptionsBoxComponent } from './catalog/components/filter-options-box/filter-options-box.component';
 import { ProductComponent } from './product/product.component';
 
-
+// ! TODO винести фільтри в окремий модуль
 const contenders = [
   HomeComponent,
   PopupModalComponent,
@@ -34,6 +34,12 @@ const contenders = [
   ReviewsHomePageComponent,
   AboutHomePageComponent,
   CatalogComponent,
+  ProductsComponent,
+  FilterByPriceComponent,
+  FilterButtonComponent,
+  FilterOptionComponent,
+  FilterOptionsBoxComponent,
+  ProductComponent,
 ];
 
 const modules = [
@@ -43,11 +49,11 @@ const modules = [
   UserProfileModule,
   AuthModule,
   InfoModule,
-  NgxPaginationModule
+  NgxPaginationModule,
 ];
 
 @NgModule({
-  declarations: [contenders, ProductsComponent, FilterByPriceComponent, FilterButtonComponent, FilterOptionComponent, FilterOptionsBoxComponent, ProductComponent],
+  declarations: [contenders],
   imports: [modules, NgxSmartModalModule.forRoot()],
   exports: [modules, contenders],
 })

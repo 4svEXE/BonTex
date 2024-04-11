@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { CatalogComponent } from './catalog/catalog.component';
+import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'catalog/:category',
     component: CatalogComponent,
+  },
+  {
+    path: 'catalog/:category/product/:id',
+    component: ProductComponent,
   },
 ];
 
