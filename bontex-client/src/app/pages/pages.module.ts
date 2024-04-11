@@ -22,6 +22,7 @@ import { FilterByPriceComponent } from './catalog/components/filter-by-price/fil
 import { FilterButtonComponent } from './catalog/components/filter-button/filter-button.component';
 import { FilterOptionComponent } from './catalog/components/filter-option/filter-option.component';
 import { FilterOptionsBoxComponent } from './catalog/components/filter-options-box/filter-options-box.component';
+import { ProductComponent } from './product/product.component';
 
 
 const contenders = [
@@ -46,7 +47,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [contenders, ProductsComponent, FilterByPriceComponent, FilterButtonComponent, FilterOptionComponent, FilterOptionsBoxComponent],
+  declarations: [contenders, ProductsComponent, FilterByPriceComponent, FilterButtonComponent, FilterOptionComponent, FilterOptionsBoxComponent, ProductComponent],
   imports: [modules, NgxSmartModalModule.forRoot()],
   exports: [modules, contenders],
 })
