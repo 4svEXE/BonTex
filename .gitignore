@@ -44,3 +44,14 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#custom
+client/.angular
+client/.vscode
+client/dist
+client/node_modules
+
+bontex-client/.angular
+bontex-client/.vscode
+bontex-client/dist
+bontex-client/node_modules
