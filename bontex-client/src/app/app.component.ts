@@ -13,7 +13,7 @@ import { SvgService } from './core/services/svg.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'angular-skeleton';
+  title = 'BonTex';
   safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
 
   constructor(
