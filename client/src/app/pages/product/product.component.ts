@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product.service';
 import { Product } from 'src/app/core/interfaces';
 
@@ -8,19 +10,36 @@ import { Product } from 'src/app/core/interfaces';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  products: Product[] = [];
+  private sub!: Subscription;
+  product!: Product;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private productService: ProductService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
-    this.getProducts();
+    this.sub = this.activatedRoute.params.subscribe((params) => {
+      const productId = params['id'];
+
+      this.getProduct(productId);
+    });
   }
 
-  getProducts(){
-    this.productService.getProducts().subscribe(products => {
-      console.log('prod',products);
+  getProduct(id: string) {
+    this.productService.getProductById(id).subscribe((product) => {
+      console.log('prod', product);
 
-      this.products = products;
+      if (!product) {
+        this.router.navigate(['/catalog']);
+      }
+
+      this.product = product;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

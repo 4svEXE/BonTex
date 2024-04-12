@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavigationEnd, ActivatedRoute, Router } from '@angular/router';
 
 import { MenuItem } from 'primeng/api';
@@ -10,23 +10,23 @@ import { filter } from 'rxjs';
   styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent {
+  @Input() urlLocalise: { [key: string]: string } = {
+    catalog: 'Каталог',
+    rugs: 'Килими',
+  };
+
+  @Input() currentPageTitle!: string;
+
   items: MenuItem[] | undefined;
 
   home: MenuItem | undefined;
   static ROUTE_DATA_BREADCRUMB: any;
-
-  urlLocalise: {[key: string]: string} = {
-    catalog: 'Каталог',
-    rugs: 'Килими',
-  }
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     // this.items = [
     //   { label: 'Каталог', routerLink: '/catalog' },
-    //   { label: 'Килими', routerLink: '/catalog/rugs' },
-    //   { label: 'Accessories', routerLink: '/catalog/promotions'},
     // ];
 
     // Щоб коректно працювало треба робити масив з локальною назвою {info: "Інформація"}
@@ -44,6 +44,7 @@ export class BreadcrumbComponent {
       });
   }
 
+  private isLastChild = false
   private createBreadcrumbs(
     route: ActivatedRoute,
     routerLink: string = '',
@@ -51,25 +52,29 @@ export class BreadcrumbComponent {
   ): MenuItem[] {
     const children: ActivatedRoute[] = route.children;
 
-    if (children.length === 0) {
-      return breadcrumbs;
-    }
+    if (!children.length) return breadcrumbs;
 
     for (const child of children) {
       child.snapshot.url.map((segment) => {
         segment.path;
 
-        if(this.urlLocalise[segment.path]){
+        if (this.urlLocalise[segment.path]) {
           breadcrumbs.push({
             label: this.urlLocalise[segment.path],
             routerLink: '/' + segment.path,
           });
         }
-
-
       });
 
       this.createBreadcrumbs(child, routerLink, breadcrumbs);
+    }
+
+    if (this.currentPageTitle && !this.isLastChild) {
+
+      breadcrumbs.push({
+        label: this.currentPageTitle,
+      });
+      this.isLastChild = true
     }
 
     return breadcrumbs;

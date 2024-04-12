@@ -41,6 +41,9 @@ const routes: Routes = [
     component: CatalogComponent,
   },
   {
+<<<<<<< HEAD:bontex-client/src/app/pages/pages-routing.module.ts
+    path: 'catalog/:category/product/:id',
+=======
     path: 'catalog/:category/products',
     component: ProductComponent,
   },
@@ -50,6 +53,7 @@ const routes: Routes = [
   },
   {
     path: 'catalog/:category/product/:productId',
+>>>>>>> 06a4ef9649edc09ae3db6dfb0deac7c98f13384a:client/src/app/pages/pages-routing.module.ts
     component: ProductComponent,
   },
 ];
