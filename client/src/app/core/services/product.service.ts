@@ -30,13 +30,13 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http
       .get('api/product')
-      .pipe(map((response: any) => response as Product []));
+      .pipe(map((response: any) => response as Product[]));
   }
 
-  getProductsByCategory(category: string): Observable<Product> {
+  getProductsByCategory(category: string): Observable<Product[]> {
     return this.http
       .get('api/product/category/' + category)
-      .pipe(map((response: any) => response as Product));
+      .pipe(map((response: any) => response as Product[]));
   }
 
   findProduct(searchString: string): Observable<Product> {

@@ -4,8 +4,9 @@ import { Subscription } from 'rxjs';
 import { SafeHtml } from '@angular/platform-browser';
 import { SvgService } from 'src/app/core/services/svg.service';
 
-import { Product, Products } from 'src/app/core/variables';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProductService } from 'src/app/core/services/product.service';
+import { Product } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-catalog',
@@ -13,15 +14,15 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./catalog.component.scss'],
 })
 export class CatalogComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } =
-    this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: { [key: string]: SafeHtml } = this.svg.getSafeSvgCodes() ?? {};
 
-  products: Product[] = Products;
-  productsToDisplay!: Product[];
+  products: Product[] = [];
+  productsToDisplay: Product[] = [];
 
   category!: string;
   private sub!: Subscription;
 
+  // TODO розприділити це все по окремих компонентах
   options = [
     { label: 'Від дешевих до дорогих', value: 'catalog', selected: true },
     { label: 'Від дорогих до дешевих', value: 'rugs' },
@@ -41,7 +42,7 @@ export class CatalogComponent {
     { label: '80x300', count: 9, isChecked: true },
     { label: '180x300', count: 3, isChecked: false },
     { label: '380x300', count: 1, isChecked: false },
-  ]
+  ];
 
   formGroup = new FormGroup({
     filterSelect: new FormControl(this.options[0].value),
@@ -49,31 +50,32 @@ export class CatalogComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private svgService: SvgService
+    private productService: ProductService,
+    private svg: SvgService
   ) {}
 
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe((params) => {
       this.category = params['category'];
 
-      this.productsToDisplay = this.getProductsByCategoty(this.category);
+      if (!this.category) return this.getProducts();
+
+      this.getProductsByCategoty(this.category);
     });
   }
 
-  getProductsByCategoty(category: string): Product[] {
-    if (!category) {
-      return this.products;
-    }
-
-    if (category === 'promotions') {
-      return this.products.filter((product) => {
-        return product.isDiscount;
-      });
-    }
-
-    return this.products.filter((product) => {
-      return product.category === this.category;
+  getProducts() {
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
     });
+  }
+
+  getProductsByCategoty(category: string) {
+    this.productService
+      .getProductsByCategory(category)
+      .subscribe((products) => {
+        this.products = products;
+      });
   }
 
   ngOnDestroy(): void {
