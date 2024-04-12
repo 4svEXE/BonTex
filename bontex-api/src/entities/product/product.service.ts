@@ -1,16 +1,16 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { ProductEntity } from './entities/product.entity';
-import { MongoRepository } from 'typeorm';
-import { ObjectId } from 'mongodb';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { CreateProductDto } from "./dto/create-product.dto";
+import { UpdateProductDto } from "./dto/update-product.dto";
+import { InjectRepository } from "@nestjs/typeorm";
+import { ProductEntity } from "./entities/product.entity";
+import { MongoRepository } from "typeorm";
+import { ObjectId } from "mongodb";
 
 @Injectable()
 export class ProductService {
   constructor(
     @InjectRepository(ProductEntity)
-    private productRepository: MongoRepository<ProductEntity>,
+    private productRepository: MongoRepository<ProductEntity>
   ) {}
 
   async create(createProductDto: CreateProductDto) {
@@ -39,27 +39,41 @@ export class ProductService {
     }
   }
 
-  // async findByProductname(productname: string) {
-  //   const product = await this.productRepository.findOne({
-  //     where: { productname: productname },
-  //   });
+  async findByCategory(category: string) {
+    const products = await this.productRepository.find({
+      where: { category: category },
+    });
 
-  //   if (!product) {
-  //     throw new NotFoundException(`Product with productname ${productname} not found`);
-  //   }
+    if (!products) {
+      throw new NotFoundException(
+        `Product with productname ${category} not found`
+      );
+    }
 
-  //   return product;
-  // }
+    return products;
+  }
 
-  // async findByEmail(email: string) {
-  //   const product = await this.productRepository.findOne({ where: { email: email } });
+  async findBySearchString(searchString: string) {
+    const products = await this.productRepository.find({
+      where: [
+        { name: searchString },
+        { group: searchString },
+        { category: searchString },
+        { manufacturer: searchString },
+        { rug_type: searchString },
+        { description: searchString },
+        { rug_material: searchString },
+        { rug_color: searchString },
+        { rug_country_of_origin: searchString },
+      ],
+    });
 
-  //   if (!product) {
-  //     throw new NotFoundException(`Product with productname ${email} not found`);
-  //   }
+    if (!products) {
+      throw new NotFoundException(`Products with '${searchString}' not found`);
+    }
 
-  //   return product;
-  // }
+    return products;
+  }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
     const product = await this.findById(id);

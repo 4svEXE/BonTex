@@ -22,31 +22,31 @@ export class ProductController {
     return this.productService.findById(id);
   }
 
-  // @Get('productname/:productname')
-  // findByProductname(@Param('productname') productname: string){
-  //   try {
-  //     const product = this.productService.findByProductname(productname);
-  //     return product;
-  //   } catch (error) {
-  //     if (error instanceof NotFoundException) {
-  //       throw new NotFoundException(error.message);
-  //     }
-  //     throw error;
-  //   }
-  // }
+  @Get('category/:category')
+  findByCategory(@Param('category') category: string){
+    try {
+      const products = this.productService.findByCategory(category);
+      return products;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
+  }
 
-  // @Get('email/:email')
-  // findByEmail(@Param('email') email: string){
-  //   try {
-  //     const product = this.productService.findByEmail(email);
-  //     return product;
-  //   } catch (error) {
-  //     if (error instanceof NotFoundException) {
-  //       throw new NotFoundException(error.message);
-  //     }
-  //     throw error;
-  //   }
-  // }
+  @Get('find/:searchString')
+  findBySearchString(@Param('searchString') searchString: string){
+    try {
+      const products = this.productService.findBySearchString(searchString);
+      return products;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
+  }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
