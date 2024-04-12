@@ -1,0 +1,33 @@
+<div class="product-card flex flex-col">
+  <div class="card-top-box mb-2 flex justify-between">
+    <h4 class="produt-group-title">{{ product.group }}</h4>
+    <div class="discount" *ngIf="product.rug_discounted_price">
+      {{ product.rug_discounted_price }}грн
+    </div>
+  </div>
+
+  <div class="image-box mb-2">
+    <img [src]="product.product_image_url[0]" alt="" />
+    <div
+      class="add-to-fav-box"
+      [innerHTML]="safeSvgCodes['heart']"
+      (click)="toggleFavorite()"
+      [class.active]="isFav"
+    ></div>
+  </div>
+
+  <h5 class="short-name">{{ product.name }}</h5>
+
+  <div class="prices-box flex justify-end items-center mb-2">
+    <del class="crossed-out-price" *ngIf="product.oldPrice">{{
+      product.oldPrice
+    }}</del>
+    <div class="current-price ml-2">{{ product.currentPrice }}грн</div>
+  </div>
+
+  <app-button
+    label="Перейти до продукту"
+    additionalClasses="primary px-4 py-3 w-full"
+    [routerLink]="'/catalog/product/' + product.id"
+  ></app-button>
+</div>

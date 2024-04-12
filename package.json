@@ -4,8 +4,8 @@
     "@nestjs/config": "^3.2.2"
   },
   "scripts": {
-    "client": "cd ./bontex-client && npm run start",
-    "api": "cd ./bontex-api && npm run start"
+    "client": "cd client && npm run start",
+    "api": "cd api && npm run start"
   },
   "devDependencies": {
     "postcss-import": "^16.0.0",
