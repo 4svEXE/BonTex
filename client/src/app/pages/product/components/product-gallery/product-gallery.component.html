@@ -1,0 +1,15 @@
+<div class="gallery flex flex-row-reverse">
+  <img class="main-photo" [src]="currentPhoto" [alt]="alt" />
+
+  <div class="mini-photos-box" *ngIf="photos">
+    <ng-container *ngFor="let photo of photos">
+      <img
+        [src]="photo"
+        [alt]="alt"
+        (click)="changePhoto(photo)"
+        class="mini-photo"
+        [class.active]="photo === currentPhoto"
+      />
+    </ng-container>
+  </div>
+</div>

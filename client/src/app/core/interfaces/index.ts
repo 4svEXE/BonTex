@@ -30,7 +30,7 @@ export interface Product {
   // Особливості продукту
   features: string[];
   // URL(и) зображення(ень) продукту
-  product_image_url: string | string[];
+  product_image_url: string[];
   // Розміри доступні для продукту, з відповідними кількостями на складі
   sizes: {
     size: string;

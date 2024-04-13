@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private router: Router,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -28,15 +28,15 @@ export class ProductComponent implements OnInit {
   }
 
   getProduct(id: string) {
-    this.productService.getProductById(id).subscribe((product) => {
-      console.log('prod', product);
-
-      if (!product) {
+    this.productService.getProductById(id).subscribe(
+      (product) => {
+        this.product = product;
+      },
+      (error) => {
+        console.log('Product not found');
         this.router.navigate(['/catalog']);
       }
-
-      this.product = product;
-    });
+    );
   }
 
   ngOnDestroy(): void {

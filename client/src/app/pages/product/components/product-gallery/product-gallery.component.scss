@@ -1,0 +1,27 @@
+.gallery {
+  img {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+
+    &.main-photo {
+      width: 590px;
+      height: 590px;
+    }
+
+    &.mini-photo {
+      width: 102px;
+      height: 102px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      transition: 0.1s;
+      cursor: pointer;
+
+      &.active {
+        border: 1px solid #5c8c7c;
+      }
+    }
+  }
+}

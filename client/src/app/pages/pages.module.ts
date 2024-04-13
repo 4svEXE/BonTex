@@ -22,7 +22,7 @@ import { FilterByPriceComponent } from './catalog/components/filter-by-price/fil
 import { FilterButtonComponent } from './catalog/components/filter-button/filter-button.component';
 import { FilterOptionComponent } from './catalog/components/filter-option/filter-option.component';
 import { FilterOptionsBoxComponent } from './catalog/components/filter-options-box/filter-options-box.component';
-import { ProductComponent } from './product/product.component';
+import { ProductModule } from './product/product.module';
 
 // ! TODO винести фільтри в окремий модуль
 const contenders = [
@@ -39,7 +39,6 @@ const contenders = [
   FilterButtonComponent,
   FilterOptionComponent,
   FilterOptionsBoxComponent,
-  ProductComponent,
 ];
 
 const modules = [
@@ -50,6 +49,7 @@ const modules = [
   AuthModule,
   InfoModule,
   NgxPaginationModule,
+  ProductModule
 ];
 
 @NgModule({
