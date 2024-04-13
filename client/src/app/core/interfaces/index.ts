@@ -1,3 +1,5 @@
+import { SafeHtml } from "@angular/platform-browser";
+
 export interface Review {
   username: string;
   publicationDate: string;
@@ -57,3 +59,5 @@ export interface Product {
   // Знижена ціна килима (якщо застосовується)
   rug_discounted_price?: number;
 }
+
+export interface SafeSvg { [key: string]: SafeHtml }

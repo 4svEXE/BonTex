@@ -4,9 +4,9 @@
     "@nestjs/config": "^3.2.2"
   },
   "scripts": {
-    "client": "client cl && npm run start",
-    "cl": "client cl && npm run start",
-    "c": "client cl && npm run start",
+    "client": "cd client && npm run start",
+    "cl": "cd client && npm run start",
+    "c": "cd client && npm run start",
     "api": "cd api && npm run start",
     "server": "cd api && npm run start",
     "s": "cd api && npm run start"
