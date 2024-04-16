@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="interaction-buttons flex items-center">
+  <div class="interaction-buttons flex items-center mb-10">
     <app-button
       label="Купити"
       additionalClasses="primary my-4 mr-4"
@@ -65,5 +65,9 @@
     <a class="add-to-fav active" (click)="onFavorite()">
       <app-like [isActive]="isFavorite"></app-like>
     </a>
+  </div>
+
+  <div class="flex">
+    <app-product-properties [product]="product"></app-product-properties>
   </div>
 </div>
