@@ -1,4 +1,6 @@
-<div class="gallery flex flex-row-reverse mr-4">
+<div
+  class="gallery flex-row-reverse justify-end xl:justify-start mr-4 hidden lg:flex"
+>
   <img class="main-photo" [src]="currentPhoto" [alt]="alt" />
 
   <div class="mini-photos-box" *ngIf="photos">
@@ -11,5 +13,21 @@
         [class.active]="photo === currentPhoto"
       />
     </ng-container>
+  </div>
+</div>
+
+<div class="gallery flex-row-reverse justify-end xl:justify-start mr-4 lg:hidden block">
+  <div class="mt-10">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slide of photos">
+        <ng-template carouselSlide>
+          <div
+            class="first-banner flex items-center justify-center overflow-hidden md:h-auto h-[260px] min-h-40 bg-slate-300"
+          >
+            <img [src]="slide" class="flex md:scale-100 scale-[2.5]" />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
   </div>
 </div>
