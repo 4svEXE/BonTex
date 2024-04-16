@@ -21,6 +21,7 @@ import { ReviewCardComponent } from './components/review-card/review-card.compon
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { LikeComponent } from './components/like/like.component';
 
 const contenders = [
   MainButtonComponent,
@@ -39,6 +40,7 @@ const contenders = [
   ReviewCardComponent,
   ProductCardComponent,
   BreadcrumbComponent,
+  LikeComponent
 ];
 
 const modules = [

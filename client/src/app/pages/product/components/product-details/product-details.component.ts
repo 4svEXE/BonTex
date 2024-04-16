@@ -13,6 +13,8 @@ export class ProductDetailsComponent {
   options = {
     size: '',
   };
+  isFavorite: boolean = true;
+
   constructor(private svg: SvgService) {}
 
   ngOnInit() {
@@ -23,5 +25,13 @@ export class ProductDetailsComponent {
     this.options = {
       size: this.product.sizes[0].size,
     };
+  }
+
+  onBuy() {}
+
+  onFastShipping() {}
+
+  onFavorite() {
+    this.isFavorite = !this.isFavorite;
   }
 }

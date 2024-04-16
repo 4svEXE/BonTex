@@ -48,4 +48,22 @@
       </ng-container>
     </div>
   </div>
+
+  <div class="interaction-buttons flex items-center">
+    <app-button
+      label="Купити"
+      additionalClasses="primary my-4 mr-4"
+      (click)="onBuy()"
+    ></app-button>
+
+    <app-button
+      label="Швидке замовлення"
+      additionalClasses="secondary my-4 mr-4"
+      (click)="onFastShipping()"
+    ></app-button>
+
+    <a class="add-to-fav active" (click)="onFavorite()">
+      <app-like [isActive]="isFavorite"></app-like>
+    </a>
+  </div>
 </div>
