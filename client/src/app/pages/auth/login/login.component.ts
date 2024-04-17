@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SafeHtml } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthenticationService, LoginForm } from 'src/app/core/services/authentication.service';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { switchMap } from 'rxjs';
 import { CustomErrorMessages } from 'src/app/core/variables/customFormsErrors';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { SafeSvg } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 })
 
 export class LoginComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } = {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   errorMessages = CustomErrorMessages;
 
@@ -39,10 +39,6 @@ export class LoginComponent {
     private router: Router,
     private svgService: SvgService
   ) {}
-
-  ngOnInit(): void {
-    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
-  }
 
   onSubmit() {
     if (!this.formGroup.valid) return;

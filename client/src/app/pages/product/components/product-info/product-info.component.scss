@@ -77,16 +77,17 @@ ol {
 
 .nav-box {
   overflow: hidden;
+
+  &.active {
+    height: 100%;
+  }
 }
 
-.nav-box.active {
-  height: 100%;
-}
 
 .arrow-icon {
   transition: .3s;
-}
 
-.arrow-icon.active {
-  transform: rotate(180deg);
+  &.active {
+    transform: rotate(180deg);
+  }
 }

@@ -8,6 +8,7 @@ import { ProductDeliveryComponent } from './components/product-delivery/product-
 import { ProductReviewsComponent } from './components/product-reviews/product-reviews.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductInfoPagesComponent } from './components/product-info-pages/product-info-pages.component';
 
 
 const contenders = [
@@ -22,7 +23,7 @@ const contenders = [
 const modules = [CommonModule, SharedModule, NgxPaginationModule];
 
 @NgModule({
-  declarations: [contenders],
+  declarations: [contenders, ProductInfoPagesComponent],
   imports: [modules],
   exports: [modules, contenders],
 })

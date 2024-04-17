@@ -3,7 +3,7 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 import { Subscription } from 'rxjs';
 import { ModalService } from 'src/app/core/services/modal.service';
 
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -12,8 +12,7 @@ import { SvgService } from 'src/app/core/services/svg.service';
   styleUrls: ['./popup-modal.component.scss']
 })
 export class PopupModalComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } =
-    this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   modalState: string = '';
   private stateSubscription!: Subscription;

@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { HeaderLinks, LinkInterface } from 'src/app/core/variables/header';
 import { SvgService } from 'src/app/core/services/svg.service';
 
@@ -13,8 +13,7 @@ export class HeaderSmallScreensComponent {
   isActiveContacts: boolean = false;
   isFixed: boolean = false;
   imgPath: string = 'assets/img/shared/layout/';
-  safeSvgCodes: { [key: string]: SafeHtml } =
-    this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   constructor(private svgService: SvgService) {}
 

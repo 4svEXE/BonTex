@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/core/interfaces';
-import { SafeHtml } from '@angular/platform-browser';
+import { Product, SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { SvgService } from 'src/app/core/services/svg.service';
 export class ProductInfoComponent {
   @Input() product!: Product;
 
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   headerNavs = [
     { label: 'Опис', link: 'description' },

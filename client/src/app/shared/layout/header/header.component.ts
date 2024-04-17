@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { HeaderLinks, LinkInterface } from 'src/app/core/variables/header';
@@ -12,8 +12,7 @@ import { User, UserService } from 'src/app/core/services/user.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  safeSvgCodes: { [key: string]: SafeHtml } =
-    this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   links: LinkInterface[] = HeaderLinks;
   user!: { name: string; id: string } | undefined;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import {
   User,
   AuthenticationService,
@@ -15,7 +15,7 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class PrivateDatesComponent {
   user: User | undefined;
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   constructor(
     private svgService: SvgService,

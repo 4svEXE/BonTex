@@ -1,24 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { Product } from 'src/app/core/variables';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+  styleUrls: ['./product-card.component.scss'],
 })
-
 export class ProductCardComponent {
   @Input() product!: Product;
 
-  safeSvgCodes: { [key: string]: SafeHtml } = {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   constructor(private svgService: SvgService) {}
-
-  ngOnInit(): void {
-    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
-  }
 
   isFav: boolean = false;
 

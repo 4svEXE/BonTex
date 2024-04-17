@@ -1,0 +1,19 @@
+<div class="content" [ngSwitch]="currentNav">
+  <div *ngSwitchCase="'description'">
+    <app-product-description
+      [description]="description"
+    ></app-product-description>
+  </div>
+  <div *ngSwitchCase="'payment'">
+    <app-product-payment></app-product-payment>
+  </div>
+  <div *ngSwitchCase="'returns-exchanges'">
+    <app-product-return></app-product-return>
+  </div>
+  <div *ngSwitchCase="'delivery'">
+    <app-product-delivery></app-product-delivery>
+  </div>
+  <div *ngSwitchCase="'reviews'">
+    <app-product-reviews></app-product-reviews>
+  </div>
+</div>

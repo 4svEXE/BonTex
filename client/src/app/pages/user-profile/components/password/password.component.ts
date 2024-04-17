@@ -1,7 +1,9 @@
+import { Component, OnInit } from '@angular/core';
+
 import { AuthenticationService } from './../../../../core/services/authentication.service';
 import { User, UserService } from './../../../../core/services/user.service';
-import { Component, OnInit } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -11,7 +13,8 @@ import { SvgService } from 'src/app/core/services/svg.service';
 })
 export class PasswordComponent implements OnInit {
   user: User | undefined;
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
+
   hidePassword = true;
 
   constructor(

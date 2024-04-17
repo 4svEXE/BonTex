@@ -1,7 +1,8 @@
 // svg.service.ts
 import { Injectable } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { svgImages } from 'src/app/shared/svg';
+import { SafeSvg } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +10,8 @@ import { svgImages } from 'src/app/shared/svg';
 export class SvgService {
   constructor(private sanitizer: DomSanitizer) {}
 
-  getSafeSvgCodes(): { [key: string]: SafeHtml } {
-    const safeSvgCodes: { [key: string]: SafeHtml } = {};
+  getSafeSvgCodes(): SafeSvg {
+    const safeSvgCodes: SafeSvg = {};
 
     Object.keys(svgImages).forEach((key) => {
       safeSvgCodes[key] = this.sanitizer.bypassSecurityTrustHtml(
