@@ -13,7 +13,7 @@ export class ProductDetailsComponent {
   options = {
     size: '',
   };
-  isFavorite: boolean = true;
+  isFavorite: boolean = false;
 
   constructor(private svg: SvgService) {}
 
