@@ -1,0 +1,19 @@
+<div class="flex flex-col">
+  <ng-container *ngFor="let review of reviews | paginate : paginateConfig" >
+    <div class="flex mb-3">
+      <app-review-card [review]="review"></app-review-card>
+    </div>
+  </ng-container>
+
+  <div class="flex w-full justify-center">
+    <pagination-controls
+      class="my-pagination"
+      (pageChange)="pageChangeEvent($event)"
+      [maxSize]="9"
+      [autoHide]="true"
+      [responsive]="true"
+      previousLabel=""
+      nextLabel=""
+    ></pagination-controls>
+  </div>
+</div>
