@@ -1,1 +1,22 @@
-<p>product-info works!</p>
+<div class="product-info flex flex-col w-full">
+  <div class="header">
+    <nav>
+      <a
+        *ngFor="let nav of headerNavs"
+        [class.active]="currentNav === nav.link"
+        (click)="setCurrentNav(nav.link)"
+      >
+        {{ nav.label }}
+        <span *ngIf="nav.link === 'reviews'">({{ reviews }})</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="content" [ngSwitch]="currentNav">
+    <div *ngSwitchCase="'description'">Опис</div>
+    <div *ngSwitchCase="'payment'">Оплата</div>
+    <div *ngSwitchCase="'returns-exchanges'">Повернення та обмін</div>
+    <div *ngSwitchCase="'delivery'">Доставка</div>
+    <div *ngSwitchCase="'reviews'">Відгуки</div>
+  </div>
+</div>
