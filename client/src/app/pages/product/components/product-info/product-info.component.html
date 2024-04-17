@@ -1,5 +1,7 @@
+<!-- Desktop version -->
 <div class="product-info content flex-col w-full md:flex hidden">
   <div class="header">
+    <!-- Navigation links -->
     <nav>
       <a
         *ngFor="let nav of headerNavs"
@@ -11,6 +13,7 @@
         <span *ngIf="nav.link === 'reviews'">({{ reviews }})</span>
       </a>
 
+      <!-- Displaying the current navigation title -->
       <ng-container *ngFor="let nav of headerNavs">
         <h2
           *ngIf="currentNav === nav.link"
@@ -22,15 +25,18 @@
     </nav>
   </div>
 
+  <!-- Product info pages -->
   <app-product-info-pages
     [currentNav]="currentNav"
     [description]="product.description"
   ></app-product-info-pages>
 </div>
 
+<!-- Mobile version -->
 <div class="product-info content flex-col w-full flex md:hidden">
   <ng-container *ngFor="let nav of headerNavs; let i = index">
     <div class="flex flex-col md:w-full w-auto">
+      <!-- Navigation toggle -->
       <div
         class="flex w-full justify-between mb-4 border-b-2 md:border-b-0"
         (click)="setCurrentNav(nav.link)"
@@ -45,6 +51,7 @@
         ></div>
       </div>
 
+      <!-- Collapsible navigation content -->
       <div
         class="nav-box flex flex-col h-0 md:h-full"
         [class.active]="currentNav === nav.link"
