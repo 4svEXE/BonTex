@@ -1,7 +1,8 @@
 .form-control {
   width: 100%;
 
-  input {
+  input,
+  textarea {
     width: 100%;
     height: 46px;
     border-radius: 4px;
@@ -12,6 +13,21 @@
     &.hasError {
       border: 2px solid red;
     }
+  }
+
+  textarea {
+    resize: none;
+    height: fit-content;
+  }
+
+  label {
+    font-family: Roboto Flex;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    text-align: left;
+    color: #1E1E1E;
+    margin-bottom: 4px;
   }
 
   img {
@@ -36,7 +52,9 @@
   }
 
   &.secondary {
-    input {
+
+    input,
+    textarea {
       border: 1px solid #737776
     }
   }

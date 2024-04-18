@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { SvgService } from 'src/app/core/services/svg.service';
@@ -13,7 +13,7 @@ import { CustomErrorMessages } from 'src/app/core/variables/customFormsErrors';
 })
 export class RegisterComponent {
   title = 'register';
-  safeSvgCodes: { [key: string]: SafeHtml } = {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   errorMessages = CustomErrorMessages;
 
@@ -41,10 +41,6 @@ export class RegisterComponent {
     private router: Router,
     private svgService: SvgService
   ) {}
-
-  ngOnInit(): void {
-    this.safeSvgCodes = this.svgService.getSafeSvgCodes();
-  }
 
   onSubmit() {
     if (!this.formGroup.valid) return;

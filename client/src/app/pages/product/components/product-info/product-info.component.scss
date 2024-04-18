@@ -1,0 +1,93 @@
+.product-info {
+  .header {
+    margin-bottom: 8px;
+
+    nav {
+      margin-bottom: 20px;
+
+    }
+  }
+}
+
+.a-button {
+  width: fit-content;
+  font-family: Roboto Flex;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33.6px;
+  text-align: left;
+  color: #1a1a1a;
+  transition: .3s;
+  margin-right: 20px;
+  cursor: pointer;
+  user-select: none;
+
+  &.active {
+    color: #84B4A4;
+  }
+}
+
+.content {
+  h2 {
+    font-family: Roboto Flex;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5C8C7C;
+    margin-bottom: 16px;
+  }
+
+  .box {
+    margin-bottom: 32px;
+
+    h3 {
+      font-family: Roboto Flex;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 34px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #5C8C7C;
+      margin-bottom: 12px;
+    }
+
+    p,
+    ol {
+      font-family: Roboto Flex;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
+      text-align: left;
+
+      b {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  color: #5C8C7C;
+  padding-left: 16px;
+}
+
+.nav-box {
+  overflow: hidden;
+
+  &.active {
+    height: 100%;
+  }
+}
+
+
+.arrow-icon {
+  transition: .3s;
+
+  &.active {
+    transform: rotate(180deg);
+  }
+}

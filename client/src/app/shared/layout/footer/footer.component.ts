@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { Sections } from 'src/app/core/variables/footer';
 
@@ -9,7 +9,7 @@ import { Sections } from 'src/app/core/variables/footer';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
   sections = Sections;
 
   constructor(private svgService: SvgService) {}
@@ -18,7 +18,5 @@ export class FooterComponent {
 
   toggleActiveNavBox(id: number) {
     this.navBars[id].active = !this.navBars[id].active;
-
-    console.log(this.navBars[id].active, id);
   }
 }

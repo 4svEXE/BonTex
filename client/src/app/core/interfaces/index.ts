@@ -1,3 +1,5 @@
+import { SafeHtml } from "@angular/platform-browser";
+
 export interface Review {
   username: string;
   publicationDate: string;
@@ -30,7 +32,7 @@ export interface Product {
   // Особливості продукту
   features: string[];
   // URL(и) зображення(ень) продукту
-  product_image_url: string | string[];
+  product_image_url: string[];
   // Розміри доступні для продукту, з відповідними кількостями на складі
   sizes: {
     size: string;
@@ -57,3 +59,5 @@ export interface Product {
   // Знижена ціна килима (якщо застосовується)
   rug_discounted_price?: number;
 }
+
+export interface SafeSvg { [key: string]: SafeHtml }

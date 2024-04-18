@@ -1,0 +1,35 @@
+<div class="flex flex-col">
+  <h3 class="mb-3">Загальні характеристики</h3>
+
+  <div class="flex w-full flex-wrap">
+    <div [classList]="propertyClassName">
+      <h5>Матеріал</h5>
+      <span>{{ product.rug_material }}</span>
+    </div>
+
+    <div [classList]="propertyClassName">
+      <h5>Висота ворсу</h5>
+      <span>{{ product.rug_pile_height }}мм</span>
+    </div>
+
+    <div [classList]="propertyClassName">
+      <h5>Висота килиму</h5>
+      <span>{{ product.rug_height }}мм</span>
+    </div>
+
+    <div [classList]="propertyClassName">
+      <h5>Матеріал</h5>
+      <span>{{ product.rug_material }}</span>
+    </div>
+
+    <div [classList]="propertyClassName">
+      <h5>Бренд (країна)</h5>
+      <span>{{ product.rug_country_of_origin }}</span>
+    </div>
+
+    <div [classList]="propertyClassName">
+      <h5>Форма</h5>
+      <span>{{ product.rug_type }}</span>
+    </div>
+  </div>
+</div>

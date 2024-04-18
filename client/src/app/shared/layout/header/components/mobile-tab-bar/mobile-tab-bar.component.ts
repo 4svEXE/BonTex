@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { HeaderLinks, LinkInterface } from 'src/app/core/variables/header';
 
@@ -10,7 +10,7 @@ import { HeaderLinks, LinkInterface } from 'src/app/core/variables/header';
 })
 export class MobileTabBarComponent {
   links: LinkInterface[] = HeaderLinks;
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
   isClosedSubBar: boolean = true;
 
   constructor(private svgService: SvgService) {}

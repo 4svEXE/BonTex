@@ -39,6 +39,12 @@ export class ProductService {
       .pipe(map((response: any) => response as Product[]));
   }
 
+  getProductsByGroup(group: string): Observable<Product[]> {
+    return this.http
+      .get('api/product/group/' + group)
+      .pipe(map((response: any) => response as Product[]));
+  }
+
   findProduct(searchString: string): Observable<Product> {
     return this.http
       .get('api/product/find/' + searchString)

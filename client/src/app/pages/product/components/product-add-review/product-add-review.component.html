@@ -1,0 +1,82 @@
+<div class="flex items-center w-full">
+  <div class="flex flex-col md:w-[440px] w-full m-auto">
+    <h4 class="modal-title">Залишити відгук</h4>
+    <!-- <div class="flex box">
+      <span>Ще немає акаунта?</span>
+      <a
+        routerLink="/auth/register"
+        (click)="ngxSmartModalService.getModal('popupModal').close()"
+        >Зарєєструватись</a
+      >
+    </div> -->
+
+    <div class="flex w-full items-center justify-center">
+      <h5 class="mr-3">Оцініть магазин</h5>
+
+      <ng-container *ngFor="let i of [1, 2, 3, 4, 5]" >
+        <div (click)="rating = i" [class.opacity-50]="i > rating">
+          <p [innerHTML]="safeSvgCodes['rug']" class="rug"></p>
+        </div>
+      </ng-container>
+    </div>
+
+    <form [formGroup]="formGroup">
+      <div class="flex flex-col">
+        <div class="flex justify-center my-4">
+          <div class="flex w-full">
+            <app-input
+              class="w-full"
+              inputType="text"
+              label="Ім‘я"
+              inputId="username"
+              paceholder="Марія"
+              formControlName="username"
+              [customErrorMessages]="errorMessages"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-center my-4">
+          <div class="flex w-full">
+            <app-input
+              class="w-full"
+              inputType="email"
+              label="Email"
+              inputId="email"
+              paceholder="maria@email.com"
+              formControlName="email"
+              [customErrorMessages]="errorMessages"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-center my-4 flex-col mb-3">
+          <div class="flex w-full">
+            <app-input
+              class="w-full"
+              inputType="textarea"
+              rows="5"
+              label="Ваш відгук:"
+              inputId="review"
+              paceholder="Загальні враження від придбаного товару та роботи магазину"
+              formControlName="review"
+              [customErrorMessages]="errorMessages"
+            />
+          </div>
+
+          <p>Введіть не менше, ніж 10 символів</p>
+        </div>
+
+        <div class="flex w-full items-center">
+          <app-button
+            label="Надіслати"
+            [additionalClasses]="'primary my-4 w-full'"
+            (buttonClick)="onSubmit()"
+            [isDisabled]="formGroup.invalid"
+            class="w-full"
+          ></app-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

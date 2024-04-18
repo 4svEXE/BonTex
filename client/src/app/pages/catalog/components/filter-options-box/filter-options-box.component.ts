@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -14,8 +14,7 @@ export class FilterOptionsBoxComponent {
   // TODO винести опцію в інтерфейс
   isShowOptions: boolean = false;
 
-  safeSvgCodes: { [key: string]: SafeHtml } =
-    this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   constructor(private svgService: SvgService) {}
 

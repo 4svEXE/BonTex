@@ -1,6 +1,6 @@
 <div class="product-card flex flex-col">
   <div class="card-top-box mb-2 flex justify-between">
-    <h4 class="produt-group-title">{{ product.group }}</h4>
+    <h4 class="produt-group-title" *ngIf="product.group">{{ localiseGroups[product.group] }}</h4>
     <div class="discount" *ngIf="product.rug_discounted_price">
       {{ product.rug_discounted_price }}грн
     </div>

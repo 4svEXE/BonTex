@@ -35,6 +35,19 @@ export class ProductController {
     }
   }
 
+  @Get('group/:group')
+  findByGroup(@Param('group') group: string){
+    try {
+      const products = this.productService.findByGroup(group);
+      return products;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
+  }
+
   @Get('find/:searchString')
   findBySearchString(@Param('searchString') searchString: string){
     try {

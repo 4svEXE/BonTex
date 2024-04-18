@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -13,8 +13,7 @@ export class FilterButtonComponent {
   @Input() additionClasses: string = '';
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
 
-  safeSvgCodes: { [key: string]: SafeHtml } =
-    this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   constructor(private svgService: SvgService) {}
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { SvgService } from 'src/app/core/services/svg.service';
   styleUrls: ['./selected-goods.component.scss', '../../user-profile.component.scss']
 })
 export class SelectedGoodsComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   constructor(private svgService: SvgService) {}
 }

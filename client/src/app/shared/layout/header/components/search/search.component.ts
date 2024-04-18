@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 
@@ -10,8 +10,7 @@ import { SvgService } from 'src/app/core/services/svg.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } =
-  this.svgService.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   formGroup = new FormGroup({
     search: new FormControl(''),

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { HeaderLinks, LinkInterface } from 'src/app/core/variables/header';
 
@@ -13,7 +13,7 @@ export class NavSubMenuComponent {
   @Input() isClosed: boolean = true;
 
 
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
 
   constructor(private svgService: SvgService) {}

@@ -1,10 +1,11 @@
 import { Component, SimpleChanges } from '@angular/core';
 
-import { SafeHtml } from '@angular/platform-browser';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService, User } from 'src/app/core/services/authentication.service';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { UserService } from 'src/app/core/services/user.service';
+import { SafeSvg } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-password-editor',
@@ -13,7 +14,7 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class PasswordEditorComponent {
   user: User | undefined;
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svgService.getSafeSvgCodes();
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
   passwordForm!: FormGroup;
   showPassword = true;
 

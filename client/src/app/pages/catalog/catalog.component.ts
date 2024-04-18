@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { SafeHtml } from '@angular/platform-browser';
+import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 import { FormGroup, FormControl } from '@angular/forms';
@@ -14,7 +14,7 @@ import { Product } from 'src/app/core/interfaces';
   styleUrls: ['./catalog.component.scss'],
 })
 export class CatalogComponent {
-  safeSvgCodes: { [key: string]: SafeHtml } = this.svg.getSafeSvgCodes() ?? {};
+  safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   products: Product[] = [];
   productsToDisplay: Product[] = [];
@@ -51,7 +51,7 @@ export class CatalogComponent {
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private svg: SvgService
+    private svgService: SvgService
   ) {}
 
   ngOnInit(): void {
