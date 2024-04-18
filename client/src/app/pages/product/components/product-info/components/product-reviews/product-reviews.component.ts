@@ -10,16 +10,16 @@ import { Reviews } from 'src/app/core/variables';
 export class ProductReviewsComponent {
   reviews: Review[] = Reviews;
 
-  p: number = 1;
-  total: number = 0;
+  // p: number = 1;
+  // total: number = 0;
   paginateConfig = {
     itemsPerPage: 5,
-    currentPage: this.p,
-    totalItems: this.total,
+    currentPage: 1,
+    totalItems: 0,
   };
 
   pageChangeEvent(event: number) {
-    this.p = event;
+    this.paginateConfig.currentPage = event;
     this.reviews;
   }
 }

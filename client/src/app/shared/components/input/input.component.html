@@ -2,6 +2,7 @@
   <label [for]="inputId" *ngIf="label">{{ label }}</label>
 
   <input
+    *ngIf="inputType !== 'textarea'"
     [type]="inputType"
     [id]="inputId"
     [formControl]="control"
@@ -11,7 +12,19 @@
     [pattern]="pattern"
   />
 
-  <app-validation-errors *ngIf="control.touched"
+  <textarea
+    *ngIf="inputType === 'textarea'"
+    [rows]="rows"
+    [id]="inputId"
+    [formControl]="control"
+    [class.hasError]="control.errors && control.touched"
+    [placeholder]="paceholder"
+    [value]="value"
+    [pattern]="pattern"
+  ></textarea>
+
+  <app-validation-errors
+    *ngIf="control.touched"
     [customErrorMessages]="customErrorMessages"
     [errors]="control.errors"
   ></app-validation-errors>

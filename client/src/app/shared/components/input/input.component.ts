@@ -2,7 +2,7 @@ import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlValueAccessor } from 'src/app/core/directives/control-value-accessor.directive';
 
-type InputType = 'text' | 'number' | 'email' | 'password';
+type InputType = 'text' | 'number' | 'email' | 'password' | 'textarea';
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -24,6 +24,7 @@ export class InputComponent<T> extends ControlValueAccessor<T> {
   @Input() customErrorMessages: Record<string, string> = {};
   @Input() additionalClasses = '';
   @Input() value: string | number = '';
+  @Input() rows: string | number = '2';
 
   get customClasses(): string {
     return 'form-control ' + this.additionalClasses;
