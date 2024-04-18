@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { MainButtonComponent } from './components/main-button/main-button.component';
 import { InputComponent } from './components/input/input.component';
@@ -22,6 +23,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { LikeComponent } from './components/like/like.component';
+import { RecomendetComponent } from './layout/recomendet/recomendet.component';
 
 const contenders = [
   MainButtonComponent,
@@ -40,7 +42,8 @@ const contenders = [
   ReviewCardComponent,
   ProductCardComponent,
   BreadcrumbComponent,
-  LikeComponent
+  LikeComponent,
+  RecomendetComponent
 ];
 
 const modules = [
@@ -49,6 +52,7 @@ const modules = [
   ReactiveFormsModule,
   FormsModule,
   BreadcrumbModule,
+  CarouselModule
 ];
 
 @NgModule({
