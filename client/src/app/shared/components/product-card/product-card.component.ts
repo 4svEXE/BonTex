@@ -13,6 +13,13 @@ export class ProductCardComponent {
 
   safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
+  localiseGroups: {[key: string]: string} = {
+    hit: 'Хіт',
+    new: 'Новинка',
+    promotion: 'Акція',
+    recomendation: 'Рекомендовано'
+  }
+
   constructor(private svgService: SvgService) {}
 
   isFav: boolean = false;
@@ -21,13 +28,3 @@ export class ProductCardComponent {
     this.isFav = !this.isFav;
   }
 }
-
-// export interface Product {
-//   groupTitle: string;
-//   discount?: string;
-//   image: string;
-//   shortName: string;
-//   oldPrice?: string;
-//   currentPrice: string;
-//   routerLink: string;
-// }

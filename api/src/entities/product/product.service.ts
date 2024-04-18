@@ -46,7 +46,21 @@ export class ProductService {
 
     if (!products) {
       throw new NotFoundException(
-        `Product with productname ${category} not found`
+        `Product with category ${category} not found`
+      );
+    }
+
+    return products;
+  }
+
+  async findByGroup(group: string) {
+    const products = await this.productRepository.find({
+      where: { group: group },
+    });
+
+    if (!products) {
+      throw new NotFoundException(
+        `Product with group ${group} not found`
       );
     }
 
