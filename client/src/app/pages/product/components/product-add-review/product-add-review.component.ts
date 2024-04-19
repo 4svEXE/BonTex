@@ -8,7 +8,6 @@ import { SvgService } from 'src/app/core/services/svg.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { CustomErrorMessages } from 'src/app/core/variables/customFormsErrors';
 import { User } from '../../../../core/services/authentication.service';
-import { ChangeDetectorRef } from '@angular/core';
 import { ReviewService } from 'src/app/core/services/review.service';
 
 @Component({
@@ -24,9 +23,6 @@ export class ProductAddReviewComponent {
   rating = 5;
   isSendetReview = false;
 
-  // Якщо юзер залогінений то підтягувати ім1я і емайл,
-  // а якщо ні то відкривати модалку регістрації
-
   formGroup;
 
   constructor(
@@ -35,8 +31,7 @@ export class ProductAddReviewComponent {
     public reviewService: ReviewService,
     private userService: UserService,
     private router: Router,
-    private svgService: SvgService,
-    private cdr: ChangeDetectorRef
+    private svgService: SvgService
   ) {
     this.formGroup = new FormGroup({
       username: new FormControl('', [
@@ -83,6 +78,12 @@ export class ProductAddReviewComponent {
             userId: user.id,
             productId: this.router.url.split('/')[3],
           });
+
+          // dont works because of change detection
+          this.formGroup.patchValue({
+            username: this.user.username,
+            email: this.user.email,
+          });
         });
       });
     }
@@ -110,13 +111,11 @@ export class ProductAddReviewComponent {
         rating: fg.rating || 5,
       };
       this.reviewService.create(review).subscribe((res) => {
-        console.log('created', review, res);
-
         this.isSendetReview = true;
 
-        this.ngxSmartModalService.getModal('popupModal').setData({
-          message: 'Дякуємо за ваш коментар!',
-        });
+        // this.ngxSmartModalService.getModal('popupModal').setData({
+        //   message: 'Дякуємо за ваш коментар!',
+        // });
         this.ngxSmartModalService.getModal('popupModal').open();
       });
     }
