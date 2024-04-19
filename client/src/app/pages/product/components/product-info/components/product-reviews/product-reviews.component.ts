@@ -30,8 +30,6 @@ export class ProductReviewsComponent {
     this.sub = this.reviewService
       .getReviewsByProductId(this.product.id)
       .subscribe((reviews) => {
-        console.log(reviews);
-
         this.reviews = reviews;
       });
   }

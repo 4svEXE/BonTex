@@ -39,4 +39,9 @@ export class ReviewService {
       .pipe(map((response: any) => response as Review[]));
   }
 
+  getReviewsCountByProductId(productId: string): Observable<number> {
+    return this.http
+      .get('api/review/product/' + productId)
+      .pipe(map((response: any) => response.length as number));
+  }
 }
