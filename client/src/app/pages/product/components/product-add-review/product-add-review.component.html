@@ -1,26 +1,21 @@
 <div class="flex items-center w-full">
   <div class="flex flex-col md:w-[440px] w-full m-auto">
     <h4 class="modal-title">Залишити відгук</h4>
-    <!-- <div class="flex box">
-      <span>Ще немає акаунта?</span>
-      <a
-        routerLink="/auth/register"
-        (click)="ngxSmartModalService.getModal('popupModal').close()"
-        >Зарєєструватись</a
-      >
-    </div> -->
 
-    <div class="flex w-full items-center justify-center">
-      <h5 class="mr-3">Оцініть магазин</h5>
+    <form
+      [formGroup]="formGroup"
+      *ngIf="authService.getUserIdFromStorage() && !isSendetReview"
+    >
+      <div class="flex w-full items-center justify-center">
+        <h5 class="mr-3">Оцініть магазин</h5>
 
-      <ng-container *ngFor="let i of [1, 2, 3, 4, 5]" >
-        <div (click)="rating = i" [class.opacity-50]="i > rating">
-          <p [innerHTML]="safeSvgCodes['rug']" class="rug"></p>
-        </div>
-      </ng-container>
-    </div>
+        <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
+          <div (click)="setRating(i)" [class.opacity-50]="i > getRating()">
+            <p [innerHTML]="safeSvgCodes['rug']" class="rug"></p>
+          </div>
+        </ng-container>
+      </div>
 
-    <form [formGroup]="formGroup">
       <div class="flex flex-col">
         <div class="flex justify-center my-4">
           <div class="flex w-full">
@@ -64,7 +59,7 @@
             />
           </div>
 
-          <p>Введіть не менше, ніж 10 символів</p>
+          <p>Введіть не менше, ніж 10 символів, і не більше 400.</p>
         </div>
 
         <div class="flex w-full items-center">
@@ -78,5 +73,20 @@
         </div>
       </div>
     </form>
+
+    <div class="flex flex-col" *ngIf="!authService.getUserIdFromStorage()">
+      <strong class="w-full mx-3 mb-2"
+        >Щоб залишити відгук потрібно увійти на сайт.</strong
+      >
+
+      <app-login [isRedirect]="false"></app-login>
+    </div>
+
+    <div
+      class="flex"
+      *ngIf="authService.getUserIdFromStorage() && isSendetReview"
+    >
+      відправлено
+    </div>
   </div>
 </div>

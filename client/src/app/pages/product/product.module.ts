@@ -10,10 +10,17 @@ import { ProductGalleryComponent } from './components/product-gallery/product-ga
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductPropertiesComponent } from './components/product-properties/product-properties.component';
 import { ProductAddReviewComponent } from './components/product-add-review/product-add-review.component';
+import { AuthModule } from '../auth/auth.module';
 
 const contenders = [ProductComponent, ProductGalleryComponent];
 
-const modules = [CommonModule, CarouselModule, SharedModule, ProductInfoModule];
+const modules = [
+  CommonModule,
+  CarouselModule,
+  SharedModule,
+  ProductInfoModule,
+  AuthModule,
+];
 
 @NgModule({
   declarations: [

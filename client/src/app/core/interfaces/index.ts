@@ -1,10 +1,15 @@
-import { SafeHtml } from "@angular/platform-browser";
+import { SafeHtml } from '@angular/platform-browser';
 
 export interface Review {
+  id?: string;
   username: string;
-  publicationDate: string;
-  content: string;
+  email: string;
+  userId: string;
+  productId: string;
+  review: string;
   rating: number;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface Product {
@@ -60,16 +65,6 @@ export interface Product {
   rug_discounted_price?: number;
 }
 
-export interface SafeSvg { [key: string]: SafeHtml }
-
-export interface Review {
-  id?: string;
-  username: string;
-  email: string;
-  userId: string;
-  productId: string;
-  review: string;
-  rating: number;
-  createdAt: Date;
-  updatedAt: Date;
+export interface SafeSvg {
+  [key: string]: SafeHtml;
 }

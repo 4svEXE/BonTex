@@ -5,7 +5,7 @@
 
   <owl-carousel-o [options]="customOptions" class="custom-carousel review-carousel">
     <ng-container *ngFor="let review of reviews">
-      <ng-template carouselSlide [id]="review.content">
+      <ng-template carouselSlide [id]="review.review">
         <app-review-card [review]="review"></app-review-card>
       </ng-template>
     </ng-container>
