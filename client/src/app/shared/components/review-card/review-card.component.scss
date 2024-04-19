@@ -36,7 +36,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      /* Кількість рядків, після яких текст буде обрізаний */
       -webkit-line-clamp: 6;
       -webkit-box-orient: vertical;
     }
@@ -55,5 +54,4 @@
       transform: rotate(180deg);
     }
   }
-
 }

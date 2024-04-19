@@ -61,3 +61,15 @@ export interface Product {
 }
 
 export interface SafeSvg { [key: string]: SafeHtml }
+
+export interface Review {
+  id?: string;
+  username: string;
+  email: string;
+  userId: string;
+  productId: string;
+  review: string;
+  rating: number;
+  createdAt: Date;
+  updatedAt: Date;
+}

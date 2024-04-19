@@ -4,9 +4,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './entities/auth/auth.module';
 import { ProductModule } from './entities/product/product.module';
+import { ReviewModule } from './entities/review/review.module';
 
 @Module({
-  imports: [UserModule, ProductModule, ConfigModule.forRoot(), TypeOrmModule.forRoot({
+  imports: [UserModule, ProductModule, ReviewModule, ConfigModule.forRoot(), TypeOrmModule.forRoot({
       type: 'mongodb',
       url: process.env.DB_URL,
       ssl: false,

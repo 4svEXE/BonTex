@@ -1,7 +1,7 @@
 <div class="content" [ngSwitch]="currentNav">
   <div *ngSwitchCase="'description'">
     <app-product-description
-      [description]="description"
+      [description]="product.description"
     ></app-product-description>
   </div>
   <div *ngSwitchCase="'payment'">
@@ -14,6 +14,6 @@
     <app-product-delivery></app-product-delivery>
   </div>
   <div *ngSwitchCase="'reviews'">
-    <app-product-reviews></app-product-reviews>
+    <app-product-reviews [product]="product"></app-product-reviews>
   </div>
 </div>

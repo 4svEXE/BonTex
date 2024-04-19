@@ -41,7 +41,7 @@ export class ReviewService {
 
   async findByProductId(id: string) {
     try {
-      const review = await this.reviewRepository.findOne({
+      const review = await this.reviewRepository.find({
         where: { productId: id },
       });
 

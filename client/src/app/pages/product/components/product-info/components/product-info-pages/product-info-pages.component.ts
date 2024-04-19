@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-product-info-pages',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductInfoPagesComponent {
   @Input() currentNav!: string;
-  @Input() description!: string;
+  @Input() product!: Product;
 }

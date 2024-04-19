@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
 import { Review } from 'src/app/core/interfaces';
-import { Reviews } from 'src/app/core/variables';
+import { ReviewService } from 'src/app/core/services/review.service';
+import { ReviewOwlOptions } from 'src/app/core/variables/carouselOptions';
 
 @Component({
   selector: 'app-reviews-home-page',
@@ -9,34 +11,25 @@ import { Reviews } from 'src/app/core/variables';
   styleUrls: ['./reviews-home-page.component.scss'],
 })
 export class ReviewsHomePageComponent {
-  arrowPath = 'assets/img/pages/home/arrow_carousel.svg';
-  reviews: Review[] = Reviews;
+  private sub!: Subscription;
+  reviews!: Review[];
 
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: false,
-    dots: false,
-    nav: true,
-    navSpeed: 700,
-    navText: [
-      `<img src="${this.arrowPath}" alt="arrow-left" class="arrow-left"/>`,
-      `<img src="${this.arrowPath}" alt="arrow-right" />`,
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      740: {
-        items: 3,
-      },
-      940: {
-        items: 4,
-      },
-    },
-  };
+  customOptions: OwlOptions = ReviewOwlOptions;
+
+  constructor(private reviewService: ReviewService) {}
+
+  ngOnInit() {
+    this.sub = this.reviewService
+      .getReviewsByProductId('0')
+      .subscribe((reviews) => {
+
+        console.log(reviews);
+
+        this.reviews = reviews;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 }
