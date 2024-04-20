@@ -1,0 +1,41 @@
+<ngx-smart-modal
+  #notificationModal
+  identifier="notificationModal"
+  [hideDelay]="500"
+  [autostart]="false"
+  [closable]="false"
+  (onOpen)="onOpenModal()"
+>
+  <div class="modal-container">
+    <div
+      (mouseenter)="onMouseEnter()"
+      (mouseleave)="onMouseLeave()"
+      class="modal lg:w-min-[530px] mx-2"
+    >
+      <div class="close-modal">
+        <div class="loader" [class.spin]="!isPausedAutoclose">
+          <div class="line"></div>
+          <div class="body">
+            <div
+              [innerHTML]="safeSvgCodes['close']"
+              class="close-icon"
+              (click)="notificationModal.close()"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-container flex flex-col">
+        <div class="background">
+          <div id="svg_rug" [innerHTML]="safeSvgCodes['rug']"></div>
+        </div>
+
+        <div class="content flex flex-col">
+          <h3>{{ title }}</h3>
+
+          <p>{{ text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-smart-modal>
