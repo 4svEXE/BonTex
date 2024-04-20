@@ -86,7 +86,15 @@
       class="flex"
       *ngIf="authService.getUserIdFromStorage() && isSendetReview"
     >
-      відправлено
+    Відправлено
+
+      <div class="flex p-10 items-center justify-center w-full">
+        <app-loader></app-loader>
+      </div>
     </div>
   </div>
+
+
 </div>
+
+

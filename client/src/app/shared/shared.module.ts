@@ -24,6 +24,7 @@ import { BreadcrumbComponent } from './layout/breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { LikeComponent } from './components/like/like.component';
 import { RecomendetComponent } from './layout/recomendet/recomendet.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const contenders = [
   MainButtonComponent,
@@ -43,7 +44,8 @@ const contenders = [
   ProductCardComponent,
   BreadcrumbComponent,
   LikeComponent,
-  RecomendetComponent
+  RecomendetComponent,
+  LoaderComponent
 ];
 
 const modules = [
@@ -56,7 +58,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [contenders],
+  declarations: [contenders, ],
   imports: [modules, NgxSmartModalModule.forRoot()],
   exports: [modules, contenders],
 })
