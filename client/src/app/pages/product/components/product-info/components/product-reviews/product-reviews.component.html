@@ -1,7 +1,7 @@
-<div class="flex flex-col">
-  <ng-container *ngFor="let review of reviews | paginate : paginateConfig" >
+<div class="flex flex-col" *ngIf="reviews">
+  <ng-container *ngFor="let review of reviews | paginate : paginateConfig">
     <div class="flex mb-3">
-      <app-review-card [review]="review"></app-review-card>
+      <app-review-card [review]="review" class="w-full"></app-review-card>
     </div>
   </ng-container>
 
@@ -17,3 +17,5 @@
     ></pagination-controls>
   </div>
 </div>
+
+<div class="flex flex-col" *ngIf="!reviews">Відгуків поки немає.</div>

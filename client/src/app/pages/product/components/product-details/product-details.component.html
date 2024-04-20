@@ -35,7 +35,7 @@
   <div class="sizes flex flex-col">
     <h3 class="mb-3">Розміри, см</h3>
 
-    <div class="flex flex-wrap max-w-[50%]">
+    <div class="flex flex-wrap md:max-w-[50%]">
       <ng-container *ngFor="let size of product.sizes">
         <button
           class="size-button"
@@ -49,22 +49,24 @@
     </div>
   </div>
 
-  <div class="interaction-buttons flex items-center mb-10">
+  <div class="interaction-buttons flex items-center mb-10 flex-col md:flex-row">
     <app-button
       label="Купити"
-      additionalClasses="primary my-4 mr-4"
+      additionalClasses="primary md:w-fit w-full"
       (click)="onBuy()"
+      class="md:w-fit w-full mb-3 md:mb-0 mx-4 md:mx-0 "
     ></app-button>
 
     <app-button
       label="Швидке замовлення"
-      additionalClasses="secondary my-4 mr-4"
+      additionalClasses="secondary md:w-fit w-full"
       (click)="onFastShipping()"
+      class="md:w-fit w-full mb-3 md:mb-0 mx-4"
     ></app-button>
 
     <a class="add-to-fav active" (click)="onFavorite()">
+      <p class="mr-3 w-fit flex md:hidden">{{isFavorite? 'Додано в обране':'Додати в обране'}}</p>
       <app-like [isActive]="isFavorite"></app-like>
-      {{isFavorite}}
     </a>
   </div>
 

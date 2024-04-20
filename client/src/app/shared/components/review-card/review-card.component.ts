@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { SafeSvg } from 'src/app/core/interfaces';
 
 import { Review } from 'src/app/core/interfaces';
@@ -23,5 +23,15 @@ export class ReviewCardComponent {
 
   getRatingArray(rating: number): number[] {
     return Array.from({ length: rating }, (_, index) => index + 1);
+  }
+
+  getDate() {
+    if (this.review.createdAt) {
+      let date = new Date(this.review.createdAt);
+
+      return date.toLocaleDateString();
+    }
+
+    return '';
   }
 }

@@ -2,7 +2,7 @@
   <div class="flex justify-between">
     <div class="flex flex-col">
       <strong class="username">{{ review.username }}</strong>
-      <span class="publication-date">{{ review.publicationDate }}</span>
+      <span class="publication-date">{{ getDate() }}</span>
     </div>
 
     <div class="rating-box flex">
@@ -13,11 +13,11 @@
   </div>
 
   <p class="review truncate-text" [class.active]="isOpenReview">
-    {{ review.content }}
+    {{ review.review }}
   </p>
 
-  <div class="flex justify-end mt-2" (click)="toggleIsOpenReview()">
-    <a class="a-primary-link flex">
+  <div class="toggle-review flex justify-end mt-2" (click)="toggleIsOpenReview()">
+    <a class="a-primary-link flex" *ngIf="review.review.length > 300">
       {{ isOpenReview ? "Приховати відгук" : "Читати весь відгук" }}
       <div
         class="arrow ml-2"

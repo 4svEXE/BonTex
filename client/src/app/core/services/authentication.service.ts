@@ -60,7 +60,6 @@ export class AuthenticationService {
       })
       .pipe(
         map((token) => {
-          // console.log('token', token);
           localStorage.setItem(JWT_NAME, token.access_token);
 
           this.getUserId().subscribe((id) => {
@@ -74,6 +73,7 @@ export class AuthenticationService {
           throw error;
         })
       );
+    ;
   }
 
   /**
@@ -109,19 +109,6 @@ export class AuthenticationService {
     // чи не застарілий токен
     return !this.jwtHelperService.isTokenExpired(token);
   }
-
-  //  isCorrectId():boolean {
-  //   this.getUserId().subscribe((jwtId) => {
-  //     console.log('jwtId, Id', jwtId ,this.getUserIdFromStorage());
-
-  //     if(jwtId && this.getUserIdFromStorage()) {
-  //       return jwtId === this.getUserIdFromStorage();
-  //     }
-  //     return false;
-  //   });
-
-  //   return false;
-  // }
 
   /**
    * Gets the user ID from the decoded JWT token.
