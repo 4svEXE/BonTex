@@ -18,7 +18,7 @@ export class ReviewService {
   }
 
   deleteById(id: string): Observable<any> {
-    return this.http.delete<any>('api/review/' + 'id');
+    return this.http.delete<any>('api/review/' + id);
   }
 
   getReviewById(id: string): Observable<Review> {

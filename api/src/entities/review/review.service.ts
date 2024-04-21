@@ -5,6 +5,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { ReviewEntity } from "./entities/review.entity";
 import { MongoRepository } from "typeorm";
 import { ObjectId } from "mongodb";
+import { log } from "console";
 
 @Injectable()
 export class ReviewService {
@@ -86,6 +87,8 @@ export class ReviewService {
   }
 
   async remove(id: string) {
+    console.log("ReviewService -> remove -> id", id);
+    
     return this.reviewRepository.delete(id);
   }
 }

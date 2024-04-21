@@ -16,7 +16,10 @@
     {{ review.review }}
   </p>
 
-  <div class="toggle-review flex justify-end mt-2" (click)="toggleIsOpenReview()">
+  <div
+    class="toggle-review flex justify-end mt-2"
+    (click)="toggleIsOpenReview()"
+  >
     <a class="a-primary-link flex" *ngIf="review.review.length > 300">
       {{ isOpenReview ? "Приховати відгук" : "Читати весь відгук" }}
       <div
@@ -25,5 +28,12 @@
         [innerHTML]="safeSvgCodes['arrow']"
       ></div>
     </a>
+  </div>
+
+  <div class="actions" *ngIf="canDelete" (click)="deleteReview()">
+    <app-a-button
+      label="Видалити"
+      additionalClasses="secondary"
+    ></app-a-button>
   </div>
 </div>

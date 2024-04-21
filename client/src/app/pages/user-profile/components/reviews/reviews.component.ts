@@ -35,6 +35,7 @@ export class ReviewsComponent {
   getReviews() {
     this.sub = this.AuthService.getUserId().subscribe((userId) => {
       this.reviewService.getReviewsByUserId(userId).subscribe((reviews) => {
+        console.log(reviews);
         this.reviews = reviews;
       });
     });
@@ -47,5 +48,9 @@ export class ReviewsComponent {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+  }
+
+  onDeleteReview() {
+    this.getReviews();
   }
 }

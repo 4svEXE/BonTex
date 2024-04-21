@@ -1,10 +1,9 @@
 <div class="content-box">
   <div class="flex mb-10">
-
     <div class="flex flex-col" *ngIf="reviews">
       <ng-container *ngFor="let review of reviews | paginate : paginateConfig">
         <div class="flex mb-3">
-          <app-review-card [review]="review" class="w-full"></app-review-card>
+          <app-review-card [review]="review" [canDelete]="true" class="w-full" (isDeleted)="onDeleteReview()"></app-review-card>
         </div>
       </ng-container>
 
@@ -19,9 +18,13 @@
           nextLabel=""
         ></pagination-controls>
       </div>
+
+
     </div>
 
-    <div class="flex flex-col" *ngIf="!reviews">Відгуків поки немає.</div>
-
+    <div class="flex flex-col" *ngIf="reviews.length <= 0">
+      <h2 class="mb-3">Відгуків поки немає.</h2>
+      <div [innerHTML]="safeSvgCodes['cat']" class="w-max"></div>
+    </div>
   </div>
 </div>
