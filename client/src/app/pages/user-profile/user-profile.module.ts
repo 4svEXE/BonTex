@@ -12,6 +12,7 @@ import { PrivateDatesComponent } from './components/private-dates/private-dates.
 import { PrivateDatesEditorComponent } from './components/private-dates-editor/private-dates-editor.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { SelectedGoodsComponent } from './components/selected-goods/selected-goods.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const contenders = [
   UserProfileComponent,
@@ -24,7 +25,7 @@ const contenders = [
   ReviewsComponent,
   SelectedGoodsComponent
 ];
-const modules = [SharedModule, UserProfileRoutingModule];
+const modules = [SharedModule, UserProfileRoutingModule, NgxPaginationModule];
 
 @NgModule({
   declarations: [contenders],

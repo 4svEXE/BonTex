@@ -33,6 +33,12 @@ export class ReviewService {
       .pipe(map((response: any) => response as Review[]));
   }
 
+  getReviewsByUserId(userId: string): Observable<Review[]> {
+    return this.http
+      .get('api/review/user/' + userId)
+      .pipe(map((response: any) => response as Review[]));
+  }
+
   getReviewsByProductId(productId: string): Observable<Review[]> {
     return this.http
       .get('api/review/product/' + productId)

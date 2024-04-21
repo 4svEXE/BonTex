@@ -39,6 +39,22 @@ export class ReviewService {
     }
   }
 
+  async findByUserId(id: string) {
+    try {
+      const review = await this.reviewRepository.find({
+        where: { userId: id },
+      });
+
+      if (!review) {
+        throw new NotFoundException(`Review with productId ${id} not found`);
+      }
+
+      return review;
+    } catch (error) {
+      throw new NotFoundException(`Review with productId ${id} not found`);
+    }
+  }
+
   async findByProductId(id: string) {
     try {
       const review = await this.reviewRepository.find({
