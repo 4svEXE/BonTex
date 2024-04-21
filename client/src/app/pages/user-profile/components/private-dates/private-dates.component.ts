@@ -28,6 +28,8 @@ export class PrivateDatesComponent {
     if (id != null) {
       this.userService.findOne(id).subscribe((user) => {
         this.user = user;
+        console.log(user);
+
       });
     }
   }

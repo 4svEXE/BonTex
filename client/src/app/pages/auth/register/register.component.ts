@@ -18,7 +18,7 @@ export class RegisterComponent {
   errorMessages = CustomErrorMessages;
 
   formGroup = new FormGroup({
-    name: new FormControl('', [
+    username: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(28),
@@ -34,6 +34,11 @@ export class RegisterComponent {
       Validators.minLength(8),
       Validators.maxLength(28),
     ]),
+    passwordToCompare: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(28),
+    ]),
   });
 
   constructor(
@@ -42,15 +47,24 @@ export class RegisterComponent {
     private svgService: SvgService
   ) {}
 
+  customError: string = '';
   onSubmit() {
     if (!this.formGroup.valid) return;
+
+    if (
+      this.formGroup.value.password !== this.formGroup.value.passwordToCompare
+    ) {
+      this.customError = 'Паролі не співпадають';
+      setTimeout(() => (this.customError = ''), 5000);
+      return;
+    }
 
     this.authService
       .registerAndLogin(this.formGroup.value)
       .subscribe((userId) => {
         console.log('userId', userId);
 
-        this.router.navigate(['user/' + userId]);
+        this.router.navigate(['/']);
       });
   }
 }
