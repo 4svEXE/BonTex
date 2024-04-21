@@ -56,7 +56,7 @@ const modules = [
   ReactiveFormsModule,
   FormsModule,
   BreadcrumbModule,
-  CarouselModule
+  CarouselModule,
 ];
 
 @NgModule({

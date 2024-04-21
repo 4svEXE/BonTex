@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { Review, SafeSvg } from 'src/app/core/interfaces';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { SvgService } from 'src/app/core/services/svg.service';
-import { UserService } from 'src/app/core/services/user.service';
+import { User, UserService } from 'src/app/core/services/user.service';
 import { CustomErrorMessages } from 'src/app/core/variables/customFormsErrors';
-import { User } from '../../../../core/services/authentication.service';
 import { ReviewService } from 'src/app/core/services/review.service';
 
 @Component({
-  selector: 'app-product-add-review',
-  templateUrl: './product-add-review.component.html',
-  styleUrls: ['./product-add-review.component.scss'],
+  selector: 'app-add-review',
+  templateUrl: './add-review.component.html',
+  styleUrls: ['./add-review.component.scss'],
 })
-export class ProductAddReviewComponent {
+export class AddReviewComponent {
+  @Input() productId: string = this.router.url.split('/')[3];
+
   safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
   errorMessages = CustomErrorMessages;
 
@@ -75,19 +76,25 @@ export class ProductAddReviewComponent {
 
   isLogined() {
     if (this.authService.isAuthenticated()) {
+      let userFromLS: User;
+      this.authService.getUserFromToken().subscribe((user) => {
+        userFromLS = JSON.parse(user);
+        console.log('userFromLS', userFromLS);
+      });
+
       this.authService.getUserId().subscribe((id) => {
         this.userService.findOne(id).subscribe((user) => {
           this.user = user;
 
           this.formGroup.patchValue({
             userId: user.id,
-            productId: this.router.url.split('/')[3],
+            productId: this.productId,
           });
 
           // dont works because of change detection
           this.formGroup.patchValue({
-            username: this.user.username,
-            email: this.user.email,
+            username: userFromLS.username,
+            email: userFromLS.email,
           });
         });
       });
@@ -118,6 +125,7 @@ export class ProductAddReviewComponent {
 
       this.reviewService.create(review).subscribe(() => {
         this.isSendetReview = true;
+        this.ngxSmartModalService.getModal('popupModal').open();
       });
     }
   }

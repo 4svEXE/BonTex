@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 
-
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { PagesRoutingModule } from './pages-routing.module';
@@ -22,11 +21,12 @@ import { FilterButtonComponent } from './catalog/components/filter-button/filter
 import { FilterOptionComponent } from './catalog/components/filter-option/filter-option.component';
 import { FilterOptionsBoxComponent } from './catalog/components/filter-options-box/filter-options-box.component';
 import { ProductModule } from './product/product.module';
+import { PagesComponentsModule } from './components/pages-components.module';
 
 // ! TODO винести фільтри в окремий модуль
 const contenders = [
   HomeComponent,
-  PopupModalComponent,
+  // PopupModalComponent,
   FirstBannerComponent,
   SecondBannerComponent,
   ReviewsHomePageComponent,
@@ -46,7 +46,8 @@ const modules = [
   AuthModule,
   InfoModule,
   NgxPaginationModule,
-  ProductModule
+  ProductModule,
+  PagesComponentsModule
 ];
 
 @NgModule({

@@ -1,12 +1,29 @@
-<div class="info-box md:max-w-[70%] max-w-[100%]">
+<div class="info-box w-[100%] flex-col lg:flex-row">
   <h2>Відгуки про магазин</h2>
 
-  <div class="box">
-    <h3>Термін доставки</h3>
+  <div class="box w-full">
+    <div class="flex flex-col" *ngIf="reviews">
+      <ng-container *ngFor="let review of reviews | paginate : paginateConfig">
+        <div class="flex mb-3">
+          <app-review-card [review]="review" class="w-full"></app-review-card>
+        </div>
+      </ng-container>
 
-    <p>
-      Термін доставки по Україні складає, як правило, 1-2 робочі дні;<br />
-      у віддалені куточки нашої країни терміни доставки можуть бути більшими.
-    </p>
+      <div class="flex w-full justify-center">
+        <pagination-controls
+          class="my-pagination"
+          (pageChange)="pageChangeEvent($event)"
+          [maxSize]="9"
+          [autoHide]="true"
+          [responsive]="true"
+          previousLabel=""
+          nextLabel=""
+        ></pagination-controls>
+      </div>
+    </div>
+
+    <div class="flex flex-col" *ngIf="!reviews">Відгуків поки немає.</div>
   </div>
+
+  <app-add-review productId="0"></app-add-review>
 </div>

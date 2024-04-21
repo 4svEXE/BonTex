@@ -1,16 +1,43 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 
+import { Review } from 'src/app/core/interfaces';
+import { ReviewService } from 'src/app/core/services/review.service';
 @Component({
   selector: 'app-store-reviews',
   templateUrl: './store-reviews.component.html',
   styleUrls: ['./store-reviews.component.scss', '../../info.component.scss'],
 })
 export class StoreReviewsComponent {
-  review = {
-    username: 'Тетяна',
-    publicationDate: '12.22.2023',
-    content:
-      'Магазин килимів - справжнє відкриття! Вражаючий вибір високоякісних килимів, що вражають різноманіттям стилів та дизайнів. Обслуговування на високому рівні, де кожен працівник виявився професіоналом. Вдала покупка перевершила мої очікування - отримав точно те, що шукав. Дякую за приємний досвід покупки, рекомендую цей магазин як надійного партнера у виборі ідеального килима для вашого простору. Неперевершений вибір, висока якість та привітний персонал - ось, що робить цей магазин винятковим. Впевнено рекомендую усім, хто цінує комфорт і стиль у своєму житлі!',
-    rating: 1,
+  private sub!: Subscription;
+  reviews!: Review[];
+
+  paginateConfig = {
+    itemsPerPage: 5,
+    currentPage: 1,
+    totalItems: 0,
   };
+
+  constructor(private reviewService: ReviewService) {}
+
+  ngOnInit() {
+    this.getReviews();
+  }
+
+  getReviews() {
+    this.sub = this.reviewService
+      .getReviewsByProductId('0')
+      .subscribe((reviews) => {
+        this.reviews = reviews.reverse();
+      });
+  }
+
+  pageChangeEvent(event: number) {
+    this.paginateConfig.currentPage = event;
+    this.reviews;
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 }

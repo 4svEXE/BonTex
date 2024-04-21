@@ -86,6 +86,8 @@
       class="flex justify-center"
       *ngIf="authService.getUserIdFromStorage() && isSendetReview"
     >
+      <p>Відправлено</p>
+
       <div class="flex flex-col" *ngIf="isFakeSending">
         {{ fakeSending() }}
 

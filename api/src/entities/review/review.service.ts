@@ -5,6 +5,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { ReviewEntity } from "./entities/review.entity";
 import { MongoRepository } from "typeorm";
 import { ObjectId } from "mongodb";
+import { log } from "console";
 
 @Injectable()
 export class ReviewService {
@@ -39,6 +40,22 @@ export class ReviewService {
     }
   }
 
+  async findByUserId(id: string) {
+    try {
+      const review = await this.reviewRepository.find({
+        where: { userId: id },
+      });
+
+      if (!review) {
+        throw new NotFoundException(`Review with productId ${id} not found`);
+      }
+
+      return review;
+    } catch (error) {
+      throw new NotFoundException(`Review with productId ${id} not found`);
+    }
+  }
+
   async findByProductId(id: string) {
     try {
       const review = await this.reviewRepository.find({
@@ -69,7 +86,7 @@ export class ReviewService {
     return this.reviewRepository.save(review);
   }
 
-  async remove(id: string) {
+  async remove(id: string) {    
     return this.reviewRepository.delete(id);
   }
 }

@@ -1,17 +1,30 @@
 <div class="content-box">
   <div class="flex mb-10">
+    <div class="flex flex-col" *ngIf="reviews">
+      <ng-container *ngFor="let review of reviews | paginate : paginateConfig">
+        <div class="flex mb-3">
+          <app-review-card [review]="review" [canDelete]="true" class="w-full" (isDeleted)="onDeleteReview()"></app-review-card>
+        </div>
+      </ng-container>
 
-    <!-- If the catalog is empty -->
-    <div class="flex flex-col mb-10">
-      <h2>Ваш список відгуків порожній</h2>
-      <p class="mt-3">
-        Не вагайтеся і перегляньте наш
-        <a href="" class="a-primary-link">каталог</a>, щоб знайти щось гарне!
-      </p>
-      <div [innerHTML]="safeSvgCodes['cat']" class="mt-24"></div>
+      <div class="flex w-full justify-center">
+        <pagination-controls
+          class="my-pagination"
+          (pageChange)="pageChangeEvent($event)"
+          [maxSize]="9"
+          [autoHide]="true"
+          [responsive]="true"
+          previousLabel=""
+          nextLabel=""
+        ></pagination-controls>
+      </div>
+
+
     </div>
 
-    <!-- If the catalog is not empty -->
-
+    <div class="flex flex-col" *ngIf="reviews.length <= 0">
+      <h2 class="mb-3">Відгуків поки немає.</h2>
+      <div [innerHTML]="safeSvgCodes['cat']" class="w-max"></div>
+    </div>
   </div>
 </div>

@@ -18,7 +18,7 @@ export class ReviewService {
   }
 
   deleteById(id: string): Observable<any> {
-    return this.http.delete<any>('api/review/' + 'id');
+    return this.http.delete<any>('api/review/' + id);
   }
 
   getReviewById(id: string): Observable<Review> {
@@ -30,6 +30,12 @@ export class ReviewService {
   getReviews(): Observable<Review[]> {
     return this.http
       .get('api/review')
+      .pipe(map((response: any) => response as Review[]));
+  }
+
+  getReviewsByUserId(userId: string): Observable<Review[]> {
+    return this.http
+      .get('api/review/user/' + userId)
       .pipe(map((response: any) => response as Review[]));
   }
 
