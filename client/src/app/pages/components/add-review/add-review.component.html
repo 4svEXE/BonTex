@@ -7,11 +7,11 @@
       *ngIf="authService.getUserIdFromStorage() && !isSendetReview"
     >
       <div class="flex w-full items-center justify-center">
-        <h5 class="mr-3">Оцініть магазин</h5>
+        <h5 class="mr-3 md:mr-1">Оцініть магазин</h5>
 
         <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
           <div (click)="setRating(i)" [class.opacity-50]="i > getRating()">
-            <p [innerHTML]="safeSvgCodes['rug']" class="rug"></p>
+            <div [innerHTML]="safeSvgCodes['rug']" class="rug"></div>
           </div>
         </ng-container>
       </div>
@@ -75,7 +75,7 @@
     </form>
 
     <div class="flex flex-col" *ngIf="!authService.getUserIdFromStorage()">
-      <strong class="w-full mx-3 mb-2"
+      <strong class="mx-3 mb-2"
         >Щоб залишити відгук потрібно увійти на сайт.</strong
       >
 
@@ -83,14 +83,31 @@
     </div>
 
     <div
-      class="flex"
+      class="flex justify-center"
       *ngIf="authService.getUserIdFromStorage() && isSendetReview"
     >
       <p>Відправлено</p>
 
-      <div class="flex p-10 items-center justify-center w-full">
-        <app-loader></app-loader>
+      <div class="flex flex-col" *ngIf="isFakeSending">
+        {{ fakeSending() }}
+
+        <h5 class="text-center">Відправляємо...</h5>
+
+        <div class="flex p-10 items-center justify-center w-full">
+          <app-loader></app-loader>
+        </div>
+      </div>
+
+      <div class="flex flex-col" *ngIf="!isFakeSending">
+        <h5 class="text-center mb-3">Відгук відправлено.</h5>
+        <div class="flex" [innerHTML]="safeSvgCodes['cat']"></div>
       </div>
     </div>
   </div>
 </div>
+
+<app-notification-modal
+  [title]="modalMsg.title"
+  [text]="modalMsg.text"
+  [hideDelay]="5000"
+></app-notification-modal>

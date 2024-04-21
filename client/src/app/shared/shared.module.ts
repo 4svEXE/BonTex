@@ -25,6 +25,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { LikeComponent } from './components/like/like.component';
 import { RecomendetComponent } from './layout/recomendet/recomendet.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { NotificationModalComponent } from './layout/notification-modal/notification-modal.component';
 
 const contenders = [
   MainButtonComponent,
@@ -46,6 +47,7 @@ const contenders = [
   LikeComponent,
   RecomendetComponent,
   LoaderComponent,
+  NotificationModalComponent
 ];
 
 const modules = [
