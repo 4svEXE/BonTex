@@ -25,6 +25,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { LikeComponent } from './components/like/like.component';
 import { RecomendetComponent } from './layout/recomendet/recomendet.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { NotificationModalComponent } from './layout/notification-modal/notification-modal.component';
 
 const contenders = [
   MainButtonComponent,
@@ -45,7 +46,8 @@ const contenders = [
   BreadcrumbComponent,
   LikeComponent,
   RecomendetComponent,
-  LoaderComponent
+  LoaderComponent,
+  NotificationModalComponent
 ];
 
 const modules = [
@@ -58,7 +60,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [contenders, ],
+  declarations: [contenders],
   imports: [modules, NgxSmartModalModule.forRoot()],
   exports: [modules, contenders],
 })

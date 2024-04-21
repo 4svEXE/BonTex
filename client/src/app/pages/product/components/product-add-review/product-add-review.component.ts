@@ -25,6 +25,11 @@ export class ProductAddReviewComponent {
 
   formGroup;
 
+  modalMsg = {
+    title: 'Дякуємо!',
+    text: 'Ваш відгук опубліковано.',
+  };
+
   constructor(
     public ngxSmartModalService: NgxSmartModalService,
     public authService: AuthenticationService,
@@ -110,14 +115,22 @@ export class ProductAddReviewComponent {
         review: fg.review || '',
         rating: fg.rating || 5,
       };
-      this.reviewService.create(review).subscribe((res) => {
-        this.isSendetReview = true;
 
-        // this.ngxSmartModalService.getModal('popupModal').setData({
-        //   message: 'Дякуємо за ваш коментар!',
-        // });
-        this.ngxSmartModalService.getModal('popupModal').open();
+      this.reviewService.create(review).subscribe(() => {
+        this.isSendetReview = true;
       });
     }
+  }
+
+  openModal() {
+    this.ngxSmartModalService.open('notificationModal');
+  }
+
+  isFakeSending = true;
+  fakeSending() {
+    setTimeout(() => {
+      this.isFakeSending = false;
+      this.openModal()
+    }, 6000);
   }
 }
