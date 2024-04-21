@@ -12,6 +12,8 @@ import { StoreReviewsComponent } from './components/store-reviews/store-reviews.
 import { CatalogInfoComponent } from './components/catalog-info/catalog-info.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { InfoComponent } from './info.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PagesComponentsModule } from '../components/pages-components.module';
 
 const contenders = [
   InfoComponent,
@@ -25,7 +27,12 @@ const contenders = [
   CatalogInfoComponent,
 ];
 
-const modules = [SharedModule, InfoRoutingModule, ];
+const modules = [
+  SharedModule,
+  InfoRoutingModule,
+  NgxPaginationModule,
+  PagesComponentsModule,
+];
 
 @NgModule({
   declarations: [contenders],

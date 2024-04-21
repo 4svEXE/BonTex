@@ -119,10 +119,23 @@ export class AuthenticationService {
     return of(localStorage.getItem(JWT_NAME)).pipe(
       switchMap((jwt: string | null) => {
         if (jwt) {
-          // If jwt is not null, decode the token and extract the user id
           const decodedToken = this.jwtHelperService.decodeToken(jwt);
-          // console.log('decodedToken', decodedToken);
           return of(decodedToken ? decodedToken.user.id : null);
+        } else {
+          // If jwt is null, return null
+          console.log('token is null');
+          return of(null);
+        }
+      })
+    );
+  }
+
+  getUserFromToken(): Observable<string> {
+    return of(localStorage.getItem(JWT_NAME)).pipe(
+      switchMap((jwt: string | null) => {
+        if (jwt) {
+          const decodedToken = this.jwtHelperService.decodeToken(jwt);
+          return of(decodedToken ? decodedToken.user : null);
         } else {
           // If jwt is null, return null
           console.log('token is null');

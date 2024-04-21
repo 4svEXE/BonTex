@@ -45,7 +45,7 @@ const contenders = [
   BreadcrumbComponent,
   LikeComponent,
   RecomendetComponent,
-  LoaderComponent
+  LoaderComponent,
 ];
 
 const modules = [
@@ -54,11 +54,11 @@ const modules = [
   ReactiveFormsModule,
   FormsModule,
   BreadcrumbModule,
-  CarouselModule
+  CarouselModule,
 ];
 
 @NgModule({
-  declarations: [contenders, ],
+  declarations: [contenders],
   imports: [modules, NgxSmartModalModule.forRoot()],
   exports: [modules, contenders],
 })
