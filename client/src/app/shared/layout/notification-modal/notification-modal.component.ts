@@ -12,7 +12,7 @@ import { SvgService } from 'src/app/core/services/svg.service';
 export class NotificationModalComponent {
   @Input() title!: string;
   @Input() text!: string;
-  @Input() timer = 2000;
+  @Input() hideDelay = 5000;
 
   isPausedAutoclose = false;
 
@@ -35,7 +35,7 @@ export class NotificationModalComponent {
       if (!this.isPausedAutoclose) {
         this.ngxSmartModalService.close('notificationModal');
       }
-    }, this.timer);
+    }, this.hideDelay);
   }
 
   onMouseEnter() {

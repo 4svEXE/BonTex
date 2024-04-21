@@ -7,11 +7,11 @@
       *ngIf="authService.getUserIdFromStorage() && !isSendetReview"
     >
       <div class="flex w-full items-center justify-center">
-        <h5 class="mr-3 md:mr-0">Оцініть магазин</h5>
+        <h5 class="mr-3 md:mr-1">Оцініть магазин</h5>
 
         <ng-container *ngFor="let i of [1, 2, 3, 4, 5]">
           <div (click)="setRating(i)" [class.opacity-50]="i > getRating()">
-            <p [innerHTML]="safeSvgCodes['rug']" class="rug"></p>
+            <div [innerHTML]="safeSvgCodes['rug']" class="rug"></div>
           </div>
         </ng-container>
       </div>
@@ -107,5 +107,5 @@
 <app-notification-modal
   [title]="modalMsg.title"
   [text]="modalMsg.text"
-  [timer]="10000"
+  [hideDelay]="5000"
 ></app-notification-modal>
