@@ -86,9 +86,7 @@ export class ReviewService {
     return this.reviewRepository.save(review);
   }
 
-  async remove(id: string) {
-    console.log("ReviewService -> remove -> id", id);
-    
+  async remove(id: string) {    
     return this.reviewRepository.delete(id);
   }
 }
