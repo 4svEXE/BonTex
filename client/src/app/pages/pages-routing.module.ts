@@ -41,6 +41,10 @@ const routes: Routes = [
     component: CatalogComponent,
   },
   {
+    path: 'catalog/search/:searchString',
+    component: CatalogComponent,
+  },
+  {
     path: 'catalog/:category/products',
     component: ProductComponent,
   },

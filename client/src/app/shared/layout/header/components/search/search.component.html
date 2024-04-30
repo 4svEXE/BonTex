@@ -7,5 +7,9 @@
     formControlName="search"
   />
 
-  <div [innerHTML]="safeSvgCodes['search']" class="button-header"></div>
+  <div
+    [innerHTML]="safeSvgCodes['search']"
+    class="button-header"
+    (click)="search()"
+  ></div>
 </form>

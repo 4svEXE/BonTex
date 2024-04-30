@@ -56,11 +56,19 @@ export class CatalogComponent {
 
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe((params) => {
-      this.category = params['category'];
+      if (params['category']) {
+        this.getProductsByCategoty(params['category']);
+        return;
+      }
 
-      if (!this.category) return this.getProducts();
+      if (params['searchString']) {
+        this.searchProducts(params['searchString']);
+        return;
+      }
 
-      this.getProductsByCategoty(this.category);
+      // this.sortByCategory(params['category']);
+
+      return this.getProducts();
     });
   }
 
@@ -68,6 +76,14 @@ export class CatalogComponent {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
     });
+  }
+
+  searchProducts(searchString: string) {
+    this.productService
+      .findProductsBySearchString(searchString)
+      .subscribe((products) => {
+        this.products = products;
+      });
   }
 
   getProductsByCategoty(category: string) {
