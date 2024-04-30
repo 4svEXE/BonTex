@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
@@ -18,5 +19,12 @@ export class SearchComponent {
 
   constructor(
     private svgService: SvgService,
+    private router: Router
   ) {}
+
+  search(){
+    console.log(this.formGroup.value.search);
+
+    this.router.navigate(['/catalog/search/', this.formGroup.value.search])
+  }
 }

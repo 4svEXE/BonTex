@@ -59,27 +59,29 @@ export class ProductService {
     });
 
     if (!products) {
-      throw new NotFoundException(
-        `Product with group ${group} not found`
-      );
+      throw new NotFoundException(`Product with group ${group} not found`);
     }
 
     return products;
   }
 
   async findBySearchString(searchString: string) {
+    const regex = new RegExp(searchString, "i"); // 'i' - ігнорувати регістр
+
     const products = await this.productRepository.find({
-      where: [
-        { name: searchString },
-        { group: searchString },
-        { category: searchString },
-        { manufacturer: searchString },
-        { rug_type: searchString },
-        { description: searchString },
-        { rug_material: searchString },
-        { rug_color: searchString },
-        { rug_country_of_origin: searchString },
-      ],
+      where: {
+        $or: [
+          { name: { $regex: regex } },
+          { group: { $regex: regex } },
+          { category: { $regex: regex } },
+          { manufacturer: { $regex: regex } },
+          { rug_type: { $regex: regex } },
+          { description: { $regex: regex } },
+          { rug_material: { $regex: regex } },
+          { rug_color: { $regex: regex } },
+          { rug_country_of_origin: { $regex: regex } },
+        ],
+      },
     });
 
     if (!products) {
