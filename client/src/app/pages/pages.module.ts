@@ -22,6 +22,7 @@ import { FilterOptionComponent } from './catalog/components/filter-option/filter
 import { FilterOptionsBoxComponent } from './catalog/components/filter-options-box/filter-options-box.component';
 import { ProductModule } from './product/product.module';
 import { PagesComponentsModule } from './components/pages-components.module';
+import { FilterSelectComponent } from './catalog/components/filter-select/filter-select.component';
 
 // ! TODO винести фільтри в окремий модуль
 const contenders = [
@@ -51,7 +52,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [contenders],
+  declarations: [contenders, FilterSelectComponent],
   imports: [modules, NgxSmartModalModule.forRoot()],
   exports: [modules, contenders],
 })

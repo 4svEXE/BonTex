@@ -4,9 +4,9 @@ import { Subscription } from 'rxjs';
 import { SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
-import { FormGroup, FormControl } from '@angular/forms';
 import { ProductService } from 'src/app/core/services/product.service';
 import { Product } from 'src/app/core/interfaces';
+import { ProductFiltersService } from 'src/app/core/services/product-filters.service';
 
 @Component({
   selector: 'app-catalog',
@@ -22,14 +22,9 @@ export class CatalogComponent {
   category!: string;
   private sub!: Subscription;
 
+  selectedFilter: string = '';
+
   // TODO розприділити це все по окремих компонентах
-  options = [
-    { label: 'Від дешевих до дорогих', value: 'catalog', selected: true },
-    { label: 'Від дорогих до дешевих', value: 'rugs' },
-    { label: 'За рейтингом', value: 'rugs' },
-    { label: 'Новинки', value: 'rugs' },
-    { label: 'Хіти', value: 'promotions' },
-  ];
 
   selectedFilters = [
     { label: 'Від дешевих до дорогих' },
@@ -44,14 +39,11 @@ export class CatalogComponent {
     { label: '380x300', count: 1, isChecked: false },
   ];
 
-  formGroup = new FormGroup({
-    filterSelect: new FormControl(this.options[0].value),
-  });
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    private svgService: SvgService
+    private svgService: SvgService,
+    private filterService: ProductFiltersService
   ) {}
 
   ngOnInit(): void {
@@ -92,6 +84,18 @@ export class CatalogComponent {
       .subscribe((products) => {
         this.products = products;
       });
+  }
+
+  onSelectedFilterChange(filterValue: string): void {
+    this.selectedFilter = filterValue;
+    this.sortProducts();
+  }
+
+  sortProducts() {
+    this.products = this.filterService.sortProducts(
+      this.products,
+      this.selectedFilter
+    );
   }
 
   ngOnDestroy(): void {

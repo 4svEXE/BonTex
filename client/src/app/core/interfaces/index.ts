@@ -63,6 +63,8 @@ export interface Product {
   rug_sku: string | number;
   // Знижена ціна килима (якщо застосовується)
   rug_discounted_price?: number;
+
+  created_at?: string;
 }
 
 export interface SafeSvg {
