@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['../../catalog.component.scss'],
 })
 export class FilterByPriceComponent {
+  @Output() priceRangeChanged = new EventEmitter<{
+    min: number;
+    max: number;
+  }>();
+
   price = {
     min: 0,
     max: 20000,
@@ -66,6 +71,11 @@ export class FilterByPriceComponent {
     if (this.filterByPriceGroup.valid) {
       this.filterByPriceGroup.get('min')?.setValue(this.price.minInp);
       this.filterByPriceGroup.get('max')?.setValue(this.price.maxInp);
+
+      this.priceRangeChanged.emit({
+        min: this.getMinPrice(),
+        max: this.getMaxPrice(),
+      });
     }
   }
 }

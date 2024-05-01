@@ -98,6 +98,14 @@ export class CatalogComponent {
     );
   }
 
+  onPriceRangeChanged(priceRange: { min: number; max: number }) {
+    this.products = this.filterService.filterByPrice(
+      this.products,
+      priceRange.min,
+      priceRange.max
+    );
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }

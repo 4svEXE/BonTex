@@ -45,4 +45,15 @@ export class ProductFiltersService {
         return products;
     }
   }
+
+  filterByPrice(
+    products: Product[],
+    minPrice: number,
+    maxPrice: number
+  ): Product[] {
+    return products.filter(
+      (product) =>
+        product.currentPrice >= minPrice && product.currentPrice <= maxPrice
+    );
+  }
 }

@@ -33,7 +33,10 @@
     <!-- Фільтри -->
     <div class="flex flex-col">
       <div class="filters-nav-bar flex flex-col">
-        <app-filter-by-price class="mb-8"></app-filter-by-price>
+        <app-filter-by-price
+          class="mb-8"
+          (priceRangeChanged)="onPriceRangeChanged($event)"
+        ></app-filter-by-price>
 
         <app-filter-options-box
           label="Розміри, см"
