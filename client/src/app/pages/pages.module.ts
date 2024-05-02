@@ -15,7 +15,6 @@ import { ReviewsHomePageComponent } from './home/components/reviews-home-page/re
 import { AboutHomePageComponent } from './home/components/about-home-page/about-home-page.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ProductsComponent } from './catalog/components/products/products.component';
 import { FilterByPriceComponent } from './catalog/components/filter-by-price/filter-by-price.component';
 import { FilterButtonComponent } from './catalog/components/filter-button/filter-button.component';
 import { FilterOptionComponent } from './catalog/components/filter-option/filter-option.component';
@@ -32,8 +31,7 @@ const contenders = [
   SecondBannerComponent,
   ReviewsHomePageComponent,
   AboutHomePageComponent,
-  CatalogComponent,
-  ProductsComponent,
+  CatalogComponent, 
   FilterByPriceComponent,
   FilterButtonComponent,
   FilterOptionComponent,

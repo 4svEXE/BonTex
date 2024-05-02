@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SafeSvg } from 'src/app/core/interfaces';
+import { Product, SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { SvgService } from 'src/app/core/services/svg.service';
 })
 export class SelectedGoodsComponent {
   safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
+  products: Product[] = [];
 
   constructor(private svgService: SvgService) {}
 }
