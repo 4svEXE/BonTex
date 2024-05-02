@@ -5,24 +5,9 @@
     class="filters flex justify-between items-center md:items-start flex-col md:flex-row-reverse"
   >
     <!-- Саотувати за -->
-    <form [formGroup]="formGroup">
-      <div class="flex flex-col h-full items-end">
-        <div class="flex justify-center mb-4">
-          <div class="flex">
-            <app-select
-              class="w-full"
-              selectId="filterSelect"
-              [options]="options"
-              formControlName="filterSelect"
-            />
-          </div>
-        </div>
-        <!--
-        <div class="flex justify-center m-4">
-          {{ formGroup.value | json }}
-        </div> -->
-      </div>
-    </form>
+    <app-filter-select
+      (selectedFilterChange)="onSelectedFilterChange($event)"
+    ></app-filter-select>
 
     <!-- Вибрані фільтри -->
     <div class="flex flex-col md:flex-row">
@@ -48,7 +33,10 @@
     <!-- Фільтри -->
     <div class="flex flex-col">
       <div class="filters-nav-bar flex flex-col">
-        <app-filter-by-price class="mb-8"></app-filter-by-price>
+        <app-filter-by-price
+          class="mb-8"
+          (priceRangeChanged)="onPriceRangeChanged($event)"
+        ></app-filter-by-price>
 
         <app-filter-options-box
           label="Розміри, см"

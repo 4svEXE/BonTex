@@ -3,11 +3,10 @@
 
   <select [formControl]="control" [id]="selectId">
     <option
-      *ngFor="let option of options"
+      *ngFor="let option of options; let i = index"
       [value]="option.value"
-      [attr.selected]="option.selected"
     >
-      {{ option.label}}
+      {{ option.label }}
     </option>
   </select>
 
@@ -18,7 +17,7 @@
   ></app-validation-errors>
 </div>
 
-<!-- <form [formGroup]="formGroup">
+<!-- Приклад використання <form [formGroup]="formGroup">
   <div class="flex flex-col">
     <div class="flex justify-center m-4">
       <div class="flex w-[300px]">
