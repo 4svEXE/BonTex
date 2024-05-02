@@ -5,6 +5,8 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 import { HeaderLinks, LinkInterface } from 'src/app/core/variables/header';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { User, UserService } from 'src/app/core/services/user.service';
+import { FavoritesService } from 'src/app/core/services/favorites.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,20 +15,30 @@ import { User, UserService } from 'src/app/core/services/user.service';
 })
 export class HeaderComponent implements OnInit {
   safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
+  private counterSubscription!: Subscription;
 
   links: LinkInterface[] = HeaderLinks;
   user!: { name: string; id: string } | undefined;
   userFirstLetter: string = '';
+  favLenght: number = 0;
 
   constructor(
     private svgService: SvgService,
     public ngxSmartModalService: NgxSmartModalService,
     public authService: AuthenticationService,
-    private userService: UserService
-  ) {}
+    private userService: UserService,
+    private favService: FavoritesService
+  ) {
+    this.counterSubscription = this.favService
+      .getCounter()
+      .subscribe((counter) => {
+        this.favLenght = counter;
+      });
+  }
 
   ngOnInit() {
     this.refreshData();
+    this.favLenght = this.favService.getProducts().length;
   }
 
   refreshData() {

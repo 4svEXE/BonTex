@@ -33,7 +33,7 @@
             [routerLink]="['/user/selected']"
           >
             <div [innerHTML]="safeSvgCodes['like']" class="button-header"></div>
-            <div class="info flex items-center justify-center">99</div>
+            <div class="info flex items-center justify-center">{{ favLenght > 0? favLenght: ''}}</div>
           </div>
 
           <!-- if unautorised -->
