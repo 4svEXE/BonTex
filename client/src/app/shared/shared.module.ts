@@ -26,6 +26,8 @@ import { LikeComponent } from './components/like/like.component';
 import { RecomendetComponent } from './layout/recomendet/recomendet.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NotificationModalComponent } from './layout/notification-modal/notification-modal.component';
+import { ProductsComponent } from './layout/products/products.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const contenders = [
   MainButtonComponent,
@@ -47,7 +49,8 @@ const contenders = [
   LikeComponent,
   RecomendetComponent,
   LoaderComponent,
-  NotificationModalComponent
+  NotificationModalComponent,
+  ProductsComponent
 ];
 
 const modules = [
@@ -57,6 +60,7 @@ const modules = [
   FormsModule,
   BreadcrumbModule,
   CarouselModule,
+  NgxPaginationModule
 ];
 
 @NgModule({

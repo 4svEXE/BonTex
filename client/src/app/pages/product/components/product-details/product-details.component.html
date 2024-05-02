@@ -64,7 +64,7 @@
       class="md:w-fit w-full mb-3 md:mb-0 mx-4"
     ></app-button>
 
-    <a class="add-to-fav active" (click)="onFavorite()">
+    <a class="add-to-fav active" (click)="toggleFavorite()">
       <p class="mr-3 w-fit flex md:hidden">{{isFavorite? 'Додано в обране':'Додати в обране'}}</p>
       <app-like [isActive]="isFavorite"></app-like>
     </a>

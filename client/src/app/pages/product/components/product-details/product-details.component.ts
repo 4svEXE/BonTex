@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product, SafeSvg } from 'src/app/core/interfaces';
+import { FavoritesService } from 'src/app/core/services/favorites.service';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -15,10 +16,11 @@ export class ProductDetailsComponent {
   };
   isFavorite: boolean = false;
 
-  constructor(private svg: SvgService) {}
+  constructor(private svg: SvgService, private favService: FavoritesService) {}
 
   ngOnInit() {
     this.initOptions();
+    this.isFavorite = this.favService.isFavorite(this.product);
   }
 
   initOptions() {
@@ -31,7 +33,8 @@ export class ProductDetailsComponent {
 
   onFastShipping() {}
 
-  onFavorite() {
-    this.isFavorite = !this.isFavorite;
+  toggleFavorite() {
+    this.favService.toggleProduct(this.product);
+    this.isFavorite = this.favService.isFavorite(this.product);
   }
 }
