@@ -17,6 +17,7 @@ export class CatalogComponent {
   safeSvgCodes: SafeSvg = this.svgService.getSafeSvgCodes();
 
   products: Product[] = [];
+  allProducts: Product[] = [];
   productsToDisplay: Product[] = [];
 
   category!: string;
@@ -67,6 +68,7 @@ export class CatalogComponent {
   getProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
+      this.allProducts = products;
     });
   }
 
@@ -99,6 +101,7 @@ export class CatalogComponent {
   }
 
   onPriceRangeChanged(priceRange: { min: number; max: number }) {
+    this.products = JSON.parse(JSON.stringify(this.allProducts))
     this.products = this.filterService.filterByPrice(
       this.products,
       priceRange.min,
