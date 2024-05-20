@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Product, SafeSvg } from 'src/app/core/interfaces';
 import { FavoritesService } from 'src/app/core/services/favorites.service';
 import { SvgService } from 'src/app/core/services/svg.service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +17,11 @@ export class ProductDetailsComponent {
   };
   isFavorite: boolean = false;
 
-  constructor(private svg: SvgService, private favService: FavoritesService) {}
+  constructor(
+    private svg: SvgService,
+    private favService: FavoritesService,
+    public ngxSmartModalService: NgxSmartModalService
+  ) {}
 
   ngOnInit() {
     this.initOptions();
@@ -31,7 +36,10 @@ export class ProductDetailsComponent {
 
   onBuy() {}
 
-  onFastShipping() {}
+  onFastShipping() {
+    console.log('onFastShipping');
+    this.ngxSmartModalService.getModal('quickOrder').open()
+  }
 
   toggleFavorite() {
     this.favService.toggleProduct(this.product);

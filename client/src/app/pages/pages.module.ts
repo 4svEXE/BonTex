@@ -9,6 +9,8 @@ import { PopupModalComponent } from './components/popup-modal/popup-modal.compon
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { AuthModule } from './auth/auth.module';
 import { InfoModule } from './info/info.module';
+import { PurchaseModule } from './purchase/purchase.module';
+
 import { FirstBannerComponent } from './home/components/first-banner/first-banner.component';
 import { SecondBannerComponent } from './home/components/second-banner/second-banner.component';
 import { ReviewsHomePageComponent } from './home/components/reviews-home-page/reviews-home-page.component';
@@ -26,12 +28,11 @@ import { FilterSelectComponent } from './catalog/components/filter-select/filter
 // ! TODO винести фільтри в окремий модуль
 const contenders = [
   HomeComponent,
-  // PopupModalComponent,
   FirstBannerComponent,
   SecondBannerComponent,
   ReviewsHomePageComponent,
   AboutHomePageComponent,
-  CatalogComponent, 
+  CatalogComponent,
   FilterByPriceComponent,
   FilterButtonComponent,
   FilterOptionComponent,
@@ -46,7 +47,8 @@ const modules = [
   InfoModule,
   NgxPaginationModule,
   ProductModule,
-  PagesComponentsModule
+  PagesComponentsModule,
+  PurchaseModule
 ];
 
 @NgModule({

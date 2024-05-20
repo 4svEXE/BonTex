@@ -11,6 +11,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductPropertiesComponent } from './components/product-properties/product-properties.component';
 import { AuthModule } from '../auth/auth.module';
 import { PagesComponentsModule } from '../components/pages-components.module';
+import { PurchaseModule } from '../purchase/purchase.module';
 
 const contenders = [ProductComponent, ProductGalleryComponent];
 
@@ -20,7 +21,8 @@ const modules = [
   SharedModule,
   ProductInfoModule,
   AuthModule,
-  PagesComponentsModule
+  PagesComponentsModule,
+  PurchaseModule
 ];
 
 @NgModule({
