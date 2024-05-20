@@ -7,6 +7,7 @@ import { ProductModule } from "./entities/product/product.module";
 import { ReviewModule } from "./entities/review/review.module";
 import { QuickOrderModule } from "./entities/quick-order/quick-order.module";
 import { OrderModule } from "./entities/order/order.module";
+import { OrderItemModule } from "./entities/order-item/order-item.module";
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { OrderModule } from "./entities/order/order.module";
     ReviewModule,
     QuickOrderModule,
     OrderModule,
+    OrderItemModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: "mongodb",
