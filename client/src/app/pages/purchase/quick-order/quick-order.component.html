@@ -8,10 +8,76 @@
   <div class="modal-container">
     <div class="modal flex flex-col">
       <div class="close-modal">
-        <div class="close-icon" (click)="quickOrder.close()">x</div>
+        <div
+          [innerHTML]="safeSvgCodes['close']"
+          class="close-icon"
+          (click)="quickOrder.close()"
+        ></div>
       </div>
 
-      <div>xsadsad</div>
+      <h2 class="modal-title">Швидке замовлення</h2>
+
+      <form [formGroup]="formGroup">
+        <div class="flex flex-col">
+          <div class="flex justify-center my-4">
+            <div class="flex w-full">
+              <app-input
+                class="w-full"
+                inputType="text"
+                label="Прізвище та ім‘я"
+                inputId="username"
+                paceholder="Введіть ваші прізвище та ім‘я "
+                formControlName="username"
+                [customErrorMessages]="errorMessages"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-center my-4">
+            <div class="flex w-full">
+              <app-input
+                class="w-full"
+                inputType="text"
+                label="Телефон"
+                inputId="phoneNumber"
+                paceholder="+38 (000) 000-00-00"
+                formControlName="phoneNumber"
+                [customErrorMessages]="errorMessages"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-center my-4">
+            <div class="flex w-full">
+              <app-input
+                class="w-full"
+                inputType="email"
+                label="E-mail"
+                inputId="email"
+                paceholder="text@gmail.com"
+                formControlName="email"
+                [customErrorMessages]="errorMessages"
+              />
+            </div>
+          </div>
+
+          <div class="flex w-full justify-center">
+            <app-button
+              label="Оформити замовлення"
+              [additionalClasses]="'primary my-4 md:w-[440px] w-full'"
+              (buttonClick)="onSubmit()"
+              [isDisabled]="formGroup.invalid"
+              class="w-full"
+            ></app-button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </ngx-smart-modal>
+
+<app-notification-modal
+  [title]="modalMsg.title"
+  [text]="modalMsg.text"
+  [hideDelay]="5000"
+></app-notification-modal>
