@@ -13,13 +13,14 @@
 }
 
 .modal {
-  min-width: 520px;
+  // min-width: 520px;
   min-height: 300px;
   padding: 40px;
   border-radius: 4px;
   background-color: #fcfffe;
   position: relative;
   margin-top: -10%;
+  margin: 12px;
 
   .close-modal {
     position: absolute;
@@ -140,4 +141,14 @@
       visibility: visible;
     }
   }
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #1e1e1e;
+  margin-bottom: 8px;
 }

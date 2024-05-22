@@ -79,7 +79,6 @@ export class AddReviewComponent {
       let userFromLS: User;
       this.authService.getUserFromToken().subscribe((user) => {
         userFromLS = JSON.parse(user);
-        console.log('userFromLS', userFromLS);
       });
 
       this.authService.getUserId().subscribe((id) => {

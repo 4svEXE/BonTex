@@ -1,5 +1,20 @@
 import { SafeHtml } from '@angular/platform-browser';
 
+export interface NotificationData {
+  title: string;
+  text: string;
+}
+
+export interface QuickOrder {
+  _id?: string;
+  customerName: string;
+  customerPhone: string;
+  customerEmail: string;
+  productId: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
 export interface Review {
   id?: string;
   username: string;

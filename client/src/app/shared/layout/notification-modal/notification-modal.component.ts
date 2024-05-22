@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 
-import { SafeSvg } from 'src/app/core/interfaces';
+import { NotificationData, SafeSvg } from 'src/app/core/interfaces';
 import { SvgService } from 'src/app/core/services/svg.service';
 
 @Component({
@@ -24,6 +24,15 @@ export class NotificationModalComponent {
   ) {}
 
   onOpenModal() {
+    let data = this.ngxSmartModalService
+      .getModal('notificationModal')
+      .getData() as NotificationData;
+
+    if (data) {
+      this.title = data.title || '';
+      this.text = data.text || '';
+    }
+
     this.setModalAutocloseTimeout();
   }
 
