@@ -28,6 +28,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { NotificationModalComponent } from './layout/notification-modal/notification-modal.component';
 import { ProductsComponent } from './layout/products/products.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DeliveryInfoComponent } from './layout/delivery-info/delivery-info.component';
 
 const contenders = [
   MainButtonComponent,
@@ -50,7 +51,8 @@ const contenders = [
   RecomendetComponent,
   LoaderComponent,
   NotificationModalComponent,
-  ProductsComponent
+  ProductsComponent,
+  DeliveryInfoComponent
 ];
 
 const modules = [

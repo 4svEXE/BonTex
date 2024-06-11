@@ -15,6 +15,23 @@ export interface QuickOrder {
   updatedAt?: Date;
 }
 
+export interface Order {
+  _id?: string;
+  customerId: string;
+  orderDate: Date;
+  status: string;
+  totalAmount: number;
+}
+
+export interface OrderItem {
+  _id?: string;
+  orderId: string;
+  variantId: string;
+  quantity: number;
+  price: number;
+  details?: string;
+}
+
 export interface Review {
   id?: string;
   username: string;
