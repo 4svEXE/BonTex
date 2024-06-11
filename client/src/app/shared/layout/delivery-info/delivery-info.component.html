@@ -2,13 +2,121 @@
   <div class="delivery-info">
     <div class="header">
       <div class="flex-box">
-        <img src="assets/img/icons/truck.svg" alt="truck icon">
+        <img src="assets/img/icons/truck.svg" alt="truck icon" />
         <h5>До Вас прямує доставка!</h5>
       </div>
 
       <button class="close" (click)="onClose()">
-        <img src="assets/img/icons/close.svg" alt="close icon">
+        <img src="assets/img/icons/close.svg" alt="close icon" />
       </button>
+    </div>
+
+    <div class="content">
+      <div class="back-button" *ngIf="isActiveMoreDetails" (click)="onShowMoreDetails()">
+        <img src="assets/img/icons/arrow-left-long.svg" alt="truck icon" />
+        <span>назад</span>
+      </div>
+
+      <div class="driver-info">
+        <img
+          class="avatar"
+          src={{order.driver.photo_url}}
+          alt="driver avatar"
+        />
+
+        <div class="flex-box-col">
+          <b class="text-overflow">{{order.driver.name}}</b>
+          <span class="text-overflow">{{order.car.name}}</span>
+          <strong>{{order.car.number}}</strong>
+        </div>
+      </div>
+
+      <div class="flex-box-row border-top">
+        <img src="assets/img/icons/truck_alt.svg" alt="truck icon" />
+        <p><b>Доставка: </b> {{formatDate(order.route.start)}}</p>
+      </div>
+
+      <div class="flex-box-row">
+        <img src="assets/img/icons/route.svg" alt="truck icon" />
+        <p class="text-overflow">{{order.route.points[0].delivery_address}} – {{order.route.points[order.route.points.length - 1].delivery_address}}</p>
+      </div>
+
+      <div class="route-details">
+        <div class="more-details" [class.active]="isActiveMoreDetails">
+
+          <div *ngFor="let point of order.route.points; let i = index" class="flex-box-row border-step">
+            <div class="img-box">
+              <img
+                [src]="getPointImage(i)"
+                alt="icon"
+              />
+            </div>
+            <p>{{point.delivery_address}}</p>
+          </div>
+
+        </div>
+        <button class="btn" (click)="onShowMoreDetails()">
+          {{ isActiveMoreDetails ? "Згорнути" : "Показати маршрут" }}
+        </button>
+      </div>
+
+      <div class="flex-box-row">
+        <img src="assets/img/icons/clock.svg" alt="clock icon" />
+        <p><b>Прогнозований час доставки: </b> {{formatDate(order.route.finish)}}</p>
+      </div>
+
+      <div class="roadline">
+        <div class="line middle">
+          <div class="overline " [style.width]="order.route.progress ? order.route.progress + '%' : '0%'">
+            <img class="car" src="assets/img/icons/car.svg" alt="car icon" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-box-row border-top">
+        <img src="assets/img/icons/boxes-stacked.svg" alt="boxes icon" />
+        <p><b>К-сть місць: </b> {{order.places}}</p>
+
+        <img
+          class="ml-4"
+          src="assets/img/icons/weight-hanging.svg"
+          alt="weight icon"
+        />
+        <p><b>Вага: </b>{{order.weight}} кг</p>
+      </div>
+
+      <div class="flex-box-row border-top">
+        <img src="assets/img/icons/money.svg" alt="money icon" />
+        <p><b>Оплата по факту: </b> 12 864 грн.</p>
+      </div>
+
+      <!-- todo in json no 'Оплата по факту' -->
+
+      <div class="flex-box-row border-top">
+        <img src="assets/img/icons/ballot-check.svg" alt="ballot check icon" />
+        <p><b>Передайте кошти кур’єру.</b></p>
+      </div>
+
+      <div class="flex-box-row border-top">
+        <img src="assets/img/icons/file-invoice.svg" alt="money icon" />
+        <p><b>Накладна: </b> <a href="#">{{order.ttn[0].number}}</a></p>
+      </div>
+
+      <!-- todo як саме робити посилання -->
+
+      <div class="flex-box-col gap-1">
+        <div class="flex-box-row border-top pt-4">
+          <img src="assets/img/icons/circle-info.svg" alt="money icon" />
+          <p><b>Товари на повернення: </b></p>
+        </div>
+
+        <span class="cursive">
+          Ви можете передати водію товари, на які було оформлено повернення
+        </span>
+
+        <a href="#">Список товарів на повернення</a>
+          <!-- todo яке посилання ?-->
+      </div>
     </div>
   </div>
 </div>
