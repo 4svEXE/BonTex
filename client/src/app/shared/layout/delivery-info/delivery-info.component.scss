@@ -5,7 +5,7 @@
   z-index: 99999;
   top: 0;
   left: 0;
-  background-color: #00000075;
+  pointer-events: none;
 
   .text-overflow {
     white-space: nowrap;
@@ -24,6 +24,7 @@
     bottom: 100px;
     background: #F0F0F0;
     box-shadow: 0px 100px 80px 0px #00293D29;
+    pointer-events: all;
 
     .header {
       display: flex;
