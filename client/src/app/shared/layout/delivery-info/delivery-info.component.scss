@@ -1,0 +1,55 @@
+.widget-conatiner {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  background-color: #00000075;
+
+  .delivery-info {
+    width: 360px;
+    height: 597px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    right: 50px;
+    bottom: 100px;
+    box-shadow: 0px 100px 80px 0px #00293D29;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+      background-color: #16B268;
+
+      .flex-box {
+        display: flex;
+        gap: 16px;
+        width: 100%;
+        align-items: center;
+      }
+
+      h5 {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        color: #FFFFFF;
+      }
+
+      .close {
+        min-width: 32px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px 0px #00000029;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

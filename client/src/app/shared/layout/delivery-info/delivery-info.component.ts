@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./delivery-info.component.scss']
 })
 export class DeliveryInfoComponent {
+  onClose(){
 
+  }
 }
