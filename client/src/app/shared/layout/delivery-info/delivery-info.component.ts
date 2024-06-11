@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-delivery-info',
   templateUrl: './delivery-info.component.html',
-  styleUrls: ['./delivery-info.component.scss']
+  styleUrls: ['./delivery-info.component.scss'],
 })
 export class DeliveryInfoComponent {
+  @Input() isOpen: boolean = true;
   isActiveMoreDetails = false;
 
   order: Order = JSON.parse(orderData);
 
-  onClose(){}
+  onClose() {
+    this.isOpen = false;
+  }
 
-  onShowMoreDetails(){
+  onShowMoreDetails() {
     this.isActiveMoreDetails = !this.isActiveMoreDetails;
   }
 
@@ -20,10 +23,11 @@ export class DeliveryInfoComponent {
     const today = new Date();
     const targetDate = new Date(dateString);
 
-    if (today.getFullYear() === targetDate.getFullYear() &&
-        today.getMonth() === targetDate.getMonth() &&
-        today.getDate() === targetDate.getDate()) {
-
+    if (
+      today.getFullYear() === targetDate.getFullYear() &&
+      today.getMonth() === targetDate.getMonth() &&
+      today.getDate() === targetDate.getDate()
+    ) {
       const hours = targetDate.getHours().toString().padStart(2, '0');
       const minutes = targetDate.getMinutes().toString().padStart(2, '0');
       return `Сьогодні – ${hours}:${minutes}`;
@@ -146,4 +150,4 @@ const orderData = `{
       }
   ],
   "returns": null
-}`
+}`;
