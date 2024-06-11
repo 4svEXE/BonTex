@@ -33,7 +33,7 @@
             [routerLink]="['/user/selected']"
           >
             <div [innerHTML]="safeSvgCodes['like']" class="button-header"></div>
-            <div class="info flex items-center justify-center">{{ favLenght > 0? favLenght: ''}}</div>
+            <div *ngIf="favLenght" class="info flex items-center justify-center">{{ favLenght }}</div>
           </div>
 
           <!-- if unautorised -->
@@ -52,7 +52,7 @@
           <div
             *ngIf="authService.getUserIdFromStorage()"
             [routerLink]="['/user']"
-            class="flex ml-3 xl:ml-5 relative"
+            class="user-icon flex ml-3 xl:ml-5 relative"
           >
             <a class="user-icon" alt="cart">{{ userFirstLetter }}</a>
             <div class="info flex items-center justify-center">21</div>

@@ -34,7 +34,9 @@ export class ProductDetailsComponent {
     };
   }
 
-  onBuy() {}
+  onBuy() {
+    // add to cart -  create cart.service  add to product cart
+  }
 
   onFastShipping() {
     console.log('onFastShipping');

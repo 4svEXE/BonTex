@@ -104,7 +104,7 @@ export class AuthenticationService {
    */
   isAuthenticated(): boolean {
     const token = localStorage.getItem(JWT_NAME);
-    console.log('token', token, this.jwtHelperService.isTokenExpired(token));
+    // console.log('token', token, this.jwtHelperService.isTokenExpired(token));
 
     // чи не застарілий токен
     return !this.jwtHelperService.isTokenExpired(token);
