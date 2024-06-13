@@ -1,0 +1,57 @@
+::ng-deep .overlay {
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+
+  &.nsm-overlay-open {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #00000075;
+    display: flex;
+  }
+
+  .nsm-dialog {
+    min-width: 520px;
+    min-height: 300px;
+    padding: 40px;
+    border-radius: 4px;
+    background-color: #fcfffe;
+    position: relative;
+    margin-top: -10%;
+
+    &.nsm-dialog-animatio {}
+
+    &:focus-visible{
+      border: unset;
+      outline: none;
+    }
+
+    .nsm-content {
+
+      .nsm-body {}
+
+      .nsm-dialog-btn-close {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+
+        img {
+          z-index: 100;
+          position: relative;
+
+          &.hidden {
+            display: none;
+          }
+        }
+      }
+
+    }
+  }
+}
