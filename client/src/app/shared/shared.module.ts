@@ -29,6 +29,7 @@ import { NotificationModalComponent } from './layout/notification-modal/notifica
 import { ProductsComponent } from './layout/products/products.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeliveryInfoComponent } from './layout/delivery-info/delivery-info.component';
+import { CartModule } from '../pages/cart/cart.module';
 
 const contenders = [
   MainButtonComponent,
@@ -62,7 +63,8 @@ const modules = [
   FormsModule,
   BreadcrumbModule,
   CarouselModule,
-  NgxPaginationModule
+  NgxPaginationModule,
+  CartModule
 ];
 
 @NgModule({
