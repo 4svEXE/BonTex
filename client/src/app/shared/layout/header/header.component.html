@@ -22,7 +22,7 @@
         <div class="controls flex">
           <div
             class="flex ml-3 xl:ml-5 relative"
-            [routerLink]="['/user/orders']"
+            (click)="openCartModal()"
           >
             <div [innerHTML]="safeSvgCodes['cart']" class="button-header"></div>
             <div class="info flex items-center justify-center">2</div>

@@ -52,4 +52,9 @@ export class HeaderComponent implements OnInit {
       });
     });
   }
+
+  openCartModal() {
+    this.ngxSmartModalService.getModal('popupModal').open();
+    // this.ngxSmartModalService.getModal('popupModal').close();
+  }
 }

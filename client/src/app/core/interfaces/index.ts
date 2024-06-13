@@ -44,6 +44,13 @@ export interface Review {
   updatedAt?: Date;
 }
 
+export interface CartItem{
+  id: string;
+  quantity: number;
+  price: number;
+  details?: string;
+}
+
 export interface Product {
   id: string;
   name: string;
