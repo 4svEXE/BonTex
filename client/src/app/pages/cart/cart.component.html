@@ -5,5 +5,15 @@
   [autostart]="true"
   [closable]="true"
 >
-cart
+  <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="flex flex-col">
+      {{ item | json }}
+      <button (click)="setCartItemQuantity(item, 1)">inc</button>
+      <button (click)="setCartItemQuantity(item, -1)">dec</button>
+    </div>
+    <div class="total">Total: {{ totalAmount }}</div>
+  </ng-container>
+  <ng-template #emptyCart>
+    <div class="empty-cart">Your cart is empty</div>
+  </ng-template>
 </ngx-smart-modal>

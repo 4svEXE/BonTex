@@ -1,8 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Product, SafeSvg } from 'src/app/core/interfaces';
 import { FavoritesService } from 'src/app/core/services/favorites.service';
+import { CartService } from 'src/app/core/services/cart.service';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import {CartItem} from'src/app/core/interfaces';
 
 @Component({
   selector: 'app-product-details',
@@ -12,14 +14,14 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 export class ProductDetailsComponent {
   @Input() product!: Product;
   safeSvg: SafeSvg = this.svg.getSafeSvgCodes();
-  options = {
-    size: '',
-  };
+  options = {size: ''};
+  productQuantity = 1
   isFavorite: boolean = false;
 
   constructor(
     private svg: SvgService,
     private favService: FavoritesService,
+    private cartService: CartService,
     public ngxSmartModalService: NgxSmartModalService
   ) {}
 
@@ -35,11 +37,17 @@ export class ProductDetailsComponent {
   }
 
   onBuy() {
-    // add to cart -  create cart.service  add to product cart
+    const cartItem: CartItem = {
+      id: this.product.id,
+      quantity: this.productQuantity,
+      price: this.product.currentPrice,
+      options: this.options,
+    }
+    this.cartService.addCartItem(cartItem);
+    this.ngxSmartModalService.getModal('cartModal').open()
   }
 
   onFastShipping() {
-    console.log('onFastShipping');
     this.ngxSmartModalService.getModal('quickOrder').open()
   }
 

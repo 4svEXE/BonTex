@@ -48,7 +48,7 @@ export interface CartItem{
   id: string;
   quantity: number;
   price: number;
-  details?: string;
+  options?: {'size': string, 'color'?: string };
 }
 
 export interface Product {

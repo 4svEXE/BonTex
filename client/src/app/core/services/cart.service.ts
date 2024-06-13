@@ -1,59 +1,71 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../interfaces';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private counterSubject: BehaviorSubject<number> = new BehaviorSubject<number>(
-    0
-  );
+  private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
+  private totalAmountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   constructor() {}
 
-  getCounter(): BehaviorSubject<number> {
-    return this.counterSubject;
+  getCartItems(): BehaviorSubject<CartItem[]> {
+    return this.cartItemsSubject;
   }
 
-  setCouner(value: number) {
-    this.counterSubject.next(value);
+  getTotalAmount(): BehaviorSubject<number> {
+    return this.totalAmountSubject;
   }
 
-  getCartItems(): CartItem[] {
-    return JSON.parse(localStorage.getItem('cart') || '[]');
+  updateCartItems(cart: CartItem[]) {
+    this.cartItemsSubject.next(cart);
+    this.updateTotalAmount(cart);
   }
 
-  setCartItems(products: CartItem[]) {
-    localStorage.setItem('cart', JSON.stringify(products));
+  private updateTotalAmount(cart: CartItem[]) {
+    const totalAmount = cart.reduce((acc, item) => acc + (item.quantity * item.price), 0);
+    this.totalAmountSubject.next(totalAmount);
   }
 
-  addProduct(product: CartItem) {
-    let cart = this.getCartItems();
-    cart.push(product);
-    this.setCartItems(cart);
-
-    this.setCouner(cart.length);
+  getCartLength() {
+    return this.cartItemsSubject.pipe(
+      map(cart => cart.length)
+    );
   }
 
-  removeProduct(product: CartItem) {
-    let cart = this.getCartItems();
-    cart = cart.filter((p) => p.id !== product.id);
-    this.setCartItems(cart);
-
-    this.setCouner(cart.length);
+  removeCartItem(item: CartItem) {
+    const currentCart = this.cartItemsSubject.value;
+    const updatedCart = currentCart.filter(cartItem => cartItem.id !== item.id);
+    this.updateCartItems(updatedCart);
   }
 
-  isFavorite(product: CartItem): boolean {
-    let cart = this.getCartItems();
-    return cart.some((p) => p.id === product.id);
+  getCartItemQuantity(item: CartItem): number {
+    const cartItem = this.cartItemsSubject.value.find(cartItem => cartItem.id === item.id);
+    return cartItem ? cartItem.quantity : 0;
   }
 
-  toggleProduct(product: CartItem) {
-    if (!this.isFavorite(product)) {
-      this.addProduct(product);
+  setCartItemQuantity(item: CartItem, quantity: number) {
+    const currentCart = this.cartItemsSubject.value;
+    const updatedCart = currentCart.map(cartItem => {
+      if (cartItem.id === item.id) {
+        return { ...cartItem, quantity };
+      }
+      return cartItem;
+    });
+    this.updateCartItems(updatedCart);
+  }
+
+  addCartItem(cartItem: CartItem) {
+    const currentCart = this.cartItemsSubject.value;
+    const existingItem = currentCart.find(item => item.id === cartItem.id);
+    if (existingItem) {
+      existingItem.quantity += cartItem.quantity;
     } else {
-      this.removeProduct(product);
+      currentCart.push(cartItem);
     }
+    this.updateCartItems(currentCart);
   }
 }
