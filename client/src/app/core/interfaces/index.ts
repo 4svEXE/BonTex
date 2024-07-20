@@ -49,6 +49,7 @@ export interface CartItem{
   quantity: number;
   price: number;
   options?: {'size': string, 'color'?: string };
+  product_image_url: string[];
 }
 
 export interface Product {

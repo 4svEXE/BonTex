@@ -23,17 +23,12 @@
     position: relative;
     margin-top: -10%;
 
-    &.nsm-dialog-animatio {}
-
-    &:focus-visible{
+    &:focus-visible {
       border: unset;
       outline: none;
     }
 
     .nsm-content {
-
-      .nsm-body {}
-
       .nsm-dialog-btn-close {
         position: absolute;
         top: 40px;
@@ -51,7 +46,6 @@
           }
         }
       }
-
     }
   }
 }

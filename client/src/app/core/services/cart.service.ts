@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class CartService {
   private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject<CartItem[]>([]);
   private totalAmountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private isOpenCartSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {}
 
@@ -18,6 +19,14 @@ export class CartService {
 
   getTotalAmount(): BehaviorSubject<number> {
     return this.totalAmountSubject;
+  }
+
+  getIsOpenCart(){
+    return this.isOpenCartSubject
+  }
+
+  setIsOpenCart(isOpen: boolean){
+    this.isOpenCartSubject.next(isOpen);
   }
 
   updateCartItems(cart: CartItem[]) {

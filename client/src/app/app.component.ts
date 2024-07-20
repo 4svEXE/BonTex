@@ -17,7 +17,7 @@ export class AppComponent {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private svgService: SvgService
+    private svgService: SvgService,
   ) {}
 
   onLogout() {

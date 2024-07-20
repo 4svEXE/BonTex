@@ -44,9 +44,10 @@ export class ProductDetailsComponent {
       quantity: this.productQuantity,
       price: this.product.currentPrice,
       options: this.options,
+      product_image_url: this.product.product_image_url,
     };
     this.cartService.addCartItem(cartItem);
-    this.ngxSmartModalService.getModal('cartModal').open();
+    this.cartService.setIsOpenCart(true);
   }
 
   onFastShipping() {

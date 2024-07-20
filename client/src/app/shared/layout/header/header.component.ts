@@ -79,6 +79,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   openCartModal() {
-    this.ngxSmartModalService.getModal('cartModal').open();
+    this.cartService.setIsOpenCart(true)
   }
 }
