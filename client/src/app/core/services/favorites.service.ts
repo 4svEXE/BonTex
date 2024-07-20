@@ -10,7 +10,9 @@ export class FavoritesService {
     0
   );
 
-  constructor() {}
+  constructor() {
+    this.setCouner(this.getProducts().length);
+  }
 
   getCounter(): BehaviorSubject<number> {
     return this.counterSubject;

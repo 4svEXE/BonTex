@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { CustomErrorMessages } from 'src/app/core/variables/customFormsErrors';
+import { ToastService } from 'src/app/shared/components/toast/toast.service';
+import { catchError, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -39,7 +41,8 @@ export class RegisterComponent {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private svgService: SvgService
+    private svgService: SvgService,
+    private toastService: ToastService
   ) {}
 
   onSubmit() {
@@ -47,10 +50,16 @@ export class RegisterComponent {
 
     this.authService
       .registerAndLogin(this.formGroup.value)
+      .pipe(
+        switchMap(() => this.authService.getUserId()),
+        catchError((error) => {
+          console.error('22 connection error', error);
+          this.toastService.show('error', 'Error', error.error.message);
+          throw error;
+        })
+      )
       .subscribe((userId) => {
-        console.log('userId', userId);
-
-        this.router.navigate(['user/' + userId]);
+        this.router.navigate(['user/private-dates']);
       });
   }
 }

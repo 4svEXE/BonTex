@@ -58,7 +58,7 @@
           <!-- if authorised user -->
           <div
             *ngIf="authService.getUserIdFromStorage()"
-            [routerLink]="['/user']"
+            [routerLink]="['user/private-dates']"
             class="user-icon flex ml-3 xl:ml-5 relative"
           >
             <a class="user-icon" alt="cart">{{ userFirstLetter }}</a>

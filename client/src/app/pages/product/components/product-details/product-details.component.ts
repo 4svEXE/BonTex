@@ -4,7 +4,8 @@ import { FavoritesService } from 'src/app/core/services/favorites.service';
 import { CartService } from 'src/app/core/services/cart.service';
 import { SvgService } from 'src/app/core/services/svg.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
-import {CartItem} from'src/app/core/interfaces';
+import { CartItem } from 'src/app/core/interfaces';
+import { ToastService } from 'src/app/shared/components/toast/toast.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,15 +15,16 @@ import {CartItem} from'src/app/core/interfaces';
 export class ProductDetailsComponent {
   @Input() product!: Product;
   safeSvg: SafeSvg = this.svg.getSafeSvgCodes();
-  options = {size: ''};
-  productQuantity = 1
+  options = { size: '' };
+  productQuantity = 1;
   isFavorite: boolean = false;
 
   constructor(
     private svg: SvgService,
     private favService: FavoritesService,
     private cartService: CartService,
-    public ngxSmartModalService: NgxSmartModalService
+    public ngxSmartModalService: NgxSmartModalService,
+    public toastService: ToastService
   ) {}
 
   ngOnInit() {
@@ -42,17 +44,21 @@ export class ProductDetailsComponent {
       quantity: this.productQuantity,
       price: this.product.currentPrice,
       options: this.options,
-    }
+    };
     this.cartService.addCartItem(cartItem);
-    this.ngxSmartModalService.getModal('cartModal').open()
+    this.ngxSmartModalService.getModal('cartModal').open();
   }
 
   onFastShipping() {
-    this.ngxSmartModalService.getModal('quickOrder').open()
+    this.ngxSmartModalService.getModal('quickOrder').open();
   }
 
   toggleFavorite() {
     this.favService.toggleProduct(this.product);
     this.isFavorite = this.favService.isFavorite(this.product);
+
+    // console.log('no toast')
+    // for a test
+    // this.toastService.show('error', 'error', 'tet err toast')
   }
 }

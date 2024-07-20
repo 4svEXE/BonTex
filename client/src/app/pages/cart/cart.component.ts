@@ -1,6 +1,7 @@
+import { ProductService } from './../../core/services/product.service';
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CartItem } from 'src/app/core/interfaces';
+import { CartItem, Product } from 'src/app/core/interfaces';
 import { CartService } from 'src/app/core/services/cart.service';
 
 @Component({
@@ -14,17 +15,25 @@ export class CartComponent implements OnDestroy {
   cartItemsSubscription: Subscription;
   totalAmountSubscription: Subscription;
 
-  constructor(private cartService: CartService) {
-    this.cartItemsSubscription = this.cartService.getCartItems().subscribe((items) => {
-      this.cartItems = items;
-    });
+  constructor(
+    private cartService: CartService,
+    private productService: ProductService
+  ) {
+    this.cartItemsSubscription = this.cartService
+      .getCartItems()
+      .subscribe((items) => {
+        this.cartItems = items;
+      });
 
-    this.totalAmountSubscription = this.cartService.getTotalAmount().subscribe((amount) => {
-      this.totalAmount = amount;
-    });
+    this.totalAmountSubscription = this.cartService
+      .getTotalAmount()
+      .subscribe((amount) => {
+        this.totalAmount = amount;
+      });
 
-    this.cartService.updateCartItems(this.cartService.getCartItems().getValue());
-
+    this.cartService.updateCartItems(
+      this.cartService.getCartItems().getValue()
+    );
   }
 
   ngOnDestroy() {
@@ -37,7 +46,18 @@ export class CartComponent implements OnDestroy {
   }
 
   setCartItemQuantity(item: CartItem, num: number) {
-    const qty = this.cartService.getCartItemQuantity(item);
-    this.cartService.setCartItemQuantity(item, qty + num);
+    const qty = this.cartService.getCartItemQuantity(item) + num;
+    let product!: Product;
+
+    this.productService.getProductById(item.id).subscribe((p) => {
+      console.log(p, item)
+      product = p;
+    });
+
+    console.log(qty, product)
+
+    if (qty > 0 && qty <= product?.quantity_in_stock && product?.isAvailable) {
+      this.cartService.setCartItemQuantity(item, qty);
+    }
   }
 }

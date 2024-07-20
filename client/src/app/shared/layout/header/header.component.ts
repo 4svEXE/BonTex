@@ -66,6 +66,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((counter) => {
         this.favLength = counter;
+        console.log(counter);
       });
   }
 
@@ -78,6 +79,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   openCartModal() {
-    this.ngxSmartModalService.getModal('popupModal').open();
+    this.ngxSmartModalService.getModal('cartModal').open();
   }
 }
