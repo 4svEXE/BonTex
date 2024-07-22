@@ -50,6 +50,8 @@ export interface CartItem{
   price: number;
   options?: {'size': string, 'color'?: string };
   product_image_url: string[];
+  name: string;
+  oldPrice?: number;
 }
 
 export interface Product {

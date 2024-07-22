@@ -12,6 +12,7 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ControlValueAccessor } from './core/directives/control-value-accessor.directive';
 import { AuthModule } from './pages/auth/auth.module';
+import { CartModule } from './pages/cart/cart.module';
 
 
 
@@ -25,6 +26,7 @@ import { AuthModule } from './pages/auth/auth.module';
     SharedModule,
     PagesModule,
     AuthModule,
+    CartModule,
   ],
   providers: [
     JwtHelperService,

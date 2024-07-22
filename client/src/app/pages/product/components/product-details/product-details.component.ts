@@ -43,8 +43,10 @@ export class ProductDetailsComponent {
       id: this.product.id,
       quantity: this.productQuantity,
       price: this.product.currentPrice,
+      oldPrice: this.product.oldPrice,
       options: this.options,
       product_image_url: this.product.product_image_url,
+      name: this.product.name
     };
     this.cartService.addCartItem(cartItem);
     this.cartService.setIsOpenCart(true);

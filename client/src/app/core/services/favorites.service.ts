@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FavoritesService {
+  private subs!: Subscription[];
   private counterSubject: BehaviorSubject<number> = new BehaviorSubject<number>(
     0
   );
 
-  constructor() {
+  constructor(private productService: ProductService) {
     this.setCouner(this.getProducts().length);
   }
 
@@ -51,6 +53,11 @@ export class FavoritesService {
     return favorites.some((p) => p.id === product.id);
   }
 
+  isFavoriteById(productId: string): boolean {
+    let favorites = this.getProducts();
+    return favorites.some((p) => p.id === productId);
+  }
+
   toggleProduct(product: Product) {
     if (!this.isFavorite(product)) {
       this.addProduct(product);
@@ -58,4 +65,16 @@ export class FavoritesService {
       this.removeProduct(product);
     }
   }
+
+  toggleProductById(productId: string) {
+    const productSub = this.productService
+      .getProductById(productId)
+      .subscribe((product) => {
+        this.toggleProduct(product);
+        productSub.unsubscribe();
+      });
+  }
+
+
+
 }
