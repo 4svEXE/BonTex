@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { PurchaseRoutingModule } from './purchase-routing.module';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 
-import { QuickOrderComponent } from './quick-order/quick-order.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { QuickOrderComponent } from './quick-order/quick-order.component';
+import { OrderComponent } from './order/order.component';
 
-const contenders = [QuickOrderComponent];
+const contenders = [OrderComponent, QuickOrderComponent];
 
 const modules = [
   CommonModule,

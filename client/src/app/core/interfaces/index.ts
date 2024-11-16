@@ -32,6 +32,18 @@ export interface OrderItem {
   details?: string;
 }
 
+export interface DeliveryInfo {
+  _id?: string;
+  recipientName: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  phoneNumber: string;
+  email?: string;
+  deliveryDate?: Date;
+  orderId: string;
+}
+
 export interface Review {
   id?: string;
   username: string;
