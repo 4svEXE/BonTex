@@ -119,5 +119,14 @@ export class ProductEntity {
     this.features = this.features || [];
     this.product_image_url = this.product_image_url || [];
     this.sizes = this.sizes || [];
+    this.name = this.name || "";
+    this.currentPrice = this.currentPrice || 0;
+    this.category = this.category || "";
+    this.manufacturer = this.manufacturer || "";
+    this.unit_price = this.unit_price || 0;
+    this.description = this.description || "";
+    this.isAvailable = this.isAvailable || false;
+    this.quantity_in_stock = this.quantity_in_stock || 0;
+    this.popularity_rating = this.popularity_rating || 0;
   }
 }

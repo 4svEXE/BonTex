@@ -1,0 +1,65 @@
+<ngx-smart-modal #cartModal identifier="cartModal" [hideDelay]="0" [autostart]="false" [closable]="true">
+  <ng-container *ngIf="cartItems.length > 0; else emptyCart" class="flex flex-col gap-5">
+    <div *ngFor="let item of cartItems" class="cart-item flex flex-row items-center justify-between">
+      <div class="flex items-center">
+        <div class="item-menu-button mr-11">
+          <div [innerHTML]="safeSvgCodes['trashbin']" class="" (click)="setIsItemMenuOpen(true)"></div>
+
+          <div class="item-menu" [class.hidden]="!isItemMenuOpen">
+            <div class="flex gap-2">
+              <div (click)="toggleFav(item.id)"
+                class="flex flex-col justify-center items-center gap-1 w-[50%] bordered">
+                <div [innerHTML]="safeSvgCodes['heart']" class="item-menu-button icon fill-green-primary"></div>
+
+                <p *ngIf="!isFavorite(item.id); else notFav">У список бажань</p>
+                <ng-template #notFav>
+                  <p>Зі списку бажань</p>
+                </ng-template>
+              </div>
+
+              <div (click)="removeFromCart(item)" class="flex flex-col justify-center items-center gap-1 w-[50%]">
+                <div [innerHTML]="safeSvgCodes['close']" class="item-menu-button icon fill-red-primary"></div>
+                <p>Видалити з кошика</p>
+              </div>
+            </div>
+            <p (click)="setIsItemMenuOpen(false)" class="w-full text-center">Закрити</p>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <img class="item-icon" [src]="item.product_image_url[0]" [alt]="item.name">
+          <h4>{{item.name}}</h4>
+        </div>
+      </div>
+
+      <div class="flex gap-5 items-center min-w-[200px] justify-between">
+        <div class="quantity-box flex">
+          <button (click)="setCartItemQuantity(item, -1)">-</button>
+          {{item.quantity}}
+          <button (click)="setCartItemQuantity(item, 1)">+</button>
+        </div>
+
+
+        <div class="item-quantity flex flex-col">
+          <span *ngIf="getTotalProductOldAmount(item)">{{getTotalProductOldAmount(item)}} ₴</span>
+          <strong>{{getTotalProductAmount(item)}} ₴</strong>
+        </div>
+      </div>
+
+    </div>
+    <div class="total text-right">Разом: {{ totalAmount }} ₴</div>
+  </ng-container>
+
+  <div class="flex justify-between items-center">
+    <app-button label="Продовжити покупки" [additionalClasses]="'secondary my-4 w-full'" (buttonClick)="backToShopping()"
+      class="w-fu"></app-button>
+
+    <app-button label="Оформити замовлення" [additionalClasses]="'primary my-4 w-full'"
+      (buttonClick)="navigateToCheckout()" class="w-fu"></app-button>
+
+  </div>
+
+  <ng-template #emptyCart>
+    <div class="empty-cart">Your cart is empty</div>
+  </ng-template>
+</ngx-smart-modal>

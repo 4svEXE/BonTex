@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PurchaseRoutingModule } from './purchase-routing.module';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { CartRoutingModule } from './cart-routing.module';
 
+import { CartComponent } from './cart.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { QuickOrderComponent } from './quick-order/quick-order.component';
-import { OrderComponent } from './order/order.component';
 
-const contenders = [OrderComponent, QuickOrderComponent];
+
+
+const contenders = [CartComponent];
 
 const modules = [
   CommonModule,
-  PurchaseRoutingModule,
+  CartRoutingModule,
   SharedModule,
   NgxSmartModalModule.forRoot(),
 ];
@@ -21,4 +22,4 @@ const modules = [
   imports: [modules],
   exports: [modules, contenders],
 })
-export class PurchaseModule {}
+export class CartModule { }

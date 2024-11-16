@@ -7,7 +7,7 @@ import { OrderItem } from '../interfaces';
 @Injectable({
   providedIn: 'root',
 })
-export class OrderItemItemService {
+export class OrderItemService {
   constructor(private http: HttpClient) {}
 
   create(orderItem: OrderItem): Observable<any> {

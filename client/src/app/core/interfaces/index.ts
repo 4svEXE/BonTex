@@ -32,6 +32,18 @@ export interface OrderItem {
   details?: string;
 }
 
+export interface DeliveryInfo {
+  _id?: string;
+  recipientName: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  phoneNumber: string;
+  email?: string;
+  deliveryDate?: Date;
+  orderId: string;
+}
+
 export interface Review {
   id?: string;
   username: string;
@@ -42,6 +54,16 @@ export interface Review {
   rating: number;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface CartItem{
+  id: string;
+  quantity: number;
+  price: number;
+  options?: {'size': string, 'color'?: string };
+  product_image_url: string[];
+  name: string;
+  oldPrice?: number;
 }
 
 export interface Product {

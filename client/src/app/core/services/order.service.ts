@@ -7,7 +7,7 @@ import { Order } from '../interfaces';
 @Injectable({
   providedIn: 'root',
 })
-export class OrdertService {
+export class OrderService {
   constructor(private http: HttpClient) {}
 
   create(order: Order): Observable<any> {

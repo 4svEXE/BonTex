@@ -21,4 +21,8 @@ export class UserService {
       map((response: any) => response as User)
     );
   }
+
+  getUserIdFromLS(): string | null {
+    return localStorage.getItem('user_id');
+  }
 }

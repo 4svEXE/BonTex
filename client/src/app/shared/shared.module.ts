@@ -29,6 +29,8 @@ import { NotificationModalComponent } from './layout/notification-modal/notifica
 import { ProductsComponent } from './layout/products/products.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DeliveryInfoComponent } from './layout/delivery-info/delivery-info.component';
+import { ToastComponent } from './components/toast/toast.component';
+
 
 const contenders = [
   MainButtonComponent,
@@ -52,7 +54,8 @@ const contenders = [
   LoaderComponent,
   NotificationModalComponent,
   ProductsComponent,
-  DeliveryInfoComponent
+  DeliveryInfoComponent,
+  ToastComponent
 ];
 
 const modules = [
@@ -62,7 +65,7 @@ const modules = [
   FormsModule,
   BreadcrumbModule,
   CarouselModule,
-  NgxPaginationModule
+  NgxPaginationModule,
 ];
 
 @NgModule({

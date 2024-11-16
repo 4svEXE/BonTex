@@ -1,3 +1,5 @@
+import { catchError } from 'rxjs/operators';
+import { ToastService } from 'src/app/shared/components/toast/toast.service';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -42,7 +44,8 @@ export class LoginComponent {
     public ngxSmartModalService: NgxSmartModalService,
     private authService: AuthenticationService,
     private router: Router,
-    private svgService: SvgService
+    private svgService: SvgService,
+    private toastService: ToastService
   ) {}
 
   onSubmit() {
@@ -54,19 +57,32 @@ export class LoginComponent {
     };
 
     // this.authService;
+
     this.authService
       .login(loginForm)
-      .pipe(switchMap(() => this.authService.getUserId()))
+      .pipe(
+        switchMap(() => this.authService.getUserId()),
+        catchError((error) => {
+          console.error('22 connection error', error);
+          this.toastService.show('error', 'Error', error.error.message);
+          throw error;
+        })
+      )
       .subscribe((userId) => {
-        if (this.isRedirect) {
-          this.router.navigate([this.redirectPath]);
+        if (userId) {
+          if (this.isRedirect) {
+            this.router.navigate([this.redirectPath]);
+          } else {
+            // this.router.navigate(['user/private-dates']);
+            this.ngxSmartModalService.getModal('popupModal').setData({
+              message: 'Ви успішно увійшли в систему',
+            });
+            this.ngxSmartModalService.getModal('popupModal').open();
+          }
+          this.ngxSmartModalService.getModal('popupModal').close();
         } else {
-          this.ngxSmartModalService.getModal('popupModal').setData({
-            message: 'Ви успішно увійшли в систему',
-          });
-          this.ngxSmartModalService.getModal('popupModal').open();
+          console.log('userId', userId);
         }
-        this.ngxSmartModalService.getModal('popupModal').close();
       });
   }
 }
