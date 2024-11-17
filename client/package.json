@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --configuration development",
+    "build": "ng build --configuration production --base-href /BonTex/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=\"https://4svEXE.github.io/BonTex/\""
+    "deploy": "npx angular-cli-ghpages --dir=dist/BonTex"
   },
   "private": true,
   "dependencies": {
